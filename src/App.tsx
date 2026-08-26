@@ -12,14 +12,26 @@ import {
   Target,
   TrendingUp,
 } from 'lucide-react'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import setRaw from './data/set18.generated.json'
 import metaRaw from './data/meta.generated.json'
 import { recommend } from './engine/recommend'
+import { requestCoach } from './api/coach'
 import { BoardCanvas } from './components/BoardCanvas'
 import { ChampionPicker } from './components/ChampionPicker'
 import { ItemPicker } from './components/ItemPicker'
-import type { Champion, CoachInput, Item, MetaData, Set18Data } from './types'
+import type {
+  ActiveTrait,
+  ApiBisBuild,
+  ApiCoachResult,
+  ApiStageItem,
+  Champion,
+  CoachInput,
+  Item,
+  ItemSuggestion,
+  MetaData,
+  Set18Data,
+} from './types'
 import './App.css'
 
 const setData = setRaw as unknown as Set18Data
@@ -65,11 +77,201 @@ function ItemMini({ item, components }: { item: Item; components: Item[] }) {
   )
 }
 
+type DisplayComp = {
+  id: string
+  name: string
+  tier: string
+  score: number
+  confidence?: number
+  uncertainty?: number
+  crossSource?: boolean
+  modelDisagreement?: number
+  componentFit?: number
+  transitionFit?: number
+  transitionPath?: Array<{ level: number; board: Champion[]; avgPlacement?: number | null; games: number }>
+  board: Champion[]
+  carries: Champion[]
+  activeTraits: ActiveTrait[]
+  matchReasons: string[]
+  leveling: string
+  avgPlacement?: number | null
+  games?: number
+  pickRate?: number
+}
+
+function StageItemPlan({
+  rows,
+  bis,
+  itemById,
+  championById,
+  components,
+}: {
+  rows: ApiStageItem[]
+  bis: ApiBisBuild[]
+  itemById: Map<string, Item>
+  championById: Map<string, Champion>
+  components: Item[]
+}) {
+  const stages: Array<{ id: ApiStageItem['stage']; title: string; note: string }> = [
+    { id: 'opener', title: 'Đầu game', note: '2-1 → 2-5 · ưu tiên tempo/giữ máu' },
+    { id: 'mid', title: 'Giữa game', note: '3-2 → 4-1 · giữ đường pivot' },
+    { id: 'late', title: 'Cuối game', note: '4-2+ · chuyển đồ về carry/tank chính' },
+  ]
+  return (
+    <div className="stage-item-plan">
+      {stages.map((stage) => {
+        const stageRows = rows.filter((row) => row.stage === stage.id)
+        return (
+          <article className="stage-column" key={stage.id}>
+            <header><span>{stage.title}</span><small>{stage.note}</small></header>
+            {stageRows.length ? stageRows.map((row) => {
+              const item = itemById.get(row.itemId)
+              const holder = championById.get(row.holderId)
+              const finalHolder = row.finalHolderId ? championById.get(row.finalHolderId) : undefined
+              if (!item || !holder) return null
+              return (
+                <div className="stage-item-row" key={`${stage.id}-${row.itemId}-${row.holderId}`}>
+                  <ItemMini item={item} components={components} />
+                  <div className="holder-route">
+                    <span>Cầm ngay</span><strong>{holder.name}</strong>
+                    {finalHolder && finalHolder.id !== holder.id && <small>→ chuyển cho {finalHolder.name}</small>}
+                    <p>{row.reason}{row.sampleCount ? ` · ${row.sampleCount} mẫu live` : ''}</p>
+                  </div>
+                  <b className="fit-chip">{Math.round(row.score)}</b>
+                </div>
+              )
+            }) : <div className="stage-empty">Chưa có combo 2 mảnh hợp lệ cho giai đoạn này.</div>}
+          </article>
+        )
+      })}
+      {bis.length > 0 && (
+        <article className="stage-column bis-column">
+          <header><span>BIS board cuối</span><small>Build 3 món quan sát được trên live</small></header>
+          {bis.slice(0, 4).map((row) => {
+            const holder = championById.get(row.holderId)
+            if (!holder) return null
+            return (
+              <div className="bis-row" key={`${row.holderId}-${row.itemIds.join('-')}`}>
+                <img className="bis-holder" src={holder.image} alt="" />
+                <div><strong>{holder.name}</strong><span>avg {row.avgPlacement.toFixed(2)} · {row.sampleCount} mẫu</span></div>
+                <div className="bis-items">
+                  {row.itemIds.map((itemId) => {
+                    const item = itemById.get(itemId)
+                    return item ? <img src={item.image} title={item.name} alt={item.name} key={itemId} /> : null
+                  })}
+                </div>
+              </div>
+            )
+          })}
+        </article>
+      )}
+    </div>
+  )
+}
+
 function CoachView() {
   const [input, setInput] = useState<CoachInput>({ level: 4, ownedChampionIds: [], components: [] })
   const components = useMemo(() => setData.items.filter((item) => item.category === 'component' && !/spatula|pan/i.test(item.nameEn)), [])
-  const result = useMemo(() => recommend(input, setData, metaData.comps), [input])
-  const top = result.comps[0]
+  const championById = useMemo(() => new Map(setData.champions.map((champion) => [champion.id, champion])), [])
+  const traitById = useMemo(() => new Map(setData.traits.map((trait) => [trait.id, trait])), [])
+  const itemById = useMemo(() => new Map(setData.items.map((item) => [item.id, item])), [])
+  const fallback = useMemo(() => recommend(input, setData, metaData.comps), [input])
+  const [apiResult, setApiResult] = useState<ApiCoachResult | null>(null)
+  const [apiState, setApiState] = useState<'loading' | 'live' | 'fallback'>('loading')
+
+  useEffect(() => {
+    const controller = new AbortController()
+    const timer = window.setTimeout(() => {
+      setApiState('loading')
+      void requestCoach(input, controller.signal)
+        .then((result) => {
+          setApiResult(result)
+          setApiState('live')
+        })
+        .catch((error: unknown) => {
+          if (error instanceof DOMException && error.name === 'AbortError') return
+          setApiResult(null)
+          setApiState('fallback')
+        })
+    }, 100)
+    return () => {
+      window.clearTimeout(timer)
+      controller.abort()
+    }
+  }, [input])
+
+  const usingApi = apiState === 'live' && Boolean(apiResult)
+  const earlyBoard = usingApi
+    ? apiResult!.earlyBoardIds.map((id) => championById.get(id)).filter((unit): unit is Champion => Boolean(unit))
+    : fallback.earlyBoard
+  const earlyTraits: ActiveTrait[] = usingApi
+    ? apiResult!.earlyTraits.map((row) => {
+      const trait = traitById.get(row.traitId)
+      return trait ? { trait, count: row.count, activeBreakpoint: row.activeBreakpoint, ...(row.nextBreakpoint === undefined ? {} : { nextBreakpoint: row.nextBreakpoint }) } : null
+    }).filter((row): row is ActiveTrait => Boolean(row))
+    : fallback.earlyTraits
+  const buyNext = usingApi
+    ? apiResult!.buyNextIds.map((id) => championById.get(id)).filter((unit): unit is Champion => Boolean(unit))
+    : fallback.buyNext
+  const stageRows = (usingApi ? apiResult!.itemPlan.filter((row): row is ApiStageItem => row.stage !== 'bis') : [])
+  const bisRows = (usingApi ? apiResult!.itemPlan.filter((row): row is ApiBisBuild => row.stage === 'bis') : [])
+
+  const openerBoardItems: ItemSuggestion[] = usingApi
+    ? stageRows.filter((row) => row.stage === 'opener').slice(0, 3).map((row) => ({
+      item: itemById.get(row.itemId)!,
+      holder: championById.get(row.holderId),
+      score: row.score,
+      reason: row.reason,
+    })).filter((row) => Boolean(row.item))
+    : fallback.itemSuggestions.slice(0, 3)
+
+  const displayComps: DisplayComp[] = usingApi
+    ? apiResult!.comps.map((comp) => ({
+      id: comp.id,
+      name: comp.name,
+      tier: comp.tier,
+      score: comp.score,
+      confidence: comp.confidence,
+      uncertainty: comp.uncertainty,
+      crossSource: comp.crossSource,
+      modelDisagreement: comp.modelDisagreement,
+      componentFit: comp.componentFit,
+      transitionFit: comp.transitionFit,
+      transitionPath: comp.transitionPath?.map((row) => ({
+        level: row.level,
+        board: row.boardIds.map((id) => championById.get(id)).filter((unit): unit is Champion => Boolean(unit)),
+        avgPlacement: row.avgPlacement,
+        games: row.games,
+      })),
+      board: comp.boardIds.map((id) => championById.get(id)).filter((unit): unit is Champion => Boolean(unit)),
+      carries: comp.carryIds.map((id) => championById.get(id)).filter((unit): unit is Champion => Boolean(unit)),
+      activeTraits: comp.activeTraits.map((row) => {
+        const trait = traitById.get(row.traitId)
+        return trait ? { trait, count: row.count, activeBreakpoint: row.activeBreakpoint, ...(row.nextBreakpoint === undefined ? {} : { nextBreakpoint: row.nextBreakpoint }) } : null
+      }).filter((row): row is ActiveTrait => Boolean(row)),
+      matchReasons: comp.matchReasons,
+      leveling: comp.leveling,
+      avgPlacement: comp.avgPlacement,
+      games: comp.games,
+      pickRate: comp.pickRate,
+    }))
+    : fallback.comps.map((recommendation) => ({
+      id: recommendation.comp.id,
+      name: recommendation.comp.name,
+      tier: recommendation.comp.tier,
+      score: recommendation.score,
+      board: recommendation.board,
+      carries: recommendation.comp.carries
+        .map((name) => setData.champions.find((unit) => unit.name === name))
+        .filter((unit): unit is Champion => Boolean(unit)),
+      activeTraits: recommendation.activeTraits,
+      matchReasons: recommendation.matchReasons,
+      leveling: recommendation.comp.leveling,
+    }))
+  const top = displayComps[0]
+  const firstSlam = stageRows.find((row) => row.stage === 'opener')
+  const firstSlamItem = firstSlam ? itemById.get(firstSlam.itemId) : fallback.itemSuggestions[0]?.item
+  const firstSlamHolder = firstSlam ? championById.get(firstSlam.holderId) : fallback.itemSuggestions[0]?.holder
 
   function loadExample() {
     const names = ['Rakan', 'Xayah', 'Kobuko']
@@ -108,82 +310,107 @@ function CoachView() {
       <main className="coach-output">
         <div className="coach-hero">
           <div>
-            <span className="eyebrow">QUYẾT ĐỊNH NGAY · SET 18</span>
+            <span className="eyebrow">QUYẾT ĐỊNH NGAY · SET 18 · PATCH {apiResult?.data.patch ?? metaData.patch}</span>
             <h1>Def khỏe bây giờ, <em>pivot đúng</em> về sau.</h1>
-            <p>Gợi ý kết hợp tộc/hệ, sức mạnh tướng đầu game, đồ ghép được và hướng meta thay vì bắt bạn force một bài từ 2-1.</p>
+            <p>Board live + TensorFlow xếp hạng đường chuyển bài, đồng thời chỉ rõ món nào nên slam, ai cầm tạm và carry nào nhận lại đồ ở từng giai đoạn.</p>
+            <div className={`engine-status ${apiState}`}>
+              <i />
+              {apiState === 'live'
+                ? `LIVE · ${apiResult?.data.trainingSamples?.toLocaleString('vi-VN') ?? 0} samples · ${apiResult?.data.crossSourceRows?.toLocaleString('vi-VN') ?? 0} cross-source · ${apiResult?.data.clusters ?? 0} clusters`
+                : apiState === 'loading' ? 'Đang tính bằng backend ML…' : 'Backend offline · dùng solver local fallback'}
+            </div>
           </div>
           <div className="confidence-card">
             <span>Hướng tốt nhất</span>
-            <strong>{top?.comp.name ?? 'Đang tính...'}</strong>
-            <div className="confidence-meter"><i style={{ width: `${Math.min(100, Math.round((top?.score ?? 0) * 0.85))}%` }} /></div>
-            <small>{top?.matchReasons[0] ?? 'Dựa trên meta score + trait graph'}</small>
+            <strong>{top?.name ?? 'Đang tính...'}</strong>
+            <div className="confidence-meter"><i style={{ width: `${Math.min(100, Math.round(top?.confidence ?? top?.score ?? 0))}%` }} /></div>
+            <small>
+              {top?.confidence !== undefined
+                ? `Tin cậy ${Math.round(top.confidence)}%${top.crossSource ? ' · cross-check nhiều nguồn' : ''}${top.componentFit !== undefined ? ` · đồ fit ${Math.round(top.componentFit)}%` : ''}`
+                : top?.matchReasons[0] ?? 'Dựa trên meta score + trait graph'}
+            </small>
           </div>
         </div>
 
         <section className="decision-strip">
           <article>
             <Shield size={18} />
-            <div><span>Def hiện tại</span><strong>{result.earlyTraits.slice(0, 3).map((trait) => `${trait.trait.name} ${trait.activeBreakpoint}`).join(' · ') || 'Board cân bằng'}</strong></div>
+            <div><span>Def hiện tại</span><strong>{earlyTraits.slice(0, 3).map((trait) => `${trait.trait.name} ${trait.activeBreakpoint}`).join(' · ') || 'Board cân bằng'}</strong></div>
           </article>
           <article>
             <Sword size={18} />
-            <div><span>Ghép ngay</span><strong>{result.itemSuggestions[0]?.item.name ?? 'Giữ đồ linh hoạt'}</strong></div>
+            <div><span>Ghép ngay</span><strong>{firstSlamItem ? `${firstSlamItem.name}${firstSlamHolder ? ` → ${firstSlamHolder.name}` : ''}` : 'Giữ đồ linh hoạt'}</strong></div>
           </article>
           <article>
             <Target size={18} />
-            <div><span>Bắt trong shop</span><strong>{result.buyNext.slice(0, 3).map((champion) => champion.name).join(' · ') || 'Tướng nâng cấp'}</strong></div>
+            <div><span>Bắt trong shop</span><strong>{buyNext.slice(0, 3).map((champion) => champion.name).join(' · ') || 'Tướng nâng cấp'}</strong></div>
           </article>
           <article>
             <TrendingUp size={18} />
-            <div><span>Đích đến</span><strong>{top?.comp.leveling ?? 'Flex theo lobby'}</strong></div>
+            <div><span>Đích đến</span><strong>{top?.leveling ?? 'Flex theo lobby'}</strong></div>
           </article>
         </section>
 
-        <BoardCanvas champions={result.earlyBoard} title={`Board def level ${input.level}`} items={result.itemSuggestions.slice(0, 2)} />
-
-        <div className="coach-grid two-col">
-          <section className="panel">
-            <div className="panel-title"><div><span className="eyebrow">ITEM ENGINE</span><h2>Đồ nên ghép</h2></div><Flame size={20} /></div>
-            {result.itemSuggestions.length ? (
-              <div className="item-suggestions">
-                {result.itemSuggestions.slice(0, 4).map((suggestion, index) => (
-                  <article className="ranked-item" key={suggestion.item.id}>
-                    <span className="rank-number">0{index + 1}</span>
-                    <ItemMini item={suggestion.item} components={components} />
-                    <p>{suggestion.reason}</p>
-                  </article>
-                ))}
-              </div>
-            ) : (
-              <div className="empty-state"><Sword size={24} /><strong>Chọn ít nhất 2 mảnh đồ</strong><span>Tôi sẽ liệt kê toàn bộ món có thể ghép và holder hợp nhất.</span></div>
-            )}
-          </section>
-
-          <section className="panel">
-            <div className="panel-title"><div><span className="eyebrow">SHOP PLAN</span><h2>Tướng nên bắt</h2></div><Target size={20} /></div>
-            <div className="buy-list">
-              {result.buyNext.map((champion, index) => <ChampionMini key={champion.id} champion={champion} label={index < 3 ? 'Ưu tiên cao' : 'Giữ nếu dư bench'} />)}
+        {top?.transitionPath && top.transitionPath.length > 1 && (
+          <section className="transition-route" aria-label="Lộ trình chuyển đội hình">
+            <div className="transition-title"><span>TRANSITION PATH</span><strong>Giữ board mạnh, giảm số lần thay quân</strong></div>
+            <div className="transition-steps">
+              {top.transitionPath.slice(0, 7).map((step, index) => (
+                <div className="transition-step" key={`${step.level}-${index}`}>
+                  <b>Lv.{step.level}</b>
+                  <span>{step.board.slice(0, 4).map((unit) => unit.name).join(' · ')}{step.board.length > 4 ? '…' : ''}</span>
+                  {step.games > 0 && <small>{step.games} mẫu{step.avgPlacement ? ` · avg ${step.avgPlacement.toFixed(2)}` : ''}</small>}
+                </div>
+              ))}
             </div>
           </section>
-        </div>
+        )}
+
+        <BoardCanvas champions={earlyBoard} title={`Board def level ${input.level}`} items={openerBoardItems} />
+
+        <section className="panel item-roadmap-panel">
+          <div className="panel-title">
+            <div><span className="eyebrow">ITEM ROUTE · LIVE HOLDER DATA</span><h2>Ghép món nào, cho ai cầm, lúc nào chuyển?</h2></div>
+            <Flame size={20} />
+          </div>
+          {usingApi && (stageRows.length || bisRows.length) ? (
+            <StageItemPlan rows={stageRows} bis={bisRows} itemById={itemById} championById={championById} components={components} />
+          ) : fallback.itemSuggestions.length ? (
+            <div className="item-suggestions">
+              {fallback.itemSuggestions.slice(0, 4).map((suggestion, index) => (
+                <article className="ranked-item" key={suggestion.item.id}>
+                  <span className="rank-number">0{index + 1}</span>
+                  <ItemMini item={suggestion.item} components={components} />
+                  <p>{suggestion.reason}</p>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <div className="empty-state"><Sword size={24} /><strong>Chọn ít nhất 2 mảnh đồ</strong><span>Engine sẽ tối ưu recipe không tranh mảnh, holder đầu game và đích chuyển đồ cuối game.</span></div>
+          )}
+        </section>
+
+        <section className="panel shop-plan-panel">
+          <div className="panel-title"><div><span className="eyebrow">SHOP PLAN</span><h2>Tướng nên bắt tiếp</h2></div><Target size={20} /></div>
+          <div className="buy-list">
+            {buyNext.map((champion, index) => <ChampionMini key={champion.id} champion={champion} label={index < 3 ? 'Ưu tiên cao' : 'Giữ nếu dư bench'} />)}
+          </div>
+        </section>
 
         <section className="panel pivot-panel">
           <div className="panel-title">
             <div><span className="eyebrow">PIVOT RANKING</span><h2>Đội hình hướng tới</h2></div>
-            <span className="source-pill">Meta + board fit + item fit</span>
+            <span className="source-pill">Live placement + opener fit + TensorFlow</span>
           </div>
           <div className="pivot-list">
-            {result.comps.slice(0, 4).map((recommendation, index) => (
-              <article key={recommendation.comp.id} className={`pivot-card ${index === 0 ? 'best' : ''}`}>
-                <div className="pivot-rank"><b>#{index + 1}</b><span className={`tier tier-${recommendation.comp.tier.toLowerCase()}`}>{recommendation.comp.tier}</span></div>
+            {displayComps.slice(0, 5).map((recommendation, index) => (
+              <article key={recommendation.id} className={`pivot-card ${index === 0 ? 'best' : ''}`}>
+                <div className="pivot-rank"><b>#{index + 1}</b><span className={`tier tier-${recommendation.tier.toLowerCase()}`}>{recommendation.tier}</span></div>
                 <div className="pivot-main">
-                  <h3>{recommendation.comp.name}</h3>
+                  <h3>{recommendation.name}</h3>
                   <p>{recommendation.matchReasons.slice(0, 2).join(' · ') || 'Meta score cao, có đường ghép trait ổn định.'}</p>
                   <div className="carry-row">
-                    {recommendation.comp.carries.map((name) => {
-                      const champion = setData.champions.find((unit) => unit.name === name)
-                      return champion ? <img key={name} src={champion.image} title={name} alt={name} /> : null
-                    })}
+                    {recommendation.carries.map((champion) => <img key={champion.id} src={champion.image} title={champion.name} alt={champion.name} />)}
                   </div>
                 </div>
                 <div className="pivot-traits">
@@ -191,13 +418,13 @@ function CoachView() {
                     <span key={trait.trait.id}><img src={trait.trait.image} alt="" />{trait.trait.name} {trait.activeBreakpoint}</span>
                   ))}
                 </div>
-                <div className="pivot-score"><strong>{Math.round(recommendation.score)}</strong><span>fit score</span><small>{recommendation.comp.leveling}</small></div>
+                <div className="pivot-score"><strong>{Math.round(recommendation.score)}</strong><span>fit score</span><small>{recommendation.confidence !== undefined ? `tin cậy ${Math.round(recommendation.confidence)}%${recommendation.componentFit !== undefined ? ` · đồ ${Math.round(recommendation.componentFit)}%` : ''}` : recommendation.avgPlacement ? `avg ${recommendation.avgPlacement.toFixed(2)} · ${recommendation.games ?? 0} mẫu` : recommendation.leveling}</small></div>
               </article>
             ))}
           </div>
         </section>
 
-        {top && <BoardCanvas champions={top.board} title={`Đích đến · ${top.comp.name}`} compact />}
+        {top && <BoardCanvas champions={top.board} title={`Đích đến · ${top.name}`} compact />}
       </main>
     </div>
   )
@@ -207,7 +434,7 @@ function MetaView() {
   const championsByName = useMemo(() => new Map(setData.champions.map((champion) => [champion.name, champion])), [])
   return (
     <main className="page-shell">
-      <header className="page-hero"><span className="eyebrow">META SNAPSHOT · PATCH 18.1</span><h1>Đội hình mạnh mùa 18</h1><p>Snapshot khởi đầu tổng hợp từ tier list PBE trước ngày live. Khi Riot API có dữ liệu đủ lớn, collector high-Elo có thể thay trọng số này bằng match history thật.</p></header>
+      <header className="page-hero"><span className="eyebrow">META LIVE · PATCH {metaData.patch}</span><h1>Đội hình mạnh mùa 18</h1><p>Cluster và placement lấy từ Set 18 live/current. Snapshot PBE cũ không còn tham gia meta ranking hoặc TensorFlow training.</p></header>
       <div className="meta-grid">
         {metaData.comps.map((comp, index) => (
           <article className="meta-card" key={comp.id}>
@@ -220,7 +447,7 @@ function MetaView() {
                 return champion ? <ChampionMini key={name} champion={champion} /> : null
               })}
             </div>
-            <footer><span>Meta prior</span><strong>{Math.round(comp.metaScore * 100)}%</strong></footer>
+            <footer><span>{comp.games ? `${comp.games} mẫu · avg ${comp.avgPlacement?.toFixed(2)}` : 'Live score'}</span><strong>{Math.round(comp.metaScore * 100)}%</strong></footer>
           </article>
         ))}
       </div>
@@ -284,12 +511,12 @@ function SourcesView() {
         ))}
       </div>
       <section className="algorithm-panel">
-        <h2>Recommendation engine hiện tại</h2>
+        <h2>Recommendation engine hybrid</h2>
         <div className="algorithm-grid">
-          <article><b>1</b><h3>Beam search board</h3><p>Duyệt nhiều board ứng viên theo từng slot, thưởng khi chạm mốc trait, đủ frontline/carry và giữ được tướng bạn đã có.</p></article>
-          <article><b>2</b><h3>Item compatibility</h3><p>Enumerate toàn bộ món ghép được từ multiset mảnh đồ, sau đó chấm theo role AD/AP/Tank, trait và tempo item.</p></article>
-          <article><b>3</b><h3>Meta prior</h3><p>Tier meta chỉ là prior. Nếu opener của bạn lệch mạnh, engine có thể xếp một bài tier thấp hơn lên trên vì chi phí pivot thấp hơn.</p></article>
-          <article><b>4</b><h3>High-Elo ready</h3><p>Pipeline đã tách nguồn để thêm Riot Match-V1: placement, top4, item-holder, unit frequency và transition graph theo rank/patch.</p></article>
+          <article><b>1</b><h3>Observed live candidates</h3><p>Ưu tiên board opener/final đã xuất hiện ở patch live; beam search chỉ làm fallback khi level hoặc opener quá lạ.</p></article>
+          <article><b>2</b><h3>TensorFlow ensemble</h3><p>3 model độc lập cùng rank board/item; bất đồng giữa model làm giảm confidence thay vì che giấu uncertainty.</p></article>
+          <article><b>3</b><h3>Stage-aware item solver</h3><p>Tối ưu multiset mảnh đồ không dùng trùng nguyên liệu, chấm holder live ở opener/mid/late và chỉ rõ đường chuyển đồ về carry cuối.</p></article>
+          <article><b>4</b><h3>Cross-source + high Elo</h3><p>MetaTFT aggregate, pro live nhiều region và OP.GG được cân theo freshness/evidence; board cùng xuất hiện ở nhiều nguồn được tăng reliability.</p></article>
         </div>
       </section>
     </main>
@@ -315,14 +542,14 @@ export default function App() {
         <nav>
           {nav.map((item) => { const Icon = item.icon; return <button key={item.id} type="button" className={view === item.id ? 'active' : ''} onClick={() => setView(item.id)}><Icon size={16} />{item.label}</button> })}
         </nav>
-        <div className="patch-status"><RefreshCw size={14} /><div><b>18.1 · Set 18</b><span>data {formatAge(setData.generatedAt)}</span></div></div>
+        <div className="patch-status"><RefreshCw size={14} /><div><b>{metaData.patch} · Set 18</b><span>data {formatAge(setData.generatedAt)}</span></div></div>
       </header>
       {view === 'coach' && <CoachView />}
       {view === 'meta' && <MetaView />}
       {view === 'library' && <LibraryView />}
       {view === 'items' && <ItemsView />}
       {view === 'sources' && <SourcesView />}
-      <footer className="site-footer">HexCoach là công cụ fan-made, không được Riot Games bảo trợ. Dữ liệu Set 18 tự đồng bộ từ nguồn công khai; meta ngày đầu mùa có thể đổi rất nhanh.</footer>
+      <footer className="site-footer">HexCoach là công cụ fan-made, không được Riot Games bảo trợ. Recommendation mặc định chỉ dùng Set 18 live/current; dữ liệu PBE không tham gia training.</footer>
     </div>
   )
 }

@@ -61,7 +61,7 @@ export type MetaData = {
   generatedAt: string
   patch: string
   sources: Array<{ id: string; name: string; url: string; note: string }>
-  comps: MetaComp[]
+  comps: Array<MetaComp & { avgPlacement?: number; games?: number; pickRate?: number }>
 }
 
 export type CoachInput = {
@@ -98,4 +98,89 @@ export type CoachResult = {
   itemSuggestions: ItemSuggestion[]
   buyNext: Champion[]
   comps: CompRecommendation[]
+}
+
+export type ApiActiveTrait = {
+  traitId: string
+  count: number
+  activeBreakpoint: number
+  nextBreakpoint?: number
+}
+
+export type ApiCompRecommendation = {
+  id: string
+  rank: number
+  name: string
+  tier: string
+  score: number
+  confidence?: number
+  uncertainty?: number
+  crossSource?: boolean
+  modelDisagreement?: number
+  componentFit?: number
+  transitionFit?: number
+  avgPlacement?: number | null
+  games: number
+  pickRate: number
+  earlyBoardIds: string[]
+  boardIds: string[]
+  carryIds: string[]
+  activeTraits: ApiActiveTrait[]
+  matchReasons: string[]
+  leveling: string
+  transitionPath?: Array<{
+    level: number
+    boardIds: string[]
+    avgPlacement?: number | null
+    games: number
+  }>
+}
+
+export type ApiStageItem = {
+  stage: 'opener' | 'mid' | 'late'
+  stageLabel: string
+  itemId: string
+  holderId: string
+  finalHolderId?: string | null
+  score: number
+  reason: string
+  transferReason?: string
+  sampleCount: number
+}
+
+export type ApiBisBuild = {
+  stage: 'bis'
+  stageLabel: string
+  holderId: string
+  itemIds: string[]
+  score: number
+  sampleCount: number
+  avgPlacement: number
+}
+
+export type ApiCoachResult = {
+  earlyBoardIds: string[]
+  earlyTraits: ApiActiveTrait[]
+  buyNextIds: string[]
+  comps: ApiCompRecommendation[]
+  itemPlan: Array<ApiStageItem | ApiBisBuild>
+  model: {
+    boardAvailable: boolean
+    itemAvailable: boolean
+    board?: { evaluation?: { calibratedMAE?: number; rankingAccuracy?: number }; samples?: number; ensembleSize?: number }
+    item?: { evaluation?: { calibratedMAE?: number; rankingAccuracy?: number }; samples?: number; ensembleSize?: number }
+  }
+  data: {
+    set?: number
+    patch?: string
+    queue?: string
+    generatedAt?: string
+    clusterId?: number
+    clusters?: number
+    trainingSamples?: number
+    crossSourceRows?: number
+    opggGames24h?: number
+    highEloUnitPriors?: number
+    highEloItemHolderPriors?: number
+  }
 }

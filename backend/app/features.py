@@ -25,7 +25,10 @@ class FeatureSpace:
 
 def make_feature_space(catalog: Catalog) -> FeatureSpace:
     champion_ids = tuple(champion["id"] for champion in catalog.champions)
-    trait_ids = tuple(trait["id"] for trait in catalog.traits if trait.get("searchable", True))
+    # Unique/non-searchable Set 18 traits still materially affect board strength (e.g.
+    # Greenfather, Monolith, Caustic). They were previously excluded only because the UI did
+    # not expose them as filters; ML must keep them.
+    trait_ids = tuple(trait["id"] for trait in catalog.traits)
     item_ids = tuple(item["id"] for item in catalog.items if item.get("category") in {"completed", "artifact", "radiant", "emblem"})
     return FeatureSpace(
         champion_ids=champion_ids,
@@ -34,7 +37,7 @@ def make_feature_space(catalog: Catalog) -> FeatureSpace:
         champion_index={value: index for index, value in enumerate(champion_ids)},
         trait_index={value: index for index, value in enumerate(trait_ids)},
         item_index={value: index for index, value in enumerate(item_ids)},
-        dense_size=12,
+        dense_size=15,
     )
 
 
@@ -76,6 +79,7 @@ def encode(
         inferred_traits.setdefault(trait_id, 1)
 
     active_count = 0
+    unique_active_count = 0
     for trait_id, count in inferred_traits.items():
         index = space.trait_index.get(trait_id)
         if index is None:
@@ -84,6 +88,8 @@ def encode(
         trait = catalog.trait_by_id.get(trait_id, {})
         if any(int(bp) <= count for bp in trait.get("breakpoints", [])):
             active_count += 1
+            if trait.get("unique") or not trait.get("searchable", True):
+                unique_active_count += 1
 
     for item_id in items or []:
         index = space.item_index.get(item_id)
@@ -95,6 +101,9 @@ def encode(
     frontline = sum("Tank" in role or "Fighter" in role for role in roles)
     ad = sum(role.startswith("AD") for role in roles)
     ap = sum(role.startswith("AP") for role in roles)
+    item_count = len(items or [])
+    is_early = "early" in sample_kind
+    is_item_holder = "item_holder" in sample_kind
     dense = np.asarray(
         [
             min(10, level) / 10.0,
@@ -107,8 +116,11 @@ def encode(
             active_count / 10.0,
             frontline / max(1, len(board)),
             (ad - ap) / max(1, len(board)),
-            1.0 if sample_kind == "early_board" else 0.0,
-            1.0 if sample_kind == "item_holder_build" else 0.0,
+            1.0 if is_early else 0.0,
+            1.0 if is_item_holder else 0.0,
+            unique_active_count / 4.0,
+            min(30, sum(costs)) / 30.0,
+            min(3, item_count) / 3.0,
         ],
         dtype=np.float32,
     )

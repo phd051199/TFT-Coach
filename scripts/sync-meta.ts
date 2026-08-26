@@ -83,6 +83,18 @@ async function main() {
         note: `Set 18 live patch ${snapshot.patch}, cluster ${snapshot.clusterId}; không dùng queue PBE.`,
       },
       {
+        id: 'opgg-live',
+        name: 'OP.GG Set 18 live statistics',
+        url: 'https://op.gg/tft/meta-trends/comps?version=18.1',
+        note: 'Nguồn độc lập để cross-check avg placement/top4/win/pick và giảm phụ thuộc vào một site thống kê.',
+      },
+      {
+        id: 'metatft-pro-live',
+        name: 'MetaTFT public pro match history',
+        url: 'https://www.metatft.com/',
+        note: 'Trận Set 18 live của pro/high-rank nhiều region; weight thấp hơn aggregate vì từng trận có variance cao.',
+      },
+      {
         id: 'riot-match',
         name: 'Riot TFT Match-V1',
         url: 'https://developer.riotgames.com/apis#tft-match-v1',

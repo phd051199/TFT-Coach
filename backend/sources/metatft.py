@@ -61,6 +61,14 @@ class MetaTFTSource:
             if cluster_info.get("tft_set") != "TFTSet18":
                 return []
             cluster_id = int(cluster_info["cluster_id"])
+            updated_at = cluster_info.get("updated_at")
+            snapshot_age_hours: float | None = None
+            if updated_at:
+                try:
+                    updated = datetime.fromisoformat(str(updated_at).replace("Z", "+00:00"))
+                    snapshot_age_hours = max(0.0, (datetime.now(UTC) - updated).total_seconds() / 3600.0)
+                except ValueError:
+                    pass
             clusters = cluster_info.get("cluster_details", {}).get("clusters", [])
             samples: list[TrainingSample] = []
             snapshot_clusters: list[dict[str, Any]] = []
@@ -98,6 +106,7 @@ class MetaTFTSource:
                                 source_weight=self.weight,
                                 sample_kind="exact_comp_option",
                                 context_id=str(comp_id),
+                                age_hours=snapshot_age_hours,
                             )
                         )
 
@@ -128,6 +137,7 @@ class MetaTFTSource:
                                 source_weight=self.weight * 0.92,
                                 sample_kind="early_board",
                                 context_id=str(comp_id),
+                                age_hours=snapshot_age_hours,
                             )
                         )
 
@@ -154,6 +164,7 @@ class MetaTFTSource:
                             source_weight=self.weight * 0.82,
                             sample_kind="item_holder_build",
                             context_id=str(comp_id),
+                            age_hours=snapshot_age_hours,
                         )
                     )
 
