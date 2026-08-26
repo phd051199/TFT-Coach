@@ -1,0 +1,878 @@
+{
+  "generatedAt": "2026-08-26T10:04:11.122936+00:00",
+  "patch": "18.1",
+  "sources": [
+    {
+      "id": "metatft-live",
+      "name": "MetaTFT live/current statistics",
+      "url": "https://www.metatft.com/",
+      "note": "Set 18 live patch 18.1, cluster 422; không dùng queue PBE."
+    },
+    {
+      "id": "riot-match",
+      "name": "Riot TFT Match-V1",
+      "url": "https://developer.riotgames.com/apis#tft-match-v1",
+      "note": "Ground truth match history khi cấu hình RIOT_API_KEY; collector tự lọc tft_set_number=18."
+    }
+  ],
+  "comps": [
+    {
+      "id": "422001",
+      "name": "Đao Phủ · Sett",
+      "tier": "A",
+      "carries": [
+        "Sett"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.7130000000000001,
+      "avgPlacement": 3.625,
+      "games": 720,
+      "pickRate": 0.009477674810446503,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422000",
+      "name": "Tiên Linh · Rengar",
+      "tier": "A",
+      "carries": [
+        "Rengar"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.7025715412083857,
+      "avgPlacement": 3.5663,
+      "games": 279,
+      "pickRate": 0.00367259898904802,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422007",
+      "name": "Hoa Linh · Sett",
+      "tier": "A",
+      "carries": [
+        "Sett"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6981634666666667,
+      "avgPlacement": 3.7607,
+      "games": 6135,
+      "pickRate": 0.08052074557708509,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422006",
+      "name": "Thần Rừng · Aphelios",
+      "tier": "A",
+      "carries": [
+        "Aphelios"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6957144,
+      "avgPlacement": 3.7831,
+      "games": 2517,
+      "pickRate": 0.03307971777590565,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422002",
+      "name": "Thần Rừng · Ezreal · Amumu",
+      "tier": "A",
+      "carries": [
+        "Ezreal",
+        "Amumu"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6900181333333333,
+      "avgPlacement": 3.8352,
+      "games": 3015,
+      "pickRate": 0.039608782645324345,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422009",
+      "name": "Thích Ứng · Master Yi",
+      "tier": "A",
+      "carries": [
+        "Master Yi"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6838736000000001,
+      "avgPlacement": 3.8914,
+      "games": 1998,
+      "pickRate": 0.02620840353833193,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422013",
+      "name": "Tiên Phong · Aphelios",
+      "tier": "A",
+      "carries": [
+        "Aphelios"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6819821333333334,
+      "avgPlacement": 3.9087,
+      "games": 3812,
+      "pickRate": 0.0500737152485257,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422012",
+      "name": "Thuật Sĩ · Morgana",
+      "tier": "A",
+      "carries": [
+        "Morgana"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6810637333333334,
+      "avgPlacement": 3.9171,
+      "games": 2341,
+      "pickRate": 0.030762952822240945,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422031",
+      "name": "Thuật Sư · Ahri",
+      "tier": "A",
+      "carries": [
+        "Ahri"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6726776352099033,
+      "avgPlacement": 3.9048,
+      "games": 357,
+      "pickRate": 0.004686183656276327,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422005",
+      "name": "Dũng Sĩ · Caitlyn",
+      "tier": "A",
+      "carries": [
+        "Caitlyn"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6680749333333333,
+      "avgPlacement": 4.0359,
+      "games": 918,
+      "pickRate": 0.011991891322662174,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422017",
+      "name": "Thuật Sĩ · Nidalee",
+      "tier": "B",
+      "carries": [
+        "Nidalee"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6652978666666666,
+      "avgPlacement": 4.0613,
+      "games": 1908,
+      "pickRate": 0.025023694187026116,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422008",
+      "name": "Thần Rừng · Kha'Zix",
+      "tier": "B",
+      "carries": [
+        "Kha'Zix"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6633408,
+      "avgPlacement": 4.0792,
+      "games": 1415,
+      "pickRate": 0.018573609941027802,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422024",
+      "name": "Quái Rừng · Sentinel",
+      "tier": "B",
+      "carries": [
+        "Sentinel"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6572946666666666,
+      "avgPlacement": 4.1345,
+      "games": 1353,
+      "pickRate": 0.017783803706823927,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422021",
+      "name": "Tiên Phong · Ahri",
+      "tier": "A",
+      "carries": [
+        "Ahri"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6570356327566012,
+      "avgPlacement": 3.895,
+      "games": 200,
+      "pickRate": 0.002632687447346251,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422028",
+      "name": "Tinh Nghịch · Teemo",
+      "tier": "B",
+      "carries": [
+        "Teemo"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6502426666666666,
+      "avgPlacement": 4.199,
+      "games": 809,
+      "pickRate": 0.010636057287278854,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422022",
+      "name": "Đao Phủ · Malphite · Zyra",
+      "tier": "B",
+      "carries": [
+        "Malphite",
+        "Zyra"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6495210666666666,
+      "avgPlacement": 4.2056,
+      "games": 2340,
+      "pickRate": 0.030749789385004212,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422029",
+      "name": "Thần Rừng · Kayle",
+      "tier": "B",
+      "carries": [
+        "Kayle"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6386970666666667,
+      "avgPlacement": 4.3046,
+      "games": 3884,
+      "pickRate": 0.05100831929233361,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422015",
+      "name": "Tinh Nghịch · Veigar",
+      "tier": "B",
+      "carries": [
+        "Veigar"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6379754666666666,
+      "avgPlacement": 4.3112,
+      "games": 2571,
+      "pickRate": 0.03372472620050548,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422027",
+      "name": "Thuật Sư · Lillia",
+      "tier": "B",
+      "carries": [
+        "Lillia"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6357838425582416,
+      "avgPlacement": 4.2736,
+      "games": 402,
+      "pickRate": 0.005278538331929233,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422025",
+      "name": "Hoa Linh · Ahri · Malphite",
+      "tier": "B",
+      "carries": [
+        "Ahri",
+        "Malphite"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6311901127187717,
+      "avgPlacement": 4.2321,
+      "games": 293,
+      "pickRate": 0.0038568871103622578,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422004",
+      "name": "Thuật Sư · Cassiopeia",
+      "tier": "B",
+      "carries": [
+        "Cassiopeia"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6310041643322513,
+      "avgPlacement": 4.2347,
+      "games": 294,
+      "pickRate": 0.0038437236731255265,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422044",
+      "name": "Mặt Trăng · Aphelios",
+      "tier": "B",
+      "carries": [
+        "Aphelios"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.630757183643272,
+      "avgPlacement": 4.3482,
+      "games": 448,
+      "pickRate": 0.005897219882055603,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422020",
+      "name": "Tiên Linh · Tristana · Rammus",
+      "tier": "B",
+      "carries": [
+        "Tristana",
+        "Rammus"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6249101333333333,
+      "avgPlacement": 4.4307,
+      "games": 1681,
+      "pickRate": 0.022088247683235047,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422003",
+      "name": "Vệ Quân · Cassiopeia",
+      "tier": "B",
+      "carries": [
+        "Cassiopeia"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6217722666666667,
+      "avgPlacement": 4.4594,
+      "games": 1441,
+      "pickRate": 0.018915859309182815,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422032",
+      "name": "Gai Đen · Warwick",
+      "tier": "B",
+      "carries": [
+        "Warwick"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6172349333333333,
+      "avgPlacement": 4.5009,
+      "games": 1090,
+      "pickRate": 0.014334983150800337,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422019",
+      "name": "Đao Phủ · Malphite · Ezreal",
+      "tier": "B",
+      "carries": [
+        "Malphite",
+        "Ezreal"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6142228981648363,
+      "avgPlacement": 4.3105,
+      "games": 219,
+      "pickRate": 0.002882792754844145,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422037",
+      "name": "Thần Rừng · Ezreal · Alistar",
+      "tier": "B",
+      "carries": [
+        "Ezreal",
+        "Alistar"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6119213333333333,
+      "avgPlacement": 4.5495,
+      "games": 2648,
+      "pickRate": 0.03472514743049705,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422010",
+      "name": "Dũng Sĩ · Sivir",
+      "tier": "B",
+      "carries": [
+        "Sivir"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6111450666666667,
+      "avgPlacement": 4.5566,
+      "games": 724,
+      "pickRate": 0.00943818449873631,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422014",
+      "name": "Tiên Phong · Rengar",
+      "tier": "B",
+      "carries": [
+        "Rengar"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6104453333333333,
+      "avgPlacement": 4.563,
+      "games": 913,
+      "pickRate": 0.011978727885425443,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422011",
+      "name": "Thuật Sĩ · Pebbles",
+      "tier": "B",
+      "carries": [
+        "Pebbles"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6051536,
+      "avgPlacement": 4.6114,
+      "games": 821,
+      "pickRate": 0.010741364785172704,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422034",
+      "name": "Thần Rừng · Sett",
+      "tier": "B",
+      "carries": [
+        "Sett"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6015263025231036,
+      "avgPlacement": 4.385,
+      "games": 187,
+      "pickRate": 0.0024483993260320134,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422035",
+      "name": "Khắc Tinh · Rengar",
+      "tier": "B",
+      "carries": [
+        "Rengar"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6000403364577795,
+      "avgPlacement": 4.4378,
+      "games": 217,
+      "pickRate": 0.0028433024431339512,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422041",
+      "name": "Đao Phủ · Soraka",
+      "tier": "B",
+      "carries": [
+        "Soraka"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.5953737166613073,
+      "avgPlacement": 4.6928,
+      "games": 485,
+      "pickRate": 0.006384267059814659,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422023",
+      "name": "Đao Phủ · Yunara",
+      "tier": "B",
+      "carries": [
+        "Yunara"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.5928973333333334,
+      "avgPlacement": 4.7235,
+      "games": 633,
+      "pickRate": 0.008319292333614153,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422038",
+      "name": "Liên Kích · Kayle",
+      "tier": "B",
+      "carries": [
+        "Kayle"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.5911042666666666,
+      "avgPlacement": 4.7399,
+      "games": 965,
+      "pickRate": 0.0126763900589722,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422018",
+      "name": "Thích Ứng · Nidalee",
+      "tier": "B",
+      "carries": [
+        "Nidalee"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.585618842082377,
+      "avgPlacement": 4.5319,
+      "games": 188,
+      "pickRate": 0.0024615627632687447,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422033",
+      "name": "Quái Rừng",
+      "tier": "B",
+      "carries": [
+        "Krug",
+        "Pebbles",
+        "Scuttlecrab"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.5796024,
+      "avgPlacement": 4.8451,
+      "games": 4390,
+      "pickRate": 0.05749789385004212,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422036",
+      "name": "Hoa Linh · Ahri · Sett",
+      "tier": "B",
+      "carries": [
+        "Ahri",
+        "Sett"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.575896,
+      "avgPlacement": 4.879,
+      "games": 2753,
+      "pickRate": 0.03614679865206403,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422042",
+      "name": "Hỏa Ngục · Amumu",
+      "tier": "B",
+      "carries": [
+        "Amumu"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.5710744,
+      "avgPlacement": 4.9231,
+      "games": 702,
+      "pickRate": 0.009214406065711878,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422043",
+      "name": "Gai Đen · Kha'Zix",
+      "tier": "B",
+      "carries": [
+        "Kha'Zix"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.5694451692417453,
+      "avgPlacement": 4.8894,
+      "games": 416,
+      "pickRate": 0.005462826453243471,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422045",
+      "name": "Thuật Sư · Kha'Zix",
+      "tier": "B",
+      "carries": [
+        "Kha'Zix"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.5623133439523893,
+      "avgPlacement": 4.6803,
+      "games": 147,
+      "pickRate": 0.0019350252737994945,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422026",
+      "name": "Quái Rừng · Malphite",
+      "tier": "B",
+      "carries": [
+        "Malphite"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.5617325587411053,
+      "avgPlacement": 4.733,
+      "games": 176,
+      "pickRate": 0.0023036015164279696,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422040",
+      "name": "Dũng Sĩ · Nidalee",
+      "tier": "B",
+      "carries": [
+        "Nidalee"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.5612033441923093,
+      "avgPlacement": 4.8095,
+      "games": 231,
+      "pickRate": 0.00304075400168492,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422046",
+      "name": "Dũng Sĩ · Draven",
+      "tier": "B",
+      "carries": [
+        "Draven"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.5557239999999999,
+      "avgPlacement": 5.0635,
+      "games": 6978,
+      "pickRate": 0.09155170598146588,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422048",
+      "name": "Gai Đen · Azir",
+      "tier": "B",
+      "carries": [
+        "Azir"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.5407253041058321,
+      "avgPlacement": 5.1663,
+      "games": 439,
+      "pickRate": 0.00576558550968829,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422047",
+      "name": "Tiên Linh · Tristana · Xayah",
+      "tier": "B",
+      "carries": [
+        "Tristana",
+        "Xayah"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.5291885243523371,
+      "avgPlacement": 5.1765,
+      "games": 306,
+      "pickRate": 0.0040148483572030325,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422030",
+      "name": "Hỏa Ngục · Kayle",
+      "tier": "B",
+      "carries": [
+        "Kayle"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.5258213333333333,
+      "avgPlacement": 5.337,
+      "games": 2875,
+      "pickRate": 0.03766059393428812,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422050",
+      "name": "Tiên Hắc Ám · Morgana",
+      "tier": "B",
+      "carries": [
+        "Morgana"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.5139477333333333,
+      "avgPlacement": 5.4456,
+      "games": 1811,
+      "pickRate": 0.023838984835720303,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422016",
+      "name": "Tiên Phong · Caitlyn",
+      "tier": "B",
+      "carries": [
+        "Caitlyn"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.48922746666666656,
+      "avgPlacement": 5.6717,
+      "games": 801,
+      "pickRate": 0.010517586352148273,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422039",
+      "name": "Tiên Linh · Xayah",
+      "tier": "B",
+      "carries": [
+        "Xayah"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.48889946666666667,
+      "avgPlacement": 5.6747,
+      "games": 1531,
+      "pickRate": 0.019995261162594778,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422051",
+      "name": "Thần Rừng · LeBlanc",
+      "tier": "B",
+      "carries": [
+        "LeBlanc"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.4258141333333334,
+      "avgPlacement": 6.2517,
+      "games": 1160,
+      "pickRate": 0.015151116259477675,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422052",
+      "name": "Quái Rừng · Mama Beak",
+      "tier": "B",
+      "carries": [
+        "Mama Beak"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.42282933333333333,
+      "avgPlacement": 6.279,
+      "games": 1154,
+      "pickRate": 0.015058972198820556,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422049",
+      "name": "Vệ Quân · Rammus",
+      "tier": "B",
+      "carries": [
+        "Rammus"
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.3779637473524081,
+      "avgPlacement": 6.2626,
+      "games": 99,
+      "pickRate": 0.0012768534119629318,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    }
+  ]
+}

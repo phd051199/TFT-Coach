@@ -1,0 +1,12 @@
+{
+  "notes": "Optional manual/imported source snapshots can be normalized into TrainingSample rows without changing the TensorFlow model.",
+  "recommended_sources": [
+    "Riot TFT Match-V1 high-Elo",
+    "MetaTFT public web statistics",
+    "LoLChess KR/global statistics",
+    "tactics.tools statistics",
+    "Korean high-Elo sites/leaderboards",
+    "Chinese TFT aggregate/tournament sources"
+  ],
+  "rule": "Never mix another set, patch or Golden Spatula-specific balance into TFT Set 18 labels without an explicit domain marker."
+}

@@ -1,0 +1,5709 @@
+{
+  "generatedAt": "2026-08-26T10:02:24.646Z",
+  "set": 18,
+  "patch": "18.1",
+  "setName": "Đại Ngàn Kỳ Bí",
+  "setNameEn": "Enchanted Wilds",
+  "dataVersion": "18-18.1.0.600B5643.u010aad2cs5",
+  "sources": [
+    {
+      "id": "riot-cdragon",
+      "name": "CommunityDragon / Riot live client data",
+      "url": "https://raw.communitydragon.org/latest/cdragon/tft/vi_vn.json",
+      "type": "game-data"
+    },
+    {
+      "id": "metatft-live",
+      "name": "MetaTFT live Set 18 validation",
+      "url": "https://www.metatft.com/",
+      "type": "live-validation"
+    },
+    {
+      "id": "tftraits",
+      "name": "TFTraits normalized catalog (live-ID validated)",
+      "url": "https://tftraits.com/explorer/",
+      "type": "normalized-enrichment"
+    }
+  ],
+  "champions": [
+    {
+      "id": "DA_18_Akali_AD",
+      "name": "Akali",
+      "cost": 1,
+      "role": "ADFighter",
+      "traits": [
+        "DA_18_Inferno",
+        "DA_18_Adaptor",
+        "DA_18_Slayer"
+      ],
+      "traitNames": [
+        "Hỏa Ngục",
+        "Thích Ứng",
+        "Tàn Phá"
+      ],
+      "stats": {
+        "hp": 650,
+        "mana": 30,
+        "initialMana": 0,
+        "damage": 40,
+        "armor": 35,
+        "magicResist": 35,
+        "attackSpeed": 0.75,
+        "range": 1
+      },
+      "ability": {
+        "name": "Kunai Strike",
+        "description": "Adaptor %i:scaleAD%: Throw a volley of kunai at the target, dealing @PhysicalDamageBase@% (%i:scaleAD%) + @PhysicalDamageAP@ (%i:scaleAP%) physical damage. If the target is Burning, deal an additional @BonusPhysicalDamage@% (%i:scaleAD%) damage.\nAdaptor %i:scaleAP%: If the Ability kills, cast it again."
+      },
+      "image": "/assets/set18/champions/da_18_akali_ad.png"
+    },
+    {
+      "id": "DA_18_Camille",
+      "name": "Camille",
+      "cost": 1,
+      "role": "ADFighter",
+      "traits": [
+        "DA_18_Coven",
+        "DA_18_Slayer"
+      ],
+      "traitNames": [
+        "Tiên Hắc Ám",
+        "Tàn Phá"
+      ],
+      "stats": {
+        "hp": 700,
+        "mana": 25,
+        "initialMana": 0,
+        "damage": 40,
+        "armor": 40,
+        "magicResist": 40,
+        "attackSpeed": 0.75,
+        "range": 1
+      },
+      "ability": {
+        "name": "Defensive Sweep",
+        "description": "Slice the target for @AbilityDamage@% (%i:scaleAD%) + @APDamage@ (%i:scaleAP%) physical damage and gain @AbilityShield@ Shield for 2 seconds."
+      },
+      "image": "/assets/set18/champions/da_18_camille.png"
+    },
+    {
+      "id": "DA_Cinderling18",
+      "name": "Cinderling",
+      "cost": 1,
+      "role": "ADCaster",
+      "traits": [
+        "DA_Riftbeast18",
+        "DA_18_Hunter"
+      ],
+      "traitNames": [
+        "Quái Rừng",
+        "Thợ Săn"
+      ],
+      "stats": {
+        "hp": 500,
+        "mana": 50,
+        "initialMana": 0,
+        "damage": 45,
+        "armor": 25,
+        "magicResist": 25,
+        "attackSpeed": 0.7,
+        "range": 4
+      },
+      "ability": {
+        "name": "Razor Leaves",
+        "description": "Summon five razor-sharp leaves that converge on the current target, dealing a total of @SpellDamageAD@% (%i:scaleAD%) + @SpellDamageAP@ (%i:scaleAP%) physical damage and applying 20% Wound and 1% Burn for 4 seconds.\nScarlet Buff: Cinderling gains 22% Attack Damage each cast.\nWound: Reduces healing received.\nBurn: Deals a percent of the target’s max Health as true damage every second."
+      },
+      "image": "/assets/set18/champions/da_cinderling18.png"
+    },
+    {
+      "id": "DA_Karma18",
+      "name": "Karma",
+      "cost": 1,
+      "role": "APCaster",
+      "traits": [
+        "DA_18_Blossom",
+        "DA_18_Spellweaver"
+      ],
+      "traitNames": [
+        "Hoa Linh",
+        "Thuật Sư"
+      ],
+      "stats": {
+        "hp": 500,
+        "mana": 40,
+        "initialMana": 0,
+        "damage": 25,
+        "armor": 25,
+        "magicResist": 25,
+        "attackSpeed": 0.7,
+        "range": 4
+      },
+      "ability": {
+        "name": "Karmic Bond",
+        "description": "Tether the current target, dealing @DamageTetherAP@ (%i:scaleAP%) magic damage over 1.5 seconds. Then release a burst of power around them, dealing @DamageAoEAP@ (%i:scaleAP%) magic damage to all enemies in a 1 Hex radius and 30% Slowing them for 2 seconds.\nSlow: Reduce Attack Speed"
+      },
+      "image": "/assets/set18/champions/da_karma18.png"
+    },
+    {
+      "id": "DA_18_Kobuko",
+      "name": "Kobuko",
+      "cost": 1,
+      "role": "APTank",
+      "traits": [
+        "DA_18_Sprykin",
+        "DA_18_Brawler"
+      ],
+      "traitNames": [
+        "Tinh Nghịch",
+        "Đấu Sĩ"
+      ],
+      "stats": {
+        "hp": 700,
+        "mana": 90,
+        "initialMana": 0,
+        "damage": 55,
+        "armor": 40,
+        "magicResist": 40,
+        "attackSpeed": 0.65,
+        "range": 1
+      },
+      "ability": {
+        "name": "Dance of Life",
+        "description": "Restore @FlatHealAmount@ (%i:scaleAP%) + 7% (%i:scaleHealth%) max Health Health over 2 seconds. The next attack is replaced with a bash that deals 10% (%i:scaleHealth%) max Health + @FlatDamageAmount@ (%i:scaleAP%) magic damage."
+      },
+      "image": "/assets/set18/champions/da_18_kobuko.png"
+    },
+    {
+      "id": "DA_18_Leona",
+      "name": "Leona",
+      "cost": 1,
+      "role": "APTank",
+      "traits": [
+        "DA_18_Solar",
+        "DA_18_Defender"
+      ],
+      "traitNames": [
+        "Mặt Trời",
+        "Vệ Quân"
+      ],
+      "stats": {
+        "hp": 750,
+        "mana": 100,
+        "initialMana": 0,
+        "damage": 50,
+        "armor": 40,
+        "magicResist": 40,
+        "attackSpeed": 0.65,
+        "range": 1
+      },
+      "ability": {
+        "name": "Shield Bash",
+        "description": "Passive: Start combat with @DecayingArmorAndMagicResist@ (%i:scaleAP%) bonus Armor and Magic Resist that decays over 12 seconds.\nActive: Bash the current target, dealing @PercentArmorDamage@% (%i:scaleArmor%) magic damage and Stunning them for 1.5 seconds."
+      },
+      "image": "/assets/set18/champions/da_18_leona.png"
+    },
+    {
+      "id": "DA_18_Ornn",
+      "name": "Ornn",
+      "cost": 1,
+      "role": "APTank",
+      "traits": [
+        "DA_18_Elderwood",
+        "DA_18_Defender"
+      ],
+      "traitNames": [
+        "Thần Rừng",
+        "Vệ Quân"
+      ],
+      "stats": {
+        "hp": 700,
+        "mana": 100,
+        "initialMana": 30,
+        "damage": 40,
+        "armor": 40,
+        "magicResist": 40,
+        "attackSpeed": 0.6,
+        "range": 1
+      },
+      "ability": {
+        "name": "Bellows Breath",
+        "description": "Active: Gain @ShieldAmount@ (%i:scaleAP%) Shield for 4 seconds and deal @MagicDamage@ (%i:scaleAP%) magic damage to enemies in a cone.\nQuest: Each player combat, Ornn stores damage blocked as Forge Power, doubled at 3-star. Gain an Artifact Anvil each time he gains enough Forge Power."
+      },
+      "image": "/assets/set18/champions/da_18_ornn.png"
+    },
+    {
+      "id": "DA_18_Sentry",
+      "name": "Pebbles",
+      "cost": 1,
+      "role": "APCaster",
+      "traits": [
+        "DA_Riftbeast18",
+        "DA_18_Invoker"
+      ],
+      "traitNames": [
+        "Quái Rừng",
+        "Thuật Sĩ"
+      ],
+      "stats": {
+        "hp": 500,
+        "mana": 70,
+        "initialMana": 0,
+        "damage": 35,
+        "armor": 25,
+        "magicResist": 25,
+        "attackSpeed": 0.8,
+        "range": 4
+      },
+      "ability": {
+        "name": "Azure Laser",
+        "description": "Begin consuming 35% max Mana per second and channeling a laser on the target. Each second while casting, deal @SpellDamagePerSecond@ (%i:scaleAP%) magic damage to them and reduce their Magic Resist by 3.\nTeal Buff: Gain 2 Mana Regen for every 4 seconds channeled."
+      },
+      "image": "/assets/set18/champions/da_18_sentry.png"
+    },
+    {
+      "id": "DA_18_Rakan",
+      "name": "Rakan",
+      "cost": 1,
+      "role": "APTank",
+      "traits": [
+        "DA_18_Fae",
+        "DA_Juggernaut18",
+        "DA_18_Vanguard"
+      ],
+      "traitNames": [
+        "Tiên Linh",
+        "Dũng Sĩ",
+        "Tiên Phong"
+      ],
+      "stats": {
+        "hp": 700,
+        "mana": 105,
+        "initialMana": 0,
+        "damage": 45,
+        "armor": 35,
+        "magicResist": 35,
+        "attackSpeed": 0.6,
+        "range": 1
+      },
+      "ability": {
+        "name": "Entrancing Dance",
+        "description": "Gain @ShieldAmount@ (%i:scaleAP%) Shield for 4 seconds. Then grant the ally who has dealt the most damage this combat @DecayingAttackSpeed@ (%i:scaleAP%) + 1 (%i:scaleAP%) decaying Attack Speed for 4 seconds."
+      },
+      "image": "/assets/set18/champions/da_18_rakan.png"
+    },
+    {
+      "id": "DA_18_RekSai",
+      "name": "Rek'Sai",
+      "cost": 1,
+      "role": "APTank",
+      "traits": [
+        "DA_18_Blackthorn",
+        "DA_18_Brawler"
+      ],
+      "traitNames": [
+        "Gai Đen",
+        "Đấu Sĩ"
+      ],
+      "stats": {
+        "hp": 700,
+        "mana": 100,
+        "initialMana": 0,
+        "damage": 50,
+        "armor": 40,
+        "magicResist": 40,
+        "attackSpeed": 0.55,
+        "range": 1
+      },
+      "ability": {
+        "name": "Uproot",
+        "description": "Passive: Restore @HealthRegenFlat@ Health each second, tripled for 3 seconds after casting.\nActive: Lunge out of the ground, Stunning adjacent enemies for 1 second and dealing @SpellDamage@ (%i:scaleAP%) magic damage to them."
+      },
+      "image": "/assets/set18/champions/da_18_reksai.png"
+    },
+    {
+      "id": "DA_18_Varus",
+      "name": "Varus",
+      "cost": 1,
+      "role": "ADCaster",
+      "traits": [
+        "DA_18_Inferno",
+        "DA_18_Rapidfire"
+      ],
+      "traitNames": [
+        "Hỏa Ngục",
+        "Liên Kích"
+      ],
+      "stats": {
+        "hp": 500,
+        "mana": 120,
+        "initialMana": 0,
+        "damage": 40,
+        "armor": 25,
+        "magicResist": 25,
+        "attackSpeed": 0.7,
+        "range": 4
+      },
+      "ability": {
+        "name": "Piercing Arrow",
+        "description": "Wind up, then fire an arrow at the most enemies in line with the target. It deals @ADDamage@% (%i:scaleAD%) + @APDamage@ (%i:scaleAP%) physical damage to enemies hit, reduced by 40% for each enemy it passes through (minimum 40%)."
+      },
+      "image": "/assets/set18/champions/da_18_varus.png"
+    },
+    {
+      "id": "DA_18_Veigar",
+      "name": "Veigar",
+      "cost": 1,
+      "role": "APCaster",
+      "traits": [
+        "DA_18_Blackthorn",
+        "DA_18_Sprykin",
+        "DA_18_Spellweaver"
+      ],
+      "traitNames": [
+        "Gai Đen",
+        "Tinh Nghịch",
+        "Thuật Sư"
+      ],
+      "stats": {
+        "hp": 500,
+        "mana": 30,
+        "initialMana": 0,
+        "damage": 25,
+        "armor": 25,
+        "magicResist": 25,
+        "attackSpeed": 0.7,
+        "range": 4
+      },
+      "ability": {
+        "name": "Primordial Burst",
+        "description": "Launch a giant blast at the target that deals @HighHPSpellDamage@ (%i:scaleAP%) magic damage, increased to @LowHPSpellDamage@ (%i:scaleAP%) if they're below 30% max Health.\nIf they die, permanently gain 1.5% Ability Power."
+      },
+      "image": "/assets/set18/champions/da_18_veigar.png"
+    },
+    {
+      "id": "DA_18_Xayah",
+      "name": "Xayah",
+      "cost": 1,
+      "role": "ADCarry",
+      "traits": [
+        "DA_18_Elderwood",
+        "DA_18_Fae",
+        "DA_18_Rapidfire"
+      ],
+      "traitNames": [
+        "Thần Rừng",
+        "Tiên Linh",
+        "Liên Kích"
+      ],
+      "stats": {
+        "hp": 450,
+        "mana": 50,
+        "initialMana": 0,
+        "damage": 45,
+        "armor": 25,
+        "magicResist": 25,
+        "attackSpeed": 0.7,
+        "range": 4
+      },
+      "ability": {
+        "name": "Deadly Plumage",
+        "description": "Gain 50% Attack Speed for the next 5 attacks. These attacks are replaced with feathers that deal @FeatherADRatio@% (%i:scaleAD%) physical damage and reduce Armor by 2 (%i:scaleAP%)."
+      },
+      "image": "/assets/set18/champions/da_18_xayah.png"
+    },
+    {
+      "id": "DA_18_Yorick",
+      "name": "Yorick",
+      "cost": 1,
+      "role": "ADTank",
+      "traits": [
+        "DA_18_Blossom",
+        "DA_Juggernaut18",
+        "DA_18_Summoner"
+      ],
+      "traitNames": [
+        "Hoa Linh",
+        "Dũng Sĩ",
+        "Triệu Hồi"
+      ],
+      "stats": {
+        "hp": 650,
+        "mana": 110,
+        "initialMana": 0,
+        "damage": 50,
+        "armor": 35,
+        "magicResist": 35,
+        "attackSpeed": 0.6,
+        "range": 1
+      },
+      "ability": {
+        "name": "Last Rites",
+        "description": "Passive: On death, spawn a Spirit Walker with @GhoulHealthBase@ + 20% (%i:scaleHealth%) max Health max Health which immediately taunts, forcing enemies to attack it.\nActive: Restore @StrikeHeal@ (%i:scaleAP%) Health and strike the target, dealing @StrikeDamage@ (%i:scaleAP%) physical damage."
+      },
+      "image": "/assets/set18/champions/da_18_yorick.png"
+    },
+    {
+      "id": "DA_18_Alistar",
+      "name": "Alistar",
+      "cost": 2,
+      "role": "APTank",
+      "traits": [
+        "DA_18_Elderwood",
+        "DA_18_Brawler"
+      ],
+      "traitNames": [
+        "Thần Rừng",
+        "Đấu Sĩ"
+      ],
+      "stats": {
+        "hp": 950,
+        "mana": 90,
+        "initialMana": 0,
+        "damage": 50,
+        "armor": 45,
+        "magicResist": 45,
+        "attackSpeed": 0.6,
+        "range": 1
+      },
+      "ability": {
+        "name": "Triumphant Roar",
+        "description": "Roar, restoring 8% (%i:scaleHealth%) max Health Health, cleansing disables, and healing the two lowest percent Health allies for @AllyHeal@ (%i:scaleAP%). Then slam the current target, dealing @Damage@ (%i:scaleAP%) magic damage and Stunning them for 1.5 seconds."
+      },
+      "image": "/assets/set18/champions/da_18_alistar.png"
+    },
+    {
+      "id": "DA_18_Caitlyn",
+      "name": "Caitlyn",
+      "cost": 2,
+      "role": "ADSpecialist",
+      "traits": [
+        "DA_18_Coven",
+        "DA_18_Hunter"
+      ],
+      "traitNames": [
+        "Tiên Hắc Ám",
+        "Thợ Săn"
+      ],
+      "stats": {
+        "hp": 550,
+        "mana": 3,
+        "initialMana": 0,
+        "damage": 50,
+        "armor": 30,
+        "magicResist": 30,
+        "attackSpeed": 0.7,
+        "range": 4
+      },
+      "ability": {
+        "name": "Headshot",
+        "description": "Passive: Every third attack is replaced with a Headshot that deals @SpellDamageAD@% (%i:scaleAD%) + @SpellDamageAP@ (%i:scaleAP%) physical damage."
+      },
+      "image": "/assets/set18/champions/da_18_caitlyn.png"
+    },
+    {
+      "id": "DA_18_Elise",
+      "name": "Elise",
+      "cost": 2,
+      "role": "APTank",
+      "traits": [
+        "DA_18_Coven",
+        "DA_18_Vanguard"
+      ],
+      "traitNames": [
+        "Tiên Hắc Ám",
+        "Tiên Phong"
+      ],
+      "stats": {
+        "hp": 900,
+        "mana": 70,
+        "initialMana": 0,
+        "damage": 20,
+        "armor": 45,
+        "magicResist": 45,
+        "attackSpeed": 0.65,
+        "range": 1
+      },
+      "ability": {
+        "name": "Spider Queen",
+        "description": "Transform into a spider and gain @SpiderHealthBuff@ max Health. Attacks while in Spider Form deal @DamageOnAttack@ (%i:scaleAP%) bonus magic damage and heal for @HealOnAttack@ (%i:scaleAP%). Subsequent casts grant 175% decaying Attack Speed for 4 seconds."
+      },
+      "image": "/assets/set18/champions/da_18_elise.png"
+    },
+    {
+      "id": "DA_Gromp18_AP",
+      "name": "Gromp",
+      "cost": 2,
+      "role": "APCaster",
+      "traits": [
+        "DA_Riftbeast18",
+        "DA_18_Adaptor"
+      ],
+      "traitNames": [
+        "Quái Rừng",
+        "Thích Ứng"
+      ],
+      "stats": {
+        "hp": 550,
+        "mana": 45,
+        "initialMana": 0,
+        "damage": 30,
+        "armor": 30,
+        "magicResist": 30,
+        "attackSpeed": 0.7,
+        "range": 4
+      },
+      "ability": {
+        "name": "Belchy Bubble",
+        "description": "Adaptor %i:scaleAP%: Belch a noxious bubble at the current target that explodes on the first enemy hit, dealing @MainTargetDamageAP@ (%i:scaleAP%) magic damage. Enemies within a 1 hex radius of the explosion take @SecondaryDamageAP@ (%i:scaleAP%) magic damage over 3 seconds.\nAdaptor %i:scaleAD%: Heavily slows the target.\nPurple Buff: Every 5 seconds, Gromp gains 30% Ability Power."
+      },
+      "image": "/assets/set18/champions/da_gromp18_ap.png"
+    },
+    {
+      "id": "DA_18_Kayle",
+      "name": "Kayle",
+      "cost": 2,
+      "role": "APSpecialist",
+      "traits": [
+        "DA_18_Solar",
+        "DA_18_Rapidfire"
+      ],
+      "traitNames": [
+        "Mặt Trời",
+        "Liên Kích"
+      ],
+      "stats": {
+        "hp": 550,
+        "mana": 0,
+        "initialMana": 0,
+        "damage": 10,
+        "armor": 30,
+        "magicResist": 30,
+        "attackSpeed": 0.75,
+        "range": 4
+      },
+      "ability": {
+        "name": "Solar Judgement",
+        "description": "Passive: Kayle ascends based on her star level, granting her stacking bonuses.\n1st Ascension: Attacks deal @MagicDamage@ (%i:scaleAP%) bonus magic damage.\n2nd Ascension: Attacks 20% Shred enemies hit for 2 seconds.\n3rd Ascension: Attacks fire waves, dealing 40 (%i:scaleAP%) magic damage to all other units hit.\n4th Ascension: Gain infinite range. Every 3rd wave is much larger.\nShred: Reduce Magic Resist"
+      },
+      "image": "/assets/set18/champions/da_18_kayle.png"
+    },
+    {
+      "id": "DA_18_LeBlanc",
+      "name": "LeBlanc",
+      "cost": 2,
+      "role": "APCaster",
+      "traits": [
+        "DA_18_Elderwood",
+        "DA_18_Spellweaver"
+      ],
+      "traitNames": [
+        "Thần Rừng",
+        "Thuật Sư"
+      ],
+      "stats": {
+        "hp": 550,
+        "mana": 40,
+        "initialMana": 0,
+        "damage": 30,
+        "armor": 30,
+        "magicResist": 30,
+        "attackSpeed": 0.7,
+        "range": 4
+      },
+      "ability": {
+        "name": "Mirror Image",
+        "description": "Passive: After player combat, your strongest LeBlanc has a @PercentChanceToPrint@% chance to create a copy of an ally on your board, increased by 4% per takedown.\nActive: Launch a mirror image at the current target, dealing @SingleTargetDamage@ (%i:scaleAP%) magic damage and @AOEDamage@ (%i:scaleAP%) to adjacent enemies."
+      },
+      "image": "/assets/set18/champions/da_18_leblanc.png"
+    },
+    {
+      "id": "DA_Murkwolf18",
+      "name": "Murkwolf",
+      "cost": 2,
+      "role": "ADReaper",
+      "traits": [
+        "DA_Riftbeast18",
+        "DA_18_Slayer"
+      ],
+      "traitNames": [
+        "Quái Rừng",
+        "Tàn Phá"
+      ],
+      "stats": {
+        "hp": 700,
+        "mana": 40,
+        "initialMana": 0,
+        "damage": 50,
+        "armor": 40,
+        "magicResist": 40,
+        "attackSpeed": 0.75,
+        "range": 1
+      },
+      "ability": {
+        "name": "Rending Claws",
+        "description": "Leap to the lowest Health enemy within 3 Hexes and deal @LeapDamageAD@% (%i:scaleAD%) + @LeapDamageAP@ (%i:scaleAP%) physical damage. The next 2 attacks gain 175% Attack Speed and deal @EmpoweredDamageAD@% (%i:scaleAD%) bonus physical damage.\nGrey Buff: Gain Precision and 25% Critical Strike Chance, increased up to 75% based on missing Health."
+      },
+      "image": "/assets/set18/champions/da_murkwolf18.png"
+    },
+    {
+      "id": "DA_Scuttlecrab18",
+      "name": "Scuttlecrab",
+      "cost": 2,
+      "role": "ADTank",
+      "traits": [
+        "DA_Riftbeast18",
+        "DA_Juggernaut18"
+      ],
+      "traitNames": [
+        "Quái Rừng",
+        "Dũng Sĩ"
+      ],
+      "stats": {
+        "hp": 950,
+        "mana": 100,
+        "initialMana": 0,
+        "damage": 50,
+        "armor": 45,
+        "magicResist": 45,
+        "attackSpeed": 0.65,
+        "range": 1
+      },
+      "ability": {
+        "name": "Can You Dig It?",
+        "description": "Passive: Attacks are replaced by a dance that deals @AutoAttackDamage@% (%i:scaleAD%) physical damage to all adjacent enemies.\nActive: Burrow underground, gaining 15% Durability for 3 seconds and healing @BurrowTotalHeal@ (%i:scaleAP%) over the duration.\nGreen Buff: When allies fall below 50% Health, they restore 15% max Health."
+      },
+      "image": "/assets/set18/champions/da_scuttlecrab18.png"
+    },
+    {
+      "id": "DA_18_Sejuani",
+      "name": "Sejuani",
+      "cost": 2,
+      "role": "APTank",
+      "traits": [
+        "DA_18_Solar",
+        "DA_Juggernaut18"
+      ],
+      "traitNames": [
+        "Mặt Trời",
+        "Dũng Sĩ"
+      ],
+      "stats": {
+        "hp": 900,
+        "mana": 100,
+        "initialMana": 0,
+        "damage": 50,
+        "armor": 45,
+        "magicResist": 45,
+        "attackSpeed": 0.6,
+        "range": 1
+      },
+      "ability": {
+        "name": "Sun's Wrath",
+        "description": "Gain @ShieldAP@ (%i:scaleAP%) + 10% (%i:scaleHealth%) max Health Shield for 4 seconds. Then cleave in a cone, dealing @ConeDamage@ (%i:scaleAP%) magic damage and strike in a line, dealing @SlamDamage@ (%i:scaleAP%) magic damage to enemies hit."
+      },
+      "image": "/assets/set18/champions/da_18_sejuani.png"
+    },
+    {
+      "id": "DA_18_Shen",
+      "name": "Shen",
+      "cost": 2,
+      "role": "APTank",
+      "traits": [
+        "DA_18_Inferno",
+        "DA_18_Defender"
+      ],
+      "traitNames": [
+        "Hỏa Ngục",
+        "Vệ Quân"
+      ],
+      "stats": {
+        "hp": 900,
+        "mana": 90,
+        "initialMana": 0,
+        "damage": 50,
+        "armor": 45,
+        "magicResist": 45,
+        "attackSpeed": 0.65,
+        "range": 1
+      },
+      "ability": {
+        "name": "Ki Barrier",
+        "description": "Grant @MagicShieldAmount@ (%i:scaleAP%) Shield to Shen and @AllyShieldAmount@ (%i:scaleAP%) Shield to a nearby damaged ally for 4 seconds. Both of their next 3 attacks gain 40% Attack Speed and deal @AttackMagicDamageBuff@ (%i:scaleAP%) bonus magic damage."
+      },
+      "image": "/assets/set18/champions/da_18_shen.png"
+    },
+    {
+      "id": "DA_18_Teemo",
+      "name": "Teemo",
+      "cost": 2,
+      "role": "APCaster",
+      "traits": [
+        "DA_18_Sprykin",
+        "DA_18_Invoker"
+      ],
+      "traitNames": [
+        "Tinh Nghịch",
+        "Thuật Sĩ"
+      ],
+      "stats": {
+        "hp": 550,
+        "mana": 50,
+        "initialMana": 0,
+        "damage": 35,
+        "armor": 30,
+        "magicResist": 30,
+        "attackSpeed": 0.75,
+        "range": 4
+      },
+      "ability": {
+        "name": "Fungus Among Us",
+        "description": "Throw 2 clusters of mushrooms that deal @APDamage@ (%i:scaleAP%) magic damage to the 3 nearest enemies. Then hurl a giant mushroom that deals @BigMushroomDamage@ (%i:scaleAP%) magic damage to the target.\nEach cast has a @PercentChanceOfForage@% chance to forage an extra mushroom that can be collected for bonus effects.\nRed: 1 Reroll\nGreen: 1 Tactician Health\nYellow: 2 XP"
+      },
+      "image": "/assets/set18/champions/da_18_teemo.png"
+    },
+    {
+      "id": "DA_18_Warwick",
+      "name": "Warwick",
+      "cost": 2,
+      "role": "ADFighter",
+      "traits": [
+        "DA_18_Blackthorn",
+        "DA_18_Slayer"
+      ],
+      "traitNames": [
+        "Gai Đen",
+        "Tàn Phá"
+      ],
+      "stats": {
+        "hp": 750,
+        "mana": 40,
+        "initialMana": 0,
+        "damage": 40,
+        "armor": 45,
+        "magicResist": 45,
+        "attackSpeed": 0.75,
+        "range": 1
+      },
+      "ability": {
+        "name": "Jaws of The Beast",
+        "description": "Bite the current target, dealing @BiteDamage@% (%i:scaleAD%) physical damage and healing for 20% (%i:scaleAP%) of the damage dealt. Gain 20% Attack Speed for the rest of combat."
+      },
+      "image": "/assets/set18/champions/da_18_warwick.png"
+    },
+    {
+      "id": "DA_18_Yunara",
+      "name": "Yunara",
+      "cost": 2,
+      "role": "ADCaster",
+      "traits": [
+        "DA_18_Blossom",
+        "DA_18_Executioner"
+      ],
+      "traitNames": [
+        "Hoa Linh",
+        "Đao Phủ"
+      ],
+      "stats": {
+        "hp": 550,
+        "mana": 35,
+        "initialMana": 0,
+        "damage": 42,
+        "armor": 30,
+        "magicResist": 30,
+        "attackSpeed": 0.75,
+        "range": 4
+      },
+      "ability": {
+        "name": "Cultivation of Spirit",
+        "description": "Dash, then launch an orb at the current target that deals @PrimaryDamage@% (%i:scaleAD%) physical damage and splits, dealing 35% physical damage to 2 nearby enemies."
+      },
+      "image": "/assets/set18/champions/da_18_yunara.png"
+    },
+    {
+      "id": "DA_18_Azir",
+      "name": "Azir",
+      "cost": 3,
+      "role": "APCarry",
+      "traits": [
+        "DA_18_Blackthorn",
+        "DA_18_Executioner",
+        "DA_18_Summoner"
+      ],
+      "traitNames": [
+        "Gai Đen",
+        "Đao Phủ",
+        "Triệu Hồi"
+      ],
+      "stats": {
+        "hp": 650,
+        "mana": 35,
+        "initialMana": 0,
+        "damage": 30,
+        "armor": 35,
+        "magicResist": 35,
+        "attackSpeed": 0.75,
+        "range": 4
+      },
+      "ability": {
+        "name": "Arise!",
+        "description": "Gain 150% Attack Speed and summon 2 soldiers for the next 6 attacks. These attacks are replaced by commands which direct each soldier to deal @SoldierDamage@ (%i:scaleAP%) magic damage per attack."
+      },
+      "image": "/assets/set18/champions/da_18_azir.png"
+    },
+    {
+      "id": "DA_18_Cassiopeia",
+      "name": "Cassiopeia",
+      "cost": 3,
+      "role": "APCaster",
+      "traits": [
+        "DA_18_Coven",
+        "DA_18_Spellweaver"
+      ],
+      "traitNames": [
+        "Tiên Hắc Ám",
+        "Thuật Sư"
+      ],
+      "stats": {
+        "hp": 650,
+        "mana": 30,
+        "initialMana": 0,
+        "damage": 30,
+        "armor": 35,
+        "magicResist": 35,
+        "attackSpeed": 0.75,
+        "range": 4
+      },
+      "ability": {
+        "name": "Noxious Blast",
+        "description": "Poison the target and the nearest non-poisoned enemy, dealing @Damage@ (%i:scaleAP%) magic damage over 15 seconds. Poisons stack."
+      },
+      "image": "/assets/set18/champions/da_18_cassiopeia.png"
+    },
+    {
+      "id": "DA_18_Diana",
+      "name": "Diana",
+      "cost": 3,
+      "role": "APFighter",
+      "traits": [
+        "DA_18_Lunar",
+        "DA_18_Slayer",
+        "DA_18_Vanguard"
+      ],
+      "traitNames": [
+        "Mặt Trăng",
+        "Tàn Phá",
+        "Tiên Phong"
+      ],
+      "stats": {
+        "hp": 850,
+        "mana": 40,
+        "initialMana": 0,
+        "damage": 30,
+        "armor": 50,
+        "magicResist": 50,
+        "attackSpeed": 0.8,
+        "range": 1
+      },
+      "ability": {
+        "name": "Pale Barrier",
+        "description": "Gain @ShieldAmount@ shield for 2 seconds and send out 6 moonlight orbs spread among enemies within 2 hexes, each dealing @OrbDamage@ (%i:scaleAP%) magic damage."
+      },
+      "image": "/assets/set18/champions/da_18_diana.png"
+    },
+    {
+      "id": "DA_Fiddlesticks18",
+      "name": "Fiddlesticks",
+      "cost": 3,
+      "role": "APTank",
+      "traits": [
+        "DA_FloraFatalis18",
+        "DA_18_Defender",
+        "DA_18_Spellweaver"
+      ],
+      "traitNames": [
+        "Thực Vật",
+        "Vệ Quân",
+        "Thuật Sư"
+      ],
+      "stats": {
+        "mana": 90,
+        "initialMana": 0,
+        "damage": 50,
+        "armor": 55,
+        "magicResist": 55,
+        "attackSpeed": 0.65,
+        "range": 1
+      },
+      "ability": {
+        "name": "Harvest",
+        "description": "Reduce the Magic Resist of the 3 nearest enemies by 10. Then drain life from them over 2 seconds, healing for @Healing@ (%i:scaleAP%) Health and dealing @TotalDamage@ (%i:scaleAP%) magic damage to each over the duration."
+      },
+      "image": "/assets/set18/champions/da_fiddlesticks18.png"
+    },
+    {
+      "id": "DA_18_Hecarim",
+      "name": "Hecarim",
+      "cost": 3,
+      "role": "APTank",
+      "traits": [
+        "DA_18_Elderwood",
+        "DA_18_Vanguard"
+      ],
+      "traitNames": [
+        "Thần Rừng",
+        "Tiên Phong"
+      ],
+      "stats": {
+        "hp": 1100,
+        "mana": 110,
+        "initialMana": 0,
+        "damage": 50,
+        "armor": 50,
+        "magicResist": 50,
+        "attackSpeed": 0.65,
+        "range": 1
+      },
+      "ability": {
+        "name": "Spirit of Dread",
+        "description": "Gain 50 Armor and Magic Resist for 3 seconds and restore @Heal@ (%i:scaleAP%) Health over the duration. Launch spectral riders at the 3 nearest enemies, dealing @SpellDamage@ (%i:scaleAP%) magic damage and Stunning them for @StunDuration@ seconds."
+      },
+      "image": "/assets/set18/champions/da_18_hecarim.png"
+    },
+    {
+      "id": "DA_18_KhaZix",
+      "name": "Kha'Zix",
+      "cost": 3,
+      "role": "APReaper",
+      "traits": [
+        "DA_18_Rival"
+      ],
+      "traitNames": [
+        "Khắc Tinh"
+      ],
+      "stats": {
+        "hp": 950,
+        "mana": 25,
+        "initialMana": 0,
+        "damage": 30,
+        "armor": 55,
+        "magicResist": 55,
+        "attackSpeed": 0.85,
+        "range": 1
+      },
+      "ability": {
+        "name": "Taste Their Fear",
+        "description": "Leap to the farthest enemy within 2.7 Hexes, dealing @BaseDamage@ (%i:scaleAP%) magic damage. If they have no adjacent allies, deal @IsolateDamage@ (%i:scaleAP%) magic damage instead and gain 10 mana."
+      },
+      "image": "/assets/set18/champions/da_18_khazix.png"
+    },
+    {
+      "id": "DA_KogMaw18_AD",
+      "name": "Kog'Maw",
+      "cost": 3,
+      "role": "ADCaster",
+      "traits": [
+        "DA_18_Caustic",
+        "DA_18_Adaptor",
+        "DA_18_Invoker"
+      ],
+      "traitNames": [
+        "Ăn Mòn",
+        "Thích Ứng",
+        "Thuật Sĩ"
+      ],
+      "stats": {
+        "hp": 650,
+        "mana": 55,
+        "initialMana": 0,
+        "damage": 40,
+        "armor": 35,
+        "magicResist": 35,
+        "attackSpeed": 0.8,
+        "range": 4
+      },
+      "ability": {
+        "name": "Raining Artillery",
+        "description": "Adaptor %i:scaleAD%: Launch acid at the target and the other nearest enemy, dealing @ADSpellDamageBase@% (%i:scaleAD%) + @ADSpellDamageAP@ (%i:scaleAP%) physical damage. Enemies below 50% max Health take 1.4 physical damage instead.\nAdaptor%i:scaleAP%: Damages enemies over time."
+      },
+      "image": "/assets/set18/champions/da_kogmaw18_ad.png"
+    },
+    {
+      "id": "DA_Krug18",
+      "name": "Krug",
+      "cost": 3,
+      "role": "ADTank",
+      "traits": [
+        "DA_Riftbeast18",
+        "DA_18_Brawler"
+      ],
+      "traitNames": [
+        "Quái Rừng",
+        "Đấu Sĩ"
+      ],
+      "stats": {
+        "hp": 1100,
+        "mana": 135,
+        "initialMana": 0,
+        "damage": 55,
+        "armor": 40,
+        "magicResist": 40,
+        "attackSpeed": 0.6,
+        "range": 1
+      },
+      "ability": {
+        "name": "Rock and Roll",
+        "description": "Passive: On death, split into two Kruglettes with @HPBaseMini@ + 12% (%i:scaleHealth%) max Health Health which immediately taunt, forcing enemies to attack them.\nActive: Gain @SpellHealthIncrease@ (%i:scaleAP%) max Health, then roll into the target, dealing @ADDamage@% (%i:scaleAD%) + 8% (%i:scaleHealth%) max Health damage.\nSlate Buff: On death, Krug and Kruglettes Shield allies for 8% max Health."
+      },
+      "image": "/assets/set18/champions/da_krug18.png"
+    },
+    {
+      "id": "DA_CrimsonRaptor18",
+      "name": "Mama Beak",
+      "cost": 3,
+      "role": "ADCarry",
+      "traits": [
+        "DA_Riftbeast18",
+        "DA_18_Summoner",
+        "DA_18_Rapidfire"
+      ],
+      "traitNames": [
+        "Quái Rừng",
+        "Triệu Hồi",
+        "Liên Kích"
+      ],
+      "stats": {
+        "hp": 650,
+        "mana": 60,
+        "initialMana": 0,
+        "damage": 50,
+        "armor": 35,
+        "magicResist": 35,
+        "attackSpeed": 0.75,
+        "range": 4
+      },
+      "ability": {
+        "name": "Flock Family",
+        "description": "Summon 4 untargetable Tiny Beaks nearby for 5 (%i:scaleAP%) seconds. Whenever Mama Beak attacks, Tiny Beaks attack the same enemy, dealing @MiniDamagePerAttack@% (%i:scaleAD%) physical damage.\nOrange Buff: Dealing physical damage reduces enemy Armor by 2."
+      },
+      "image": "/assets/set18/champions/da_crimsonraptor18.png"
+    },
+    {
+      "id": "DA_18_MasterYi_AD",
+      "name": "Master Yi",
+      "cost": 3,
+      "role": "ADSpecialist",
+      "traits": [
+        "DA_18_Blossom",
+        "DA_18_Adaptor"
+      ],
+      "traitNames": [
+        "Hoa Linh",
+        "Thích Ứng"
+      ],
+      "stats": {
+        "hp": 850,
+        "mana": 3,
+        "initialMana": 0,
+        "damage": 65,
+        "armor": 60,
+        "magicResist": 60,
+        "attackSpeed": 0.8,
+        "range": 1
+      },
+      "ability": {
+        "name": "Wuju Style",
+        "description": "Passive: Every third attack is a Double Strike. On takedown, gain a burst of movement speed.\nAdaptor %i:scaleAD%: Double Strikes grant 12% + 3% (%i:scaleAP%) stacking Attack Speed.\nAdaptor %i:scaleAP%: Double Strikes deal bonus damage and heal."
+      },
+      "image": "/assets/set18/champions/da_18_masteryi_ad.png"
+    },
+    {
+      "id": "DA_18_Rammus",
+      "name": "Rammus",
+      "cost": 3,
+      "role": "ADTank",
+      "traits": [
+        "DA_18_Sprykin",
+        "DA_18_Defender"
+      ],
+      "traitNames": [
+        "Tinh Nghịch",
+        "Vệ Quân"
+      ],
+      "stats": {
+        "hp": 1100,
+        "mana": 80,
+        "initialMana": 0,
+        "damage": 50,
+        "armor": 50,
+        "magicResist": 50,
+        "attackSpeed": 0.6,
+        "range": 1
+      },
+      "ability": {
+        "name": "Defensive Ball Curl",
+        "description": "Taunt, forcing enemies to attack this champion. For 4 seconds, gain @Shield@ (%i:scaleAP%) Shield and 60 Armor and Magic Resist.\nWhen the Shield breaks, deal @ArmorMRDamageRatioBase@% (%i:scaleArmor%) + @ArmorMRDamageRatio2@% (%i:scaleMR%) physical damage to enemies in 2 Hexes."
+      },
+      "image": "/assets/set18/champions/da_18_rammus.png"
+    },
+    {
+      "id": "DA_18_Rengar",
+      "name": "Rengar",
+      "cost": 3,
+      "role": "ADFighter",
+      "traits": [
+        "DA_18_Rival"
+      ],
+      "traitNames": [
+        "Khắc Tinh"
+      ],
+      "stats": {
+        "hp": 900,
+        "mana": 50,
+        "initialMana": 0,
+        "damage": 60,
+        "armor": 55,
+        "magicResist": 55,
+        "attackSpeed": 0.8,
+        "range": 1
+      },
+      "ability": {
+        "name": "Savagery",
+        "description": "Jump to the lowest percent Health enemy within 3 hexes and stab them, dealing @StabDamage@% (%i:scaleAD%) physical damage. Then heal for @HealMin@ (%i:scaleAP%), increased to up to @HealMax@ (%i:scaleAP%) based on their missing Health."
+      },
+      "image": "/assets/set18/champions/da_18_rengar.png"
+    },
+    {
+      "id": "DA_18_Tristana",
+      "name": "Tristana",
+      "cost": 3,
+      "role": "ADCarry",
+      "traits": [
+        "DA_18_Fae",
+        "DA_18_Sprykin",
+        "DA_18_Hunter"
+      ],
+      "traitNames": [
+        "Tiên Linh",
+        "Tinh Nghịch",
+        "Thợ Săn"
+      ],
+      "stats": {
+        "hp": 650,
+        "mana": 60,
+        "initialMana": 0,
+        "damage": 55,
+        "armor": 35,
+        "magicResist": 35,
+        "attackSpeed": 0.75,
+        "range": 4
+      },
+      "ability": {
+        "name": "Explosive Charge",
+        "description": "Attach an explosive charge to the target that lasts 4 seconds. While active, gain infinite range and 40% + 20% (%i:scaleAP%) Attack Speed. After the duration, the charge explodes and splits damage between all enemies within 2 hexes, dealing @AOEDamageBase@% (%i:scaleAD%) physical damage + @AOEDamagePerStack@% (%i:scaleAD%) for each attack while casting.\nIf an enemy with an explosive charge on them dies, it attaches to Tristana's new target."
+      },
+      "image": "/assets/set18/champions/da_18_tristana.png"
+    },
+    {
+      "id": "DA_Vi18",
+      "name": "Vi",
+      "cost": 3,
+      "role": "ADTank",
+      "traits": [
+        "DA_Primal18",
+        "DA_Juggernaut18"
+      ],
+      "traitNames": [
+        "Nguyên Sinh",
+        "Dũng Sĩ"
+      ],
+      "stats": {
+        "hp": 1100,
+        "mana": 60,
+        "initialMana": 0,
+        "damage": 45,
+        "armor": 50,
+        "magicResist": 50,
+        "attackSpeed": 0.75,
+        "range": 1
+      },
+      "ability": {
+        "name": "Furious Fists",
+        "description": "Passive: On attack, restore 2% (%i:scaleHealth%) max Health Health.\nActive: Unleash a primal roar, restoring @SpellInstantHeal@ (%i:scaleAP%) Health. Then gain @SpellAS@% Attack Speed, 15% Durability, and is Unstoppable for 3 seconds."
+      },
+      "image": "/assets/set18/champions/da_vi18.png"
+    },
+    {
+      "id": "DA_18_Ahri",
+      "name": "Ahri",
+      "cost": 4,
+      "role": "APCaster",
+      "traits": [
+        "DA_18_Blossom",
+        "DA_18_Spellweaver"
+      ],
+      "traitNames": [
+        "Hoa Linh",
+        "Thuật Sư"
+      ],
+      "stats": {
+        "hp": 850,
+        "mana": 100,
+        "initialMana": 0,
+        "damage": 40,
+        "armor": 40,
+        "magicResist": 40,
+        "attackSpeed": 0.8,
+        "range": 4
+      },
+      "ability": {
+        "name": "Spirit Bomb",
+        "description": "Launch a spirit bomb at the location within 4 hexes that has the most surrounding enemies. It deals @OrbDamage@ (%i:scaleAP%) magic damage to enemies in a 3 hex radius, reduced by 20% per hex away from the epicenter."
+      },
+      "image": "/assets/set18/champions/da_18_ahri.png"
+    },
+    {
+      "id": "DA_Amumu18",
+      "name": "Amumu",
+      "cost": 4,
+      "role": "APTank",
+      "traits": [
+        "DA_18_Inferno",
+        "DA_Juggernaut18"
+      ],
+      "traitNames": [
+        "Hỏa Ngục",
+        "Dũng Sĩ"
+      ],
+      "stats": {
+        "hp": 1300,
+        "mana": 140,
+        "initialMana": 0,
+        "damage": 70,
+        "armor": 60,
+        "magicResist": 60,
+        "attackSpeed": 0.7,
+        "range": 1
+      },
+      "ability": {
+        "name": "Tantrum",
+        "description": "Passive: Every second, restore @PassiveHealPercent@% (%i:scaleHealth%) max Health Health and deal @PassiveDamage@ (%i:scaleAP%) magic damage to enemies within 1 hex.\nActive: Deal @DamageBig@ (%i:scaleAP%) magic damage to enemies within 2 hexes and Stun them for @StunDurationBase@ seconds, increased to @StunDuration2@ seconds if the target is Burning.\nBurn: Deals a percent of the target’s max Health as true damage every second."
+      },
+      "image": "/assets/set18/champions/da_amumu18.png"
+    },
+    {
+      "id": "DA_18_Aphelios",
+      "name": "Aphelios",
+      "cost": 4,
+      "role": "ADCarry",
+      "traits": [
+        "DA_18_Lunar",
+        "DA_18_Rapidfire"
+      ],
+      "traitNames": [
+        "Mặt Trăng",
+        "Liên Kích"
+      ],
+      "stats": {
+        "hp": 850,
+        "mana": 70,
+        "initialMana": 0,
+        "damage": 60,
+        "armor": 40,
+        "magicResist": 40,
+        "attackSpeed": 0.8,
+        "range": 4
+      },
+      "ability": {
+        "name": "Moonlight's Onslaught",
+        "description": "Equip Severum and swipe the target 5 times over 2 seconds, each dealing @SwipeDamage@% (%i:scaleAD%) physical damage.\nAfter the onslaught finishes, fire a blast that deals @LunarBlastADDamage@% (%i:scaleAD%) + @LunarBlastAPDamage@ (%i:scaleAP%) physical damage split among all enemies in a 2 Hex radius."
+      },
+      "image": "/assets/set18/champions/da_18_aphelios.png"
+    },
+    {
+      "id": "DA_Brambleback18",
+      "name": "Brambleback",
+      "cost": 4,
+      "role": "ADFighter",
+      "traits": [
+        "DA_Riftbeast18",
+        "DA_18_Slayer"
+      ],
+      "traitNames": [
+        "Quái Rừng",
+        "Tàn Phá"
+      ],
+      "stats": {
+        "hp": 1100,
+        "mana": 40,
+        "initialMana": 0,
+        "damage": 115,
+        "armor": 65,
+        "magicResist": 65,
+        "attackSpeed": 0.55,
+        "range": 1
+      },
+      "ability": {
+        "name": "Crimson Fury",
+        "description": "Passive: When the target dies, leap at the next target, dealing @TargetChangeDamage@% (%i:scaleAD%) physical damage.\nActive: Gain @FrenzyADPercent@% Attack Damage for 8 seconds. During this time ignore 10% Armor.\nRed Buff: Attacks 1% Burn enemies and heal Brambleback for 4% max Health."
+      },
+      "image": "/assets/set18/champions/da_brambleback18.png"
+    },
+    {
+      "id": "DA_18_Ezreal",
+      "name": "Ezreal",
+      "cost": 4,
+      "role": "ADCaster",
+      "traits": [
+        "DA_18_Elderwood",
+        "DA_18_Executioner"
+      ],
+      "traitNames": [
+        "Thần Rừng",
+        "Đao Phủ"
+      ],
+      "stats": {
+        "hp": 850,
+        "mana": 30,
+        "initialMana": 0,
+        "damage": 45,
+        "armor": 40,
+        "magicResist": 40,
+        "attackSpeed": 0.75,
+        "range": 4
+      },
+      "ability": {
+        "name": "Forest's Flurry",
+        "description": "Blink away from the current target, deal @NormalCastADDamage@% (%i:scaleAD%) physical damage to them, and gain @APAttackSpeed@% (%i:scaleAP%) Attack Speed.\nEvery 4th cast consumes the Attack Speed granted from Nature's Wrath and fires a blast through the largest group of enemies that deals @BigCastADDamage@% (%i:scaleAD%) physical damage, reduced by 25% for each enemy it passes through (minimum 50%)."
+      },
+      "image": "/assets/set18/champions/da_18_ezreal.png"
+    },
+    {
+      "id": "DA_18_Lillia",
+      "name": "Lillia",
+      "cost": 4,
+      "role": "APTank",
+      "traits": [
+        "DA_18_Fae",
+        "DA_18_Defender"
+      ],
+      "traitNames": [
+        "Tiên Linh",
+        "Vệ Quân"
+      ],
+      "stats": {
+        "hp": 1300,
+        "mana": 140,
+        "initialMana": 0,
+        "damage": 40,
+        "armor": 60,
+        "magicResist": 60,
+        "attackSpeed": 0.65,
+        "range": 1
+      },
+      "ability": {
+        "name": "Lilting Lullaby",
+        "description": "Restore @HealAmount@ (%i:scaleAP%) Health and send 4 butterflies at nearby enemies. Enemies hit take @EnemyInitialDamage@ (%i:scaleAP%) magic damage and Sleep for @SleepDuration@ seconds. If they take 1000 damage, they wake up and take an additional 10% max Health magic damage."
+      },
+      "image": "/assets/set18/champions/da_18_lillia.png"
+    },
+    {
+      "id": "DA_18_Malphite",
+      "name": "Malphite",
+      "cost": 4,
+      "role": "APTank",
+      "traits": [
+        "DA_18_Blackthorn",
+        "DA_18_Battlemage"
+      ],
+      "traitNames": [
+        "Gai Đen",
+        "Cự Thạch"
+      ],
+      "stats": {
+        "hp": 1300,
+        "mana": 80,
+        "initialMana": 0,
+        "damage": 70,
+        "armor": 70,
+        "magicResist": 70,
+        "attackSpeed": 0.55,
+        "range": 1
+      },
+      "ability": {
+        "name": "Petrified Bark",
+        "description": "Gain @ShieldAP@ (%i:scaleAP%) Shield for 4 seconds and become petrified. When the shield breaks, unleash a wave of dark energy, dealing @SpellDamageRatioArmorMRBase@% (%i:scaleMR%) + @SpellDamageRatioArmorMR2@% (%i:scaleArmor%) + @SpellDamageAP@ (%i:scaleAP%) magic damage to enemies within @AoEHexRange@ hexes."
+      },
+      "image": "/assets/set18/champions/da_18_malphite.png"
+    },
+    {
+      "id": "DA_18_Morgana",
+      "name": "Morgana",
+      "cost": 4,
+      "role": "APFighter",
+      "traits": [
+        "DA_18_Coven",
+        "DA_18_Invoker"
+      ],
+      "traitNames": [
+        "Tiên Hắc Ám",
+        "Thuật Sĩ"
+      ],
+      "stats": {
+        "hp": 1100,
+        "mana": 60,
+        "initialMana": 0,
+        "damage": 45,
+        "armor": 60,
+        "magicResist": 60,
+        "attackSpeed": 0.75,
+        "range": 2
+      },
+      "ability": {
+        "name": "Withering Curse",
+        "description": "Passive: Gain 25% Omnivamp.\nActive: Fire a dark blast at 3 nearby enemies, dealing @InitialDamageAP@ (%i:scaleAP%) magic damage to them and cursing them for 4 seconds. Then, spawn a 2 Hex withering zone for the same duration that deals @ZoneDPS@ (%i:scaleAP%) magic damage per second. Cursed enemies take @AdditionalDamagePerCurse@ (%i:scaleAP%) more damage per curse."
+      },
+      "image": "/assets/set18/champions/da_18_morgana.png"
+    },
+    {
+      "id": "DA_Nidalee18_AP",
+      "name": "Nidalee",
+      "cost": 4,
+      "role": "APCarry",
+      "traits": [
+        "DA_Primal18",
+        "DA_18_Adaptor"
+      ],
+      "traitNames": [
+        "Nguyên Sinh",
+        "Thích Ứng"
+      ],
+      "stats": {
+        "hp": 850,
+        "mana": 45,
+        "initialMana": 0,
+        "damage": 35,
+        "armor": 30,
+        "magicResist": 30,
+        "attackSpeed": 0.8,
+        "range": 1
+      },
+      "ability": {
+        "name": "Javelin Toss",
+        "description": "Adaptor %i:scaleAP%: Gain 150% Attack Speed for the next 3 attacks. These attacks are replaced with javelins that deal @EmpoweredDamage@ (%i:scaleAP%) magic damage. The 3rd attack instead targets the furthest enemy with the least items and deals @ThirdAttackEmpoweredDamage@ (%i:scaleAP%) magic damage.\nAdaptor %i:scaleAD%: Transform into a Melee cougar Assassin that swipes enemies."
+      },
+      "image": "/assets/set18/champions/da_nidalee18_ap.png"
+    },
+    {
+      "id": "DA_Sentinel18",
+      "name": "Sentinel",
+      "cost": 4,
+      "role": "APTank",
+      "traits": [
+        "DA_Riftbeast18",
+        "DA_18_Vanguard",
+        "DA_18_Invoker"
+      ],
+      "traitNames": [
+        "Quái Rừng",
+        "Tiên Phong",
+        "Thuật Sĩ"
+      ],
+      "stats": {
+        "hp": 1300,
+        "mana": 150,
+        "initialMana": 0,
+        "damage": 75,
+        "armor": 60,
+        "magicResist": 60,
+        "attackSpeed": 0.6,
+        "range": 1
+      },
+      "ability": {
+        "name": "Azure Shockwave",
+        "description": "Gain @ShieldAmount@ (%i:scaleAP%) + 10% (%i:scaleHealth%) max Health Shield for 4 seconds. Slam the ground, sending a fissure in the direction of the most enemies. Enemies hit are briefly knocked up, take @SlamDamage@ (%i:scaleAP%) magic damage, and are Mana Reaved for 10.\nBlue Buff: Each time Sentinel casts, allies gain 2 Mana Regen.\nMana Reave: Increase the Mana cost of the next Ability cast."
+      },
+      "image": "/assets/set18/champions/da_sentinel18.png"
+    },
+    {
+      "id": "DA_18_Sett",
+      "name": "Sett",
+      "cost": 4,
+      "role": "ADTank",
+      "traits": [
+        "DA_18_Blossom",
+        "DA_18_Brawler"
+      ],
+      "traitNames": [
+        "Hoa Linh",
+        "Đấu Sĩ"
+      ],
+      "stats": {
+        "hp": 1200,
+        "mana": 135,
+        "initialMana": 0,
+        "damage": 80,
+        "armor": 60,
+        "magicResist": 60,
+        "attackSpeed": 0.65,
+        "range": 1
+      },
+      "ability": {
+        "name": "Haymaker",
+        "description": "Passive: Upon falling below 40% max Health the first time each combat, gain 100 mana.\nActive: Wind up a big punch, rapidly healing for 12% (%i:scaleHealth%) + @BaseHeal@ (%i:scaleAP%) before dealing @ConeDamage@% (%i:scaleAD%) + 6% (%i:scaleHealth%) max Health physical damage in a large cone."
+      },
+      "image": "/assets/set18/champions/da_18_sett.png"
+    },
+    {
+      "id": "DA_18_Sivir",
+      "name": "Sivir",
+      "cost": 4,
+      "role": "ADCaster",
+      "traits": [
+        "DA_Primal18",
+        "DA_18_Hunter"
+      ],
+      "traitNames": [
+        "Nguyên Sinh",
+        "Thợ Săn"
+      ],
+      "stats": {
+        "hp": 850,
+        "mana": 40,
+        "initialMana": 0,
+        "damage": 50,
+        "armor": 40,
+        "magicResist": 40,
+        "attackSpeed": 0.8,
+        "range": 4
+      },
+      "ability": {
+        "name": "Boomerang Blade",
+        "description": "Throw a large crossblade that deals @InitialDamageAD@% (%i:scaleAD%) + @InitialDamageAP@ (%i:scaleAP%) physical damage to the current target and bounces 8 times between nearby enemies, dealing @BouncePercent@% physical damage each bounce. When this kills an enemy, bounce @BonusKillBounces@ additional times."
+      },
+      "image": "/assets/set18/champions/da_18_sivir.png"
+    },
+    {
+      "id": "DA_18_Soraka",
+      "name": "Soraka",
+      "cost": 4,
+      "role": "APCaster",
+      "traits": [
+        "DA_FloraFatalis18",
+        "DA_18_Executioner"
+      ],
+      "traitNames": [
+        "Thực Vật",
+        "Đao Phủ"
+      ],
+      "stats": {
+        "hp": 850,
+        "mana": 30,
+        "initialMana": 0,
+        "damage": 30,
+        "armor": 40,
+        "magicResist": 40,
+        "attackSpeed": 0.75,
+        "range": 4
+      },
+      "ability": {
+        "name": "Starcall",
+        "description": "Call down a star on the current target, dealing @DamageAP@ (%i:scaleAP%) magic damage. If a star has previously fallen on them, call down 3 additional stars that each deal @AdditionalStarDamageAP@ (%i:scaleAP%) magic damage."
+      },
+      "image": "/assets/set18/champions/da_18_soraka.png"
+    },
+    {
+      "id": "DA_18_Zyra",
+      "name": "Zyra",
+      "cost": 4,
+      "role": "APCaster",
+      "traits": [
+        "DA_18_ZyraUniqueTrait",
+        "DA_18_Summoner"
+      ],
+      "traitNames": [
+        "Vườn Gai",
+        "Triệu Hồi"
+      ],
+      "stats": {
+        "hp": 850,
+        "mana": 45,
+        "initialMana": 0,
+        "damage": 40,
+        "armor": 40,
+        "magicResist": 40,
+        "attackSpeed": 0.75,
+        "range": 4
+      },
+      "ability": {
+        "name": "Rampant Growth",
+        "description": "Spawn @NumPlantsToSpawn@ plants around the battlefield that attack the nearest enemy 10 times. Each attack deals @ThornSpitterDamagePerAttack@ (%i:scaleAP%) magic damage."
+      },
+      "image": "/assets/set18/champions/da_18_zyra.png"
+    },
+    {
+      "id": "DA_18_Alune",
+      "name": "Alune",
+      "cost": 5,
+      "role": "APCaster",
+      "traits": [
+        "DA_AluneUniqueTrait18",
+        "DA_18_Lunar",
+        "DA_18_Spellweaver"
+      ],
+      "traitNames": [
+        "Hòa Hợp",
+        "Mặt Trăng",
+        "Thuật Sư"
+      ],
+      "stats": {
+        "hp": 900,
+        "mana": 35,
+        "initialMana": 0,
+        "damage": 40,
+        "armor": 45,
+        "magicResist": 45,
+        "attackSpeed": 0.8,
+        "range": 4
+      },
+      "ability": {
+        "name": "Moonfall",
+        "description": "Rain 9 moonshards split among the 3 nearest enemies, dealing @MoonshardDamage@ (%i:scaleAP%) magic damage each.\nIf the moon is full, instead crash it onto the board, dealing @MoonDamage@ (%i:scaleAP%) magic damage split among all enemies."
+      },
+      "image": "/assets/set18/champions/da_18_alune.png"
+    },
+    {
+      "id": "DA_18_Ashe",
+      "name": "Ashe",
+      "cost": 5,
+      "role": "ADCaster",
+      "traits": [
+        "DA_18_Blossom",
+        "DA_18_Hunter"
+      ],
+      "traitNames": [
+        "Hoa Linh",
+        "Thợ Săn"
+      ],
+      "stats": {
+        "hp": 900,
+        "mana": 80,
+        "initialMana": 0,
+        "damage": 75,
+        "armor": 45,
+        "magicResist": 45,
+        "attackSpeed": 0.8,
+        "range": 5
+      },
+      "ability": {
+        "name": "Spirit Rift",
+        "description": "Fire an arrow through the most enemies in a line that deals @ArrowDamage@% (%i:scaleAD%) physical damage, reduced by @DamageFalloffPerEnemy@% per enemy hit (minimum 20%).\nThe arrow leaves a trail for @RiftDuration@ seconds that deals @RiftDamagePerSecond@% (%i:scaleAD%) + @MaxHealthDamagePerSecond@% max Health physical damage per second to enemies within and 20% Slows them.\nSlow: Reduce Attack Speed"
+      },
+      "image": "/assets/set18/champions/da_18_ashe.png"
+    },
+    {
+      "id": "DA_Draven18",
+      "name": "Draven",
+      "cost": 5,
+      "role": "ADCarry",
+      "traits": [
+        "DA_DravenUniqueTrait18"
+      ],
+      "traitNames": [
+        "Săn Thưởng"
+      ],
+      "stats": {
+        "hp": 900,
+        "mana": 120,
+        "initialMana": 0,
+        "damage": 48,
+        "armor": 45,
+        "magicResist": 45,
+        "attackSpeed": 0.8,
+        "range": 5
+      },
+      "ability": {
+        "name": "Whirling Death",
+        "description": "Passive: Attacks target random enemies in range and apply a bleed that deals @BleedDamage@% (%i:scaleAD%) physical damage over 12 seconds. Every attack has a 12% (%i:scaleAP%) chance to deal @SpinningAxeDamageRatio@% bonus physical damage and apply 2 bleeds instead.\nActive: Throw two giant axes towards the enemy with the most bleeds. Deal @GiantAxeDamage@% (%i:scaleAD%) physical damage to enemies hit and consume their bleed, instantly dealing the remaining damage. The axes then return, dealing @GiantAxeReturnDamage@% (%i:scaleAD%) physical damage to enemies hit."
+      },
+      "image": "/assets/set18/champions/da_draven18.png"
+    },
+    {
+      "id": "DA_18_ElderDragon",
+      "name": "Elder Dragon",
+      "cost": 5,
+      "role": "ADFighter",
+      "traits": [
+        "DA_18_ApexPredator",
+        "DA_Riftbeast18"
+      ],
+      "traitNames": [
+        "Bá Chủ",
+        "Quái Rừng"
+      ],
+      "stats": {
+        "hp": 1800,
+        "mana": 60,
+        "initialMana": 0,
+        "damage": 115,
+        "armor": 75,
+        "magicResist": 75,
+        "attackSpeed": 0.5,
+        "range": 2
+      },
+      "ability": {
+        "name": "Heat Without Equal",
+        "description": "Passive: Attacks deal @AttackAoERatio@% damage to enemies adjacent to the target.\nActive: Become invulnerable and fly into the air. On return, stun all enemies for @StunDuration@ seconds, gain @Omnivamp@% Omnivamp, and Ignite them for @IgniteDurationBase@ seconds. Ignited enemies take @IgniteMaxHealthDamage@% max Health physical damage per second. Replace this ability with Flame Breath and immediately cast it.\nFlame Breath: Spew fire at the most enemies in a line through the target, dealing @FireballDamageBase@% (%i:scaleAD%) + @FireballDamageAP@ (%i:scaleAP%) physical damage, reduced by 20% for each enemy it passes through (minimum 20%.) Ignite those enemies for @IgniteDuration2@ seconds.\nElder Dragon Buff: Damaging an enemy below 12% Health executes them."
+      },
+      "image": "/assets/set18/champions/da_18_elderdragon.png"
+    },
+    {
+      "id": "DA_18_GnarSmall",
+      "name": "Gnar",
+      "cost": 5,
+      "role": "ADSpecialist",
+      "traits": [
+        "DA_18_Elderwood",
+        "DA_18_Sprykin",
+        "DA_18_Brawler"
+      ],
+      "traitNames": [
+        "Thần Rừng",
+        "Tinh Nghịch",
+        "Đấu Sĩ"
+      ],
+      "stats": {
+        "hp": 900,
+        "mana": 70,
+        "initialMana": 0,
+        "damage": 100,
+        "armor": 55,
+        "magicResist": 55,
+        "attackSpeed": 0.9,
+        "range": 2
+      },
+      "ability": {
+        "name": "Rage Gene",
+        "description": "Passive: Gain @RagePerSecond@ Rage per second and 5 Rage per attack.\nActive: Transform into Mega Gnar and leap into the largest group of enemies within 3 hexes. Then, deal @TransformDamage@% (%i:scaleAD%) physical damage to enemies within @TransformHexRadius@ hexes, reduce their Armor and Magic Resist by @ArmorMRReduction@ (%i:scaleAP%), and Stun them for @StunDuration@ second. Mega Gnar gains @TransformHealth@ Health, and replaces his Ability with Grab n' Throw.\nGrab n' Throw: Throw the target at the farthest enemy, dealing @PrimaryTargetDamage@% (%i:scaleAD%) physical damage to them and @SecondaryTargetDamage@% (%i:scaleAD%) physical damage to enemies they pass through. If there's only 1 enemy left, throw them off the battlefield instead."
+      },
+      "image": "/assets/set18/champions/da_18_gnarsmall.png"
+    },
+    {
+      "id": "DA_18_Ivern",
+      "name": "Ivern",
+      "cost": 5,
+      "role": "APCaster",
+      "traits": [
+        "DA_18_Greenfather"
+      ],
+      "traitNames": [
+        "Thụ Thần"
+      ],
+      "stats": {
+        "mana": 80,
+        "initialMana": 0,
+        "damage": 60,
+        "armor": 55,
+        "magicResist": 55,
+        "attackSpeed": 0.8,
+        "range": 3
+      },
+      "ability": {
+        "name": "Triggerseed",
+        "description": "Passive: Shields from this Ability can critically strike with Precision.\nActive: Grant @NumAlliesToShield@ allies @ShieldAmount@ (%i:scaleAP%) Shield and @DamageAmpAmount@% Damage Amp for 6 seconds. Then deal @MagicDamage@ (%i:scaleAP%) magic damage to enemies adjacent to them. After casting 6 times, also grant 100% stacking Attack Speed to targets."
+      },
+      "image": "/assets/set18/champions/da_18_ivern.png"
+    },
+    {
+      "id": "DA_18_Kennen",
+      "name": "Kennen",
+      "cost": 5,
+      "role": "APReaper",
+      "traits": [
+        "DA_18_Inferno",
+        "DA_18_Executioner"
+      ],
+      "traitNames": [
+        "Hỏa Ngục",
+        "Đao Phủ"
+      ],
+      "stats": {
+        "hp": 1200,
+        "mana": 40,
+        "initialMana": 0,
+        "damage": 50,
+        "armor": 60,
+        "magicResist": 60,
+        "attackSpeed": 0.85,
+        "range": 2
+      },
+      "ability": {
+        "name": "Firestorm",
+        "description": "Charge up, gaining 15% Ability Power per Burning enemy. Then, gain @ShieldAP@ (%i:scaleAP%) Shield for 2.5 seconds and rush through a nearby group of enemies, dealing @DashDamage@ (%i:scaleAP%) magic damage to each.\nAfter rushing, unleash a 2 Hex firestorm that deals a total of @FirestormDamage@ (%i:scaleAP%) magic damage split among all enemies hit over 2 seconds."
+      },
+      "image": "/assets/set18/champions/da_18_kennen.png"
+    },
+    {
+      "id": "DA_Lux18_Base",
+      "name": "Lux",
+      "cost": 5,
+      "role": "APCaster",
+      "traits": [
+        "DA_18_LuxUniqueTrait"
+      ],
+      "traitNames": [
+        "Thế Thần"
+      ],
+      "stats": {
+        "hp": 900,
+        "mana": 70,
+        "initialMana": 0,
+        "damage": 40,
+        "armor": 40,
+        "magicResist": 40,
+        "attackSpeed": 0.8,
+        "range": 5
+      },
+      "ability": {
+        "name": "Final Spark",
+        "description": "Passive: On cast, all allies that share a trait with Lux gain @ManaForAllies@ (%i:scaleAP%) mana.\nActive: Fire a laser towards the largest group of enemies that deals @LaserDamage@ (%i:scaleAP%) magic damage, reduced by @DamageReductionPerUnit@% for each enemy hit."
+      },
+      "image": "/assets/set18/champions/da_lux18_base.png"
+    },
+    {
+      "id": "DA_18_Maokai",
+      "name": "Maokai",
+      "cost": 5,
+      "role": "APTank",
+      "traits": [
+        "DA_18_Maokai_UniqueTrait",
+        "DA_Juggernaut18"
+      ],
+      "traitNames": [
+        "Cổ Thụ",
+        "Dũng Sĩ"
+      ],
+      "stats": {
+        "hp": 1150,
+        "mana": 100,
+        "initialMana": 0,
+        "damage": 80,
+        "armor": 60,
+        "magicResist": 60,
+        "attackSpeed": 0.65,
+        "range": 1
+      },
+      "ability": {
+        "name": "Sow the Seeds",
+        "description": "Passive: After every @DamageMitigatedPerSapling@ damage blocked, a sapling jumps towards a nearby enemy and deals @SaplingDamageHealthScalar@% (%i:scaleHealth%) max Health magic damage. On death, @SaplingsOnDeath@ saplings jump out.\nActive: Deal @ActiveDamageHealthScalar@% (%i:scaleHealth%) max Health magic damage to target and restore @ActiveBaseHeal@ (%i:scaleAP%) + @ActiveMissingHealthHeal@% missing Health."
+      },
+      "image": "/assets/set18/champions/da_18_maokai.png"
+    },
+    {
+      "id": "DA_Taric18",
+      "name": "Taric",
+      "cost": 5,
+      "role": "APTank",
+      "traits": [
+        "DA_Emerald18",
+        "DA_18_Vanguard"
+      ],
+      "traitNames": [
+        "Lục Bảo",
+        "Tiên Phong"
+      ],
+      "stats": {
+        "hp": 1300,
+        "mana": 65,
+        "initialMana": 0,
+        "damage": 55,
+        "armor": 65,
+        "magicResist": 65,
+        "attackSpeed": 0.75,
+        "range": 1
+      },
+      "ability": {
+        "name": "Emerald Radiance",
+        "description": "Passive: The first time Taric or his paired ally drops below 50% Health, unleash emerald energy from both of them, granting @PassiveShieldBase@ + @PassiveShieldHealthScalar@% (%i:scaleHealth%) max Health Shield to allies within 3 Hexes for @PassiveShieldDuration@ seconds.\nActive: Restore @HealAmount@ (%i:scaleAP%) Health. Taric and his paired ally deal @ShatterBonusDamage@ (%i:scaleAP%) bonus magic damage on their next 2 attacks."
+      },
+      "image": "/assets/set18/champions/da_taric18.png"
+    }
+  ],
+  "traits": [
+    {
+      "id": "DA_18_Adaptor",
+      "name": "Thích Ứng",
+      "nameEn": "Adaptor",
+      "description": "Thiên Phú: Kỹ năng của tướng Thích Ứng sẽ thay đổi tùy theo việc Sức Mạnh Công Kích hay Sức Mạnh Phép Thuật của họ cao hơn.\nTướng Thích Ứng nhận thêm Sức Mạnh Phép Thuật hoặc Sức Mạnh Công Kích, tùy vào chỉ số nào cao hơn.\n(@MinUnits@) @ADAPGain*100@% HOẶC\n(@MinUnits@) @ADAPGain*100@% HOẶC\n(@MinUnits@) @ADAPGain*100@% HOẶC",
+      "searchable": true,
+      "unique": false,
+      "breakpoints": [
+        2,
+        3,
+        4
+      ],
+      "image": "/assets/set18/traits/da_18_adaptor.png"
+    },
+    {
+      "id": "DA_18_ApexPredator",
+      "name": "Bá Chủ",
+      "nameEn": "Apex Predator",
+      "description": "Rồng Ngàn Tuổi chiếm 2 vị trí đội hình và tăng thêm 2 mốc vào tộc/hệ Quái Rừng.",
+      "searchable": false,
+      "unique": true,
+      "breakpoints": [
+        1
+      ],
+      "image": "/assets/set18/traits/da_18_apexpredator.png"
+    },
+    {
+      "id": "DA_AluneUniqueTrait18",
+      "name": "Hòa Hợp",
+      "nameEn": "Attuned",
+      "description": "Alune mạnh nhất của bạn sẽ chuyển sang một pha trăng mới sau mỗi lần thi triển. Khi mặt trăng ở pha bán nguyệt hoặc khuyết hơn, đội của bạn nhận @Durability*100@% Chống Chịu. Khi ở những pha còn lại, đội của bạn nhận @DamageAmp*100@% Khuếch Đại Sát Thương.",
+      "searchable": false,
+      "unique": true,
+      "breakpoints": [
+        1
+      ],
+      "image": "/assets/set18/traits/da_aluneuniquetrait18.png"
+    },
+    {
+      "id": "DA_18_LuxUniqueTrait",
+      "name": "Thế Thần",
+      "nameEn": "Avatar",
+      "description": "Sở hữu một tướng Thế Thần sẽ biến mọi tướng Thế Thần khác trong cửa hàng của bạn về Tộc/Hệ của tướng Thế Thần đó.\nTộc/Hệ được chọn của tướng Thế Thần sẽ được tính gấp đôi cho các mốc thưởng Tộc/Hệ.",
+      "searchable": false,
+      "unique": true,
+      "breakpoints": [
+        1
+      ],
+      "image": "/assets/set18/traits/da_18_luxuniquetrait.png"
+    },
+    {
+      "id": "DA_18_Blackthorn",
+      "name": "Gai Đen",
+      "nameEn": "Blackthorn",
+      "description": "Đồng minh trên ô Gai Đen sẽ bị hiến tế trước khi giao tranh, tăng Máu cho các tướng của bạn.\nTướng Gai Đen nhận thêm chỉ số dựa trên Vai Trò, Cấp Sao và Giá của vật tế.\n(@MinUnits@) @Health@ %i:scaleHealth%\n(@MinUnits@) @Health@ %i:scaleHealth%; Hiệu ứng cộng thêm mạnh hơn @StatMultiplier*100@%\n(@MinUnits@) @Health@ %i:scaleHealth%; Hiệu ứng cộng thêm mạnh hơn @StatMultiplier*100@%",
+      "searchable": true,
+      "unique": false,
+      "breakpoints": [
+        2,
+        4,
+        6
+      ],
+      "image": "/assets/set18/traits/da_18_blackthorn.png"
+    },
+    {
+      "id": "DA_18_Blossom",
+      "name": "Hoa Linh",
+      "nameEn": "Blossom",
+      "description": "Sau giao tranh, các Tinh Linh của bạn được cường hóa.\nTướng Hoa Linh nhận thêm Sức Mạnh Công Kích, Sức Mạnh Phép Thuật và @BonusHealth*100@% Máu tối đa.\n(@MinUnits@) Tinh Linh được nâng cấp, @ADAP*100@% %i:scaleAD%%i:scaleAP%\n(@MinUnits@) Tinh Linh xuất hiện trong mọi cửa hàng, @ADAP*100@% %i:scaleAD%%i:scaleAP%\n(@MinUnits@) Nhận @GoldPerCharmPurchased@ vàng sau khi mua 1 Tinh Linh, @ADAP*100@% %i:scaleAD%%i:scaleAP%\n(@MinUnits@) Bạn có thể mua 2 Tinh Linh mỗi vòng, @ADAP*100@% %i:scaleAD%%i:scaleAP%\n(@MinUnits@) Tinh Linh tràn đầy sức mạnh, @ADAP*100@% %i:scaleAD%%i:scaleAP%",
+      "searchable": true,
+      "unique": false,
+      "breakpoints": [
+        3,
+        5,
+        7,
+        9,
+        11
+      ],
+      "image": "/assets/set18/traits/da_18_blossom.png"
+    },
+    {
+      "id": "DA_DravenUniqueTrait18",
+      "name": "Săn Thưởng",
+      "nameEn": "Bounty Seeker",
+      "description": "Chọn một nhiệm vụ. Draven mạnh nhất của bạn có thể hoàn thành nhiệm vụ săn thưởng để nhận phần thưởng tương ứng. Sau khi hoàn thành một nhiệm vụ săn thưởng, hãy chọn nhiệm vụ tiếp theo.",
+      "searchable": false,
+      "unique": true,
+      "breakpoints": [
+        1
+      ],
+      "image": "/assets/set18/traits/da_dravenuniquetrait18.png"
+    },
+    {
+      "id": "DA_18_Brawler",
+      "name": "Đấu Sĩ",
+      "nameEn": "Brawler",
+      "description": "Đội của bạn nhận thêm @BrawlerTeamHealth@ Máu tối đa. Tướng Đấu Sĩ nhận được nhiều hơn.\n(@MinUnits@) @BrawlerHealthPercent*100@% %i:scaleHealth%\n(@MinUnits@) @BrawlerHealthPercent*100@% %i:scaleHealth%\n(@MinUnits@) @BrawlerHealthPercent*100@% %i:scaleHealth%",
+      "searchable": true,
+      "unique": false,
+      "breakpoints": [
+        2,
+        4,
+        6
+      ],
+      "image": "/assets/set18/traits/da_18_brawler.png"
+    },
+    {
+      "id": "DA_18_Caustic",
+      "name": "Ăn Mòn",
+      "nameEn": "Caustic",
+      "description": "Sát thương Ăn Mòn sẽ Cào Xé và Phân Tách kẻ địch @ShredPercent@% trong @ShredDuration@ giây.\nCào Xé: giảm Kháng Phép\nPhân Tách: giảm Giáp",
+      "searchable": false,
+      "unique": true,
+      "breakpoints": [
+        1
+      ],
+      "image": "/assets/set18/traits/da_18_caustic.png"
+    },
+    {
+      "id": "DA_18_Coven",
+      "name": "Tiên Hắc Ám",
+      "nameEn": "Coven",
+      "description": "Nhận Tinh Hoa khi hạ gục tướng, và nhận thêm khi thua giao tranh người chơi.\nBắt đầu từ mốc @EssenceForRitualTooltip@ Tinh Hoa, bạn có thể chọn chuyển đổi Tinh Hoa thành phần thưởng hoặc tiếp tục tích lũy. Mỗi phần thưởng yêu cầu lượng Tinh Hoa tăng dần.\n(@MinUnits@) @EssencePerDeath@ Tinh Hoa mỗi mạng hạ gục, @EssencePerLoss@ Tinh Hoa mỗi lần thua\n(@MinUnits@) @EssencePerDeath@ mỗi mạng hạ gục, @EssencePerLoss@ mỗi lần thua\n(@MinUnits@) @EssencePerDeath@ mỗi mạng hạ gục, @EssencePerLoss@ mỗi lần thua\n(@MinUnits@) @EssencePerDeath@ mỗi mạng hạ gục, @EssencePerLoss@ mỗi lần thua",
+      "searchable": true,
+      "unique": false,
+      "breakpoints": [
+        3,
+        4,
+        5,
+        7
+      ],
+      "image": "/assets/set18/traits/da_18_coven.png"
+    },
+    {
+      "id": "DA_18_Defender",
+      "name": "Vệ Quân",
+      "nameEn": "Defender",
+      "description": "Đội của bạn nhận @NonDefenderDefenseGain@ Giáp và Kháng Phép. Tướng Vệ Quân nhận được nhiều hơn.\n(@MinUnits@) @DefenderDefenseGain@\n(@MinUnits@) @DefenderDefenseGain@\n(@MinUnits@) @DefenderDefenseGain@",
+      "searchable": true,
+      "unique": false,
+      "breakpoints": [
+        2,
+        4,
+        6
+      ],
+      "image": "/assets/set18/traits/da_18_defender.png"
+    },
+    {
+      "id": "DA_18_Eclipse",
+      "name": "Thiên Thực",
+      "nameEn": "Eclipse",
+      "description": "Sau @DelaySeconds@ giây giao tranh, tướng Thiên Thực sẽ hạ gục kẻ địch có lượng Máu thấp nhất, lặp lại sau mỗi @EclipseBeamPeriod@ giây.",
+      "searchable": false,
+      "unique": true,
+      "breakpoints": [],
+      "image": "/assets/set18/traits/da_18_eclipse.png"
+    },
+    {
+      "id": "DA_18_Elderwood",
+      "name": "Thần Rừng",
+      "nameEn": "Elderwood",
+      "description": "Nhận các cây Thần Rừng có thể đặt được.\n(@MinUnits@) 1 Cây Vỏ Đá và 1 Hoa Sinh Mệnh\n(@MinUnits@) Cây Vỏ Đá thứ hai & các Cây Vỏ Đá được tăng @StonebarkTreeBonusHealth@ Máu\n(@MinUnits@) và Hộ Vệ Rừng\n(@MinUnits@) Các cây trở thành 2 sao\n(@MinUnits@) Các cây trở thành 3 sao và khu rừng được hình thành",
+      "searchable": true,
+      "unique": false,
+      "breakpoints": [
+        3,
+        5,
+        7,
+        9,
+        11
+      ],
+      "image": "/assets/set18/traits/da_18_elderwood.png"
+    },
+    {
+      "id": "DA_Emerald18",
+      "name": "Lục Bảo",
+      "nameEn": "Emerald Aspect",
+      "description": "Kéo một đồng minh vào Taric mạnh nhất của bạn để ghép đôi họ, ban cho đồng minh các hiệu ứng mạnh mẽ từ Kỹ Năng của Taric.",
+      "searchable": false,
+      "unique": true,
+      "breakpoints": [
+        1
+      ],
+      "image": "/assets/set18/traits/da_emerald18.png"
+    },
+    {
+      "id": "DA_18_Executioner",
+      "name": "Đao Phủ",
+      "nameEn": "Executioner",
+      "description": "(@MinUnits@) Tướng Đao Phủ nhận được Chuẩn Xác và @CritChance*100@% Tỉ Lệ Chí Mạng.\n(@MinUnits@) Ngoài ra, kẻ địch sẽ bị chảy máu, chịu thêm @BonusBleedPercent*100@% sát thương chuẩn trong @BleedDuration@ giây.\n(@MinUnits@) Sát thương chảy máu tăng thành @BonusBleedPercent*100@%.",
+      "searchable": true,
+      "unique": false,
+      "breakpoints": [
+        2,
+        3,
+        4
+      ],
+      "image": "/assets/set18/traits/da_18_executioner.png"
+    },
+    {
+      "id": "DA_18_Fae",
+      "name": "Tiên Linh",
+      "nameEn": "Fae",
+      "description": "Sát thương, hồi máu và tạo lá chắn của đội bạn sẽ thu hút các Pix.\nMỗi Pix sẽ tăng Sức Mạnh Công Kích và Sức Mạnh Phép Thuật cho các tướng Tiên Linh, và sau khi họ tụt xuống dưới @HealThreshold*100@% Máu, họ sẽ hồi máu với mỗi Pix.\n(@MinUnits@) @ADAP@% và @Heal@% Hồi Máu.\n(@MinUnits@) @ADAP@% và @Heal@% Hồi Máu. Sau khi thu hút 7 Pix, bạn sẽ bắt đầu thu hút Pix Hoàng Kim, những Pix Hoàng Kim này sẽ cho vàng.",
+      "searchable": true,
+      "unique": false,
+      "breakpoints": [
+        2,
+        4
+      ],
+      "image": "/assets/set18/traits/da_18_fae.png"
+    },
+    {
+      "id": "DA_FloraFatalis18",
+      "name": "Thực Vật",
+      "nameEn": "Flora Fatalis",
+      "description": "Các tướng Thực Vật thu hoạch kẻ địch khi tham gia hạ gục, nhận:\n(@MinUnits@) @Mana@ Năng Lượng\n(@MinUnits@), đồng thời hồi lại @PercentHeal*100@% Máu tối đa cho đồng minh có lượng Máu thấp nhất.",
+      "searchable": true,
+      "unique": false,
+      "breakpoints": [
+        1,
+        2
+      ],
+      "image": "/assets/set18/traits/da_florafatalis18.png"
+    },
+    {
+      "id": "DA_18_Greenfather",
+      "name": "Thụ Thần",
+      "nameEn": "Greenfather",
+      "description": "Nhận @SeedsPerCast@ hạt giống khi Ivern mạnh nhất của bạn thi triển, cộng thêm @CombatStartSeeds@ mỗi giao tranh. Ivern dùng @SeedsToGrowHex@ hạt giống để nuôi lớn 1 ô trên bàn đấu của bạn, trao hiệu ứng cộng thêm cho đơn vị đứng trên ô đó.\nHạt Giống: 0 / @SeedsToGrowHex@\nHệ Sinh Thái Hiện Tại:",
+      "searchable": false,
+      "unique": true,
+      "breakpoints": [
+        1
+      ],
+      "image": "/assets/set18/traits/da_18_greenfather.png"
+    },
+    {
+      "id": "DA_18_Hunter",
+      "name": "Thợ Săn",
+      "nameEn": "Hunter",
+      "description": "Tướng Thợ Săn nhận Sức Mạnh Công Kích. Nếu tướng Thợ Săn không đổi mục tiêu trong @HunterDuration@ giây, họ nhận thêm @DamageAmp*100@% Khuếch Đại Sát Thương.\n(@MinUnits@) @HunterAD*100@% %i:scaleAD%\n(@MinUnits@) @HunterAD*100@% %i:scaleAD%\n(@MinUnits@) @HunterAD*100@% %i:scaleAD%\n(@MinUnits@) @HunterAD*100@% %i:scaleAD%",
+      "searchable": true,
+      "unique": false,
+      "breakpoints": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "image": "/assets/set18/traits/da_18_hunter.png"
+    },
+    {
+      "id": "DA_18_Inferno",
+      "name": "Hỏa Ngục",
+      "nameEn": "Inferno",
+      "description": "Sát thương từ tướng Hỏa Ngục sẽ gây Thiêu Đốt và Vết Thương Sâu lên kẻ địch trong @Duration@ giây. Thiêu Đốt từ Hỏa Ngục cộng dồn với các hiệu ứng Thiêu Đốt khác.\n(@MinUnits@) Thiêu Đốt @HPBurnPerSecond@%, Vết Thương Sâu @WoundPercent@%\n(@MinUnits@) Sau giao tranh, @LuckySlotCount@ ô cửa hàng không chứa tướng Hỏa Ngục của bạn sẽ bốc cháy, hiện ra tướng cao hơn 1 bậc\n(@MinUnits@) @LuckySlotCount@ ô cửa hàng Bốc Cháy, Thiêu Đốt @HPBurnPerSecond@%\n(@MinUnits@) @LuckySlotCount@ ô cửa hàng Bốc Cháy, Thiêu Đốt @HPBurnPerSecond@%",
+      "searchable": true,
+      "unique": false,
+      "breakpoints": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "image": "/assets/set18/traits/da_18_inferno.png"
+    },
+    {
+      "id": "DA_18_Invoker",
+      "name": "Thuật Sĩ",
+      "nameEn": "Invoker",
+      "description": "Đội của bạn được tăng Hồi Năng Lượng, tướng Thuật Sĩ nhận được nhiều hơn.\n(@MinUnits@) @TeamManaRegen@ %i:scaleManaRegen% | @InvokerManaBonus@ %i:scaleManaRegen%\n(@MinUnits@) @TeamManaRegen@ %i:scaleManaRegen% | @InvokerManaBonus@ %i:scaleManaRegen%\n(@MinUnits@) @TeamManaRegen@ %i:scaleManaRegen% | @InvokerManaBonus@ %i:scaleManaRegen%\n(@MinUnits@) @TeamManaRegen@ %i:scaleManaRegen% | @InvokerManaBonus@ %i:scaleManaRegen%",
+      "searchable": true,
+      "unique": false,
+      "breakpoints": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "image": "/assets/set18/traits/da_18_invoker.png"
+    },
+    {
+      "id": "DA_Juggernaut18",
+      "name": "Dũng Sĩ",
+      "nameEn": "Juggernaut",
+      "description": "Đội của bạn nhận Chống Chịu. Tướng Dũng Sĩ nhận được nhiều hơn.\n(@MinUnits@) @TeamDurability*100@% %i:scaleDR% hoặc @JuggernautDurability*100@% %i:scaleDR%\n(@MinUnits@) @TeamDurability*100@% %i:scaleDR% hoặc @JuggernautDurability*100@% %i:scaleDR%\n(@MinUnits@) @TeamDurability*100@% %i:scaleDR% hoặc @JuggernautDurability*100@% %i:scaleDR%",
+      "searchable": true,
+      "unique": false,
+      "breakpoints": [
+        2,
+        4,
+        6
+      ],
+      "image": "/assets/set18/traits/da_juggernaut18.png"
+    },
+    {
+      "id": "DA_18_Lunar",
+      "name": "Mặt Trăng",
+      "nameEn": "Lunar",
+      "description": "Các tướng Mặt Trăng và đồng minh liền kề nhận Tốc Độ Đánh và Sức Mạnh Phép Thuật. Các tướng Mặt Trăng nhận thêm @LunarMultiplier*100@%.\n(@MinUnits@) @AttackSpeed*100@% %i:scaleAS%, @AbilityPower*100@% %i:scaleAP%\n(@MinUnits@) @AttackSpeed*100@% %i:scaleAS%, @AbilityPower*100@% %i:scaleAP%\n(@MinUnits@) @AttackSpeed*100@% %i:scaleAS%, @AbilityPower*100@% %i:scaleAP%\n(@MinUnits@) @AttackSpeed*100@% %i:scaleAS%, @AbilityPower*100@% %i:scaleAP%",
+      "searchable": true,
+      "unique": false,
+      "breakpoints": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "image": "/assets/set18/traits/da_18_lunar.png"
+    },
+    {
+      "id": "DA_18_Battlemage",
+      "name": "Cự Thạch",
+      "nameEn": "Monolith",
+      "description": "Tướng Cự Thạch tăng @Resists@ Giáp và Kháng Phép với mỗi kẻ địch đang nhắm vào họ.",
+      "searchable": false,
+      "unique": true,
+      "breakpoints": [
+        1
+      ],
+      "image": "/assets/set18/traits/da_18_battlemage.png"
+    },
+    {
+      "id": "DA_18_Maokai_UniqueTrait",
+      "name": "Cổ Thụ",
+      "nameEn": "Old Growth",
+      "description": "Mỗi khi một kẻ địch trong @UniqueTraitHexRange@ ô bị hạ gục, tướng Cổ Thụ mạnh nhất của bạn nhận @UniqueTraitHealthPerStack@ Máu tối đa vĩnh viễn.\nHiện tại: 0",
+      "searchable": false,
+      "unique": true,
+      "breakpoints": [
+        1
+      ],
+      "image": "/assets/set18/traits/da_18_maokai_uniquetrait.png"
+    },
+    {
+      "id": "DA_Primal18",
+      "name": "Nguyên Sinh",
+      "nameEn": "Primal",
+      "description": "Chọn 1 trong 4 Phước Lành Nguyên Sinh.\n(@MinUnits@)\n(@MinUnits@)",
+      "searchable": true,
+      "unique": false,
+      "breakpoints": [
+        2,
+        4
+      ],
+      "image": "/assets/set18/traits/da_primal18.png"
+    },
+    {
+      "id": "DA_18_Rapidfire",
+      "name": "Liên Kích",
+      "nameEn": "Rapidfire",
+      "description": "Đội của bạn nhận @TeamAS*100@% Tốc Độ Đánh. Các tướng Liên Kích nhận thêm sau mỗi đòn đánh, tối đa @MaxStacks@ cộng dồn.\n(@MinUnits@) +@ASPerAttack*100@% %i:scaleAS% mỗi Đòn Đánh\n(@MinUnits@) +@ASPerAttack*100@% %i:scaleAS% mỗi Đòn Đánh\n(@MinUnits@) +@ASPerAttack*100@% %i:scaleAS% mỗi Đòn Đánh\n(@MinUnits@) +@ASPerAttack*100@% %i:scaleAS% mỗi Đòn Đánh",
+      "searchable": true,
+      "unique": false,
+      "breakpoints": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "image": "/assets/set18/traits/da_18_rapidfire.png"
+    },
+    {
+      "id": "DA_18_Slayer",
+      "name": "Tàn Phá",
+      "nameEn": "Ravager",
+      "description": "Tướng Tàn Phá nhận @Omnivamp*100@% Hút Máu Toàn Phần. Ngoài ra, tướng Tàn Phá sẽ gây thêm sát thương, tăng gấp đôi khi tấn công kẻ địch còn dưới @EnemyHealthThreshold*100@% Máu.\n(@MinUnits@) @BonusDamagePercentBase*100@% Sát Thương Cộng Thêm\n(@MinUnits@) @BonusDamagePercentBase*100@% Sát Thương Cộng Thêm\n(@MinUnits@) @BonusDamagePercentBase*100@% Sát Thương Cộng Thêm",
+      "searchable": true,
+      "unique": false,
+      "breakpoints": [
+        2,
+        4,
+        6
+      ],
+      "image": "/assets/set18/traits/da_18_slayer.png"
+    },
+    {
+      "id": "DA_Riftbeast18",
+      "name": "Quái Rừng",
+      "nameEn": "Riftbeast",
+      "description": "(@MinUnits@) Sử dụng Dấu Ấn Đầu Đàn để trao Bùa Lợi độc nhất cho một tướng Quái Rừng\n(@MinUnits@) Mỗi @OverrunCombats@ giao tranh, cửa hàng tiếp theo của bạn sẽ tràn ngập tướng Quái Rừng.\n(@MinUnits@) Khi bắt đầu giao tranh và cứ mỗi 5 giây, tướng Quái Rừng tăng trưởng và nhận\n@CapstoneAD*100@% %i:scaleAD% @CapstoneAP*100@% %i:scaleAP% @CapstoneAspd*100@% %i:scaleAS%\n+@CapstoneArmor@ %i:scaleArmor% +@CapstoneMR@ %i:scaleMR% +@CapstoneHealth@ %i:scaleHealth% +@CapstoneManaRegen@ %i:scaleManaRegen%\n(@MinUnits@) +@TeamSize@ số lượng tướng tối đa",
+      "searchable": true,
+      "unique": false,
+      "breakpoints": [
+        3,
+        5,
+        7,
+        10
+      ],
+      "image": "/assets/set18/traits/da_riftbeast18.png"
+    },
+    {
+      "id": "DA_18_Rival",
+      "name": "Khắc Tinh",
+      "nameEn": "Rival",
+      "description": "(@MinUnits@) Chỉ kích hoạt khi triển khai 1 tướng Khắc Tinh.\nTướng Khắc Tinh thu thập điểm tham gia hạ gục, nhận 3 điểm nếu tham gia hạ gục một tướng Khắc Tinh khác.\n(@MinUnits@) Tướng Khắc Tinh thu thập điểm tham gia hạ gục, nhận 3 điểm nếu tham gia hạ gục một tướng Khắc Tinh khác.\nTham gia hạ gục sẽ tiến hóa Kha'Zix, vĩnh viễn ban cho hắn lựa chọn tùy ý: Đao Phủ, Liên Kích, Tàn Phá hoặc Thuật Sư.\nRengar trao @RengarGold@/@RengarGold_2@/@RengarGold_3@ vàng mỗi @RengarStackReq@ lần tham gia hạ gục. Sau @RengarADStackReq@ lần tham gia hạ gục, đội của bạn nhận @RengarThresholdAD*100@% Sức Mạnh Công Kích + @RengarADPerStack*100@% %i:scaleAD% cho mỗi lần tham gia hạ gục tiếp theo.\nSố Lần Kha'Zix Tham Gia Hạ Gục: 0 / 0\nSố Lần Rengar Tham Gia Hạ Gục: 0\nVàng Kiếm Được: 0\n(@MinUnits@) tướng Khắc Tinh được triển khai cùng nhau, và kỹ năng của họ sẽ trao hiệu ứng thưởng cho nhau.",
+      "searchable": true,
+      "unique": false,
+      "breakpoints": [
+        1
+      ],
+      "image": "/assets/set18/traits/da_18_rival.png"
+    },
+    {
+      "id": "DA_18_Solar",
+      "name": "Mặt Trời",
+      "nameEn": "Solar",
+      "description": "(@MinUnits@) Tướng của bạn nhận lá chắn bằng @ShieldRatio*100@% Máu tối đa và gây @BonusMagicDamage*100@% sát thương phép cộng thêm. Nhận thêm hiệu ứng bổ sung với mỗi tướng 3 sao độc nhất:\n1: Tăng lá chắn và sát thương phép thêm @PercentIncreasePer3Star*100@% với mỗi tướng 3 sao.\n@NumThreeStarThreshold1@: @Threshold1AttackSpeed*100@% %i:scaleAS% và @Threshold1ArmorMagicResist@ %i:scaleArmor%%i:scaleMR%\n@NumThreeStarThreshold2@: Chuyển đổi @Threshold2TrueDamageConversion*100@% sát thương phép cộng thêm thành sát thương chuẩn.\n@NumThreeStarThreshold3@: Mỗi @Threshold3StarUpPeriod@ giây giao tranh, 1 tướng 3 sao thăng hoa lên 4 sao.",
+      "searchable": true,
+      "unique": false,
+      "breakpoints": [
+        3
+      ],
+      "image": "/assets/set18/traits/da_18_solar.png"
+    },
+    {
+      "id": "DA_18_Spellweaver",
+      "name": "Thuật Sư",
+      "nameEn": "Spellweaver",
+      "description": "Đội của bạn nhận @TeamwideAP*100@% Sức Mạnh Phép Thuật. Các tướng Thuật Sư nhận được nhiều hơn, và nhận thêm Sức Mạnh Phép Thuật mỗi khi một tướng Thuật Sư thi triển Kỹ Năng.\n(@MinUnits@) @SpellweaverAP*100@% %i:scaleAP%, +@APPerCast*100@% %i:scaleAP% mỗi lần thi triển\n(@MinUnits@) @SpellweaverAP*100@% %i:scaleAP%, +@APPerCast*100@% %i:scaleAP% mỗi lần thi triển\n(@MinUnits@) @SpellweaverAP*100@% %i:scaleAP%, +@APPerCast*100@% %i:scaleAP% mỗi lần thi triển",
+      "searchable": true,
+      "unique": false,
+      "breakpoints": [
+        2,
+        4,
+        6
+      ],
+      "image": "/assets/set18/traits/da_18_spellweaver.png"
+    },
+    {
+      "id": "DA_18_Sprykin",
+      "name": "Tinh Nghịch",
+      "nameEn": "Sprykin",
+      "description": "Nhận Lông Xù Khổng Lồ. Thả một tướng Tinh Nghịch lên LXKL để chọn làm Kỵ Sĩ.\n(@MinUnits@) Kỵ Sĩ nhận được\n@HealthIncrease*100@% %i:scaleHealth% và @AttackSpeedIncrease*100@% %i:scaleAS%\n(@MinUnits@) @HealthIncrease*100@% %i:scaleHealth% @AttackSpeedIncrease*100@% %i:scaleAS%, và @TeamwideRatio*100@% Kỹ năng của LXKL sẽ áp dụng cho các tướng Tinh Nghịch của bạn.\n(@MinUnits@) @HealthIncrease*100@% %i:scaleHealth% @AttackSpeedIncrease*100@% %i:scaleAS%, và @TeamwideRatio*100@% Kỹ năng của LXKL sẽ áp dụng cho các tướng Tinh Nghịch của bạn.",
+      "searchable": true,
+      "unique": false,
+      "breakpoints": [
+        3,
+        5,
+        7
+      ],
+      "image": "/assets/set18/traits/da_18_sprykin.png"
+    },
+    {
+      "id": "DA_18_Summoner",
+      "name": "Triệu Hồi",
+      "nameEn": "Summoner",
+      "description": "Tướng Triệu Hồi cường hóa các đơn vị triệu hồi của mình theo nhiều cách khác nhau.\nYorick: +@HealthMult*100@% Máu\nAzir: +@DamageMult*100@% Sát Thương\nChim Mẹ: +@DamageMult*100@% Sát Thương\nZyra: +@NumExtraAttacks@ Đòn Đánh Từ Cây\n(@MinUnits@) Cường Hóa Đơn Vị Triệu Hồi\n(@MinUnits@) Tăng mỗi hiệu ứng thêm 50%",
+      "searchable": true,
+      "unique": false,
+      "breakpoints": [
+        2,
+        3
+      ],
+      "image": "/assets/set18/traits/da_18_summoner.png"
+    },
+    {
+      "id": "DA_18_ZyraUniqueTrait",
+      "name": "Vườn Gai",
+      "nameEn": "Thornmaiden",
+      "description": "Đội của bạn nhận @BaseDurability*100@% Chống Chịu, tăng lên thành @IncreasedDurability*100@% nếu có tối thiểu @PlantNumThreshold@ cây của Zyra đang còn sống.",
+      "searchable": false,
+      "unique": true,
+      "breakpoints": [
+        1
+      ],
+      "image": "/assets/set18/traits/da_18_zyrauniquetrait.png"
+    },
+    {
+      "id": "DA_18_Vanguard",
+      "name": "Tiên Phong",
+      "nameEn": "Vanguard",
+      "description": "Khi Bắt đầu giao tranh và khi xuống dưới @HealthThreshold*100@% Máu, tướng Tiên Phong nhận Lá Chắn theo Máu tối đa trong @ShieldDuration@ giây.\n(@MinUnits@) @MaxHealthShield*100@% Máu tối đa\n(@MinUnits@) @MaxHealthShield*100@% Máu tối đa\n(@MinUnits@) @MaxHealthShield*100@% Máu tối đa. Tăng @DurabilityIncrease*100@% Chống Chịu khi có Lá Chắn.",
+      "searchable": true,
+      "unique": false,
+      "breakpoints": [
+        2,
+        4,
+        6
+      ],
+      "image": "/assets/set18/traits/da_18_vanguard.png"
+    }
+  ],
+  "items": [
+    {
+      "id": "DA_Artifact_AegisOfDawn",
+      "name": "Khiên Hừng Đông",
+      "nameEn": "Aegis of Dawn",
+      "description": "@BaseHealth@ %i:scaleHealth% @BaseArmor@ %i:scaleArmor%",
+      "category": "artifact",
+      "composition": [],
+      "tags": [
+        "{44ace175}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "BaseHealth": 400,
+        "Health": 400,
+        "BaseArmor": 50,
+        "AOEFrequency": 2.5,
+        "DuskBonusArmor": 15,
+        "DuskBonusFrequency": 1.25,
+        "ArmorSteal": 3,
+        "StageScalingMultiplier": 0.2
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_artifact_aegisofdawn.png"
+    },
+    {
+      "id": "DA_Artifact_AegisOfDusk",
+      "name": "Khiên Hoàng Hôn",
+      "nameEn": "Aegis of Dusk",
+      "description": "@BaseHealth@ %i:scaleHealth% @BaseMR@ %i:scaleMR%",
+      "category": "artifact",
+      "composition": [],
+      "tags": [
+        "{44ace175}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "MRSteal": 3,
+        "StageScalingModifier": 0.15,
+        "DawnFrequency": 1.25,
+        "BaseHealth": 400,
+        "Health": 400,
+        "BaseMR": 70,
+        "MRDamagePercent": 0.18,
+        "Frequency": 2.5
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_artifact_aegisofdusk.png"
+    },
+    {
+      "id": "DA_Artifactinate18",
+      "name": "Hóa Tạo Tác",
+      "nameEn": "Artifactinate",
+      "description": "Mất @NumComponents@ trang bị thành phần, bao gồm cả những trang bị đã được ghép thành trang bị hoàn chỉnh. Nhận 1 gói Trang Bị Tạo Tác.",
+      "category": "artifact",
+      "composition": [],
+      "tags": [
+        "{5b609ae2}"
+      ],
+      "effects": {
+        "NumComponents": 3
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_artifactinate18.png"
+    },
+    {
+      "id": "DA_Artifact_BlightingJewel",
+      "name": "Đá Hắc Hóa",
+      "nameEn": "Blighting Jewel",
+      "description": "@AbilityPowerMultiplierMinusOne*100@% %i:scaleAP% @ManaRegenBase@ %i:scaleManaRegen%",
+      "category": "artifact",
+      "composition": [],
+      "tags": [
+        "{44ace175}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "ManaGain": 4,
+        "MagicResistShred": 4,
+        "ManaRegenBase": 2,
+        "ManaRegen": 2,
+        "AbilityPowerMultiplier": 1.3,
+        "IndividualTargetCooldown": 0.5,
+        "AbilityPowerMultiplierMinusOne": 0.3
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_artifact_blightingjewel.png"
+    },
+    {
+      "id": "DA_Artifact_CappaJuice",
+      "name": "Cappa Juice",
+      "nameEn": "Cappa Juice",
+      "description": "@Base_AD*100@% %i:scaleAD% @Base_AP*100@% %i:scaleAP% @Base_ASMinusOne*100@% %i:scaleAS%",
+      "category": "artifact",
+      "composition": [],
+      "tags": [
+        "artifact",
+        "stacking"
+      ],
+      "effects": {
+        "Base_AD": 0.25,
+        "AD": 0.25,
+        "ADPerStack": 0.01,
+        "Base_AP": 0.25,
+        "AP": 0.25,
+        "APPerStack": 0.01,
+        "PercentLossOnDeath": 0.2,
+        "Base_AS": 1.25,
+        "Base_ASMinusOne": 0.25
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_artifact_cappajuice.png"
+    },
+    {
+      "id": "DA_Artifact_Dawncore",
+      "name": "Lõi Bình Minh",
+      "nameEn": "Dawncore",
+      "description": "@AttackDamage*100@% %i:scaleAD% @AbilityPower*100@% %i:scaleAP% @ManaRegen@ %i:scaleManaRegen%",
+      "category": "artifact",
+      "composition": [],
+      "tags": [
+        "{44ace175}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "AttackDamage": 0.2,
+        "AD": 0.2,
+        "FlatMaxManaReduction": 10,
+        "AbilityPower": 0.2,
+        "AP": 0.2,
+        "ManaRegen": 1,
+        "ReductionOnSpellcastPercent": 5,
+        "MinimumMana": 15
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_artifact_dawncore.png"
+    },
+    {
+      "id": "DA_Artifact_EternalPact",
+      "name": "Khế Ước Vĩnh Hằng",
+      "nameEn": "Eternal Pact",
+      "description": "@Base_AP*100@% %i:scaleAP% @Base_ManaPerSecond@ %i:scaleManaRegen%",
+      "category": "artifact",
+      "composition": [],
+      "tags": [
+        "{44ace175}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "Base_AP": 0.35,
+        "AP": 0.35,
+        "Base_ManaPerSecond": 1,
+        "ManaRegen": 1,
+        "Frequency": 6,
+        "ManaRegenOnDeath": 10,
+        "APOnDeath": 0.4,
+        "ManaOnAbilityUse": 15,
+        "ShieldPercentOfAP": 2
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_artifact_eternalpact.png"
+    },
+    {
+      "id": "DA_Artifact_Fishbones",
+      "name": "Pháo Xương Cá",
+      "nameEn": "Fishbones",
+      "description": "@AttackDamage*100@% %i:scaleAD% @AttackSpeedMinusOne*100@% %i:scaleAS%",
+      "category": "artifact",
+      "composition": [],
+      "tags": [
+        "{44ace175}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "AttackSpeed": 1.25,
+        "AS": 1.25,
+        "AttackDamage": 0.25,
+        "AD": 0.25,
+        "BaseRangeIncrease": 2,
+        "AttackSpeedMinusOne": 0.25
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_artifact_fishbones.png"
+    },
+    {
+      "id": "DA_Artifact_NavoriFlickerblade",
+      "name": "Đao Chớp",
+      "nameEn": "Flickerblades",
+      "description": "@AbilityPower*100@% %i:scaleAP% @AttackSpeedMinusOne*100@% %i:scaleAS%",
+      "category": "artifact",
+      "composition": [],
+      "tags": [
+        "{44ace175}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "AbilityPower": 0.1,
+        "AP": 0.1,
+        "AttackSpeed": 1.2,
+        "AS": 1.2,
+        "StackingAttackSpeed": 1.05,
+        "StackingAttackDamage": 0.02,
+        "StackingAbilityPower": 0.02,
+        "AttacksPerADAPBuff": 3,
+        "StackCounter": 1,
+        "AttackSpeedMinusOne": 0.2
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_artifact_navoriflickerblade.png"
+    },
+    {
+      "id": "DA_Artifact_ForbiddenIdol",
+      "name": "Dị Vật Tai Ương",
+      "nameEn": "Forbidden Idol",
+      "description": "@Health@ %i:scaleHealth% @ManaRegen@ %i:scaleManaRegen%",
+      "category": "artifact",
+      "composition": [],
+      "tags": [
+        "{44ace175}"
+      ],
+      "effects": {
+        "ShieldConversionPercent": 0.4,
+        "Health": 400,
+        "ManaRegen": 2
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_artifact_forbiddenidol.png"
+    },
+    {
+      "id": "DA_Artifact_GamblersBlade",
+      "name": "Kiếm Của Tay Bạc",
+      "nameEn": "Gambler's Blade",
+      "description": "@AttackSpeedMinusOne*100@% %i:scaleAS%",
+      "category": "artifact",
+      "composition": [],
+      "tags": [
+        "{d8d00bcc}",
+        "{ec243f6b}",
+        "{44ace175}"
+      ],
+      "effects": {
+        "AttackSpeed": 1.55,
+        "AS": 1.55,
+        "ScalingAttackSpeed": 0.01,
+        "ChanceToDropCoin": 0.06,
+        "MaxCoinScaling": 30,
+        "AverageAutosPerProc": 20,
+        "CashoutAveragingPeriod": 4,
+        "AttackSpeedMinusOne": 0.55
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_artifact_gamblersblade.png"
+    },
+    {
+      "id": "DA_Artifact_GoldCollector",
+      "name": "Đại Bác Hải Tặc",
+      "nameEn": "Gold Collector",
+      "description": "@AttackDamage*100@% %i:scaleAD% @CriticalStrikeChance*100@% %i:scaleCrit%",
+      "category": "artifact",
+      "composition": [],
+      "tags": [
+        "{44ace175}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "ExecuteThreshold": 0.12,
+        "AttackDamage": 0.4,
+        "AD": 0.4,
+        "CriticalStrikeChance": 0.2,
+        "CritChance": 0.2,
+        "GoldDropChance": 0.33
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_artifact_goldcollector.png"
+    },
+    {
+      "id": "DA_Artifact_HellfireHatchet",
+      "name": "Rìu Hỏa Ngục",
+      "nameEn": "Hellfire Hatchet",
+      "description": "@BaseHP@ %i:scaleHealth% @BaseOmnivamp*100@% %i:scaleOmnivamp%",
+      "category": "artifact",
+      "composition": [],
+      "tags": [
+        "{44ace175}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "BaseHP": 400,
+        "PercentHPDamage": 0.03,
+        "PercentHPInterval": 0.01,
+        "BaseOmnivamp": 0.2,
+        "Omnivamp": 0.2,
+        "AttackSpeedPerMissingHealthPercent": 0.015,
+        "MissingHealthInterval": 0.01
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_artifact_hellfirehatchet.png"
+    },
+    {
+      "id": "DA_Artifact_HorizonFocus",
+      "name": "Kính Nhắm Ma Pháp",
+      "nameEn": "Horizon Focus",
+      "description": "@Base_Health@ %i:scaleHealth% @Base_Armor@ %i:scaleArmor% @Base_MagicResist@ %i:scaleMR% @Base_ManaPerSecond@ %i:scaleManaRegen%",
+      "category": "artifact",
+      "composition": [],
+      "tags": [
+        "{44ace175}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "Base_Health": 250,
+        "Health": 250,
+        "Base_Armor": 20,
+        "Armor": 20,
+        "Base_ManaPerSecond": 2,
+        "ManaRegen": 2,
+        "Base_MagicResist": 20,
+        "HealthPercentDamage": 0.3
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_artifact_horizonfocus.png"
+    },
+    {
+      "id": "DA_Artifact_InfinityForce",
+      "name": "Tam Luyện Kiếm",
+      "nameEn": "Infinity Force",
+      "description": "@Health@ %i:scaleHealth% @AttackDamage*100@% %i:scaleAD% @AbilityPower*100@% %i:scaleAP% @Armor@ %i:scaleArmor% @MagicResist@ %i:scaleMR% @AttackSpeedMinusOne*100@% %i:scaleAS%",
+      "category": "artifact",
+      "composition": [],
+      "tags": [
+        "{44ace175}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "AbilityPower": 0.3,
+        "AP": 0.3,
+        "AttackDamage": 0.3,
+        "AD": 0.3,
+        "Armor": 30,
+        "Health": 300,
+        "AttackSpeed": 1.3,
+        "AS": 1.3,
+        "MagicResist": 30,
+        "AttackSpeedMinusOne": 0.3
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_artifact_infinityforce.png"
+    },
+    {
+      "id": "DA_Artifact_LichBane",
+      "name": "Kiếm Tai Ương",
+      "nameEn": "Lich Bane",
+      "description": "@AbilityPower*100@% %i:scaleAP% @AttackSpeedMinusOne*100@% %i:scaleAS%",
+      "category": "artifact",
+      "composition": [],
+      "tags": [
+        "{44ace175}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "AttackSpeed": 1.1,
+        "AS": 1.1,
+        "AbilityPower": 0.55,
+        "AP": 0.55,
+        "ProcDamage": 250,
+        "AttackSpeedMinusOne": 0.1
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_artifact_lichbane.png"
+    },
+    {
+      "id": "DA_Artifact_LightshieldCrest",
+      "name": "Huy Hiệu Thánh Khiên",
+      "nameEn": "Lightshield Crest",
+      "description": "@Armor@ %i:scaleArmor% @MagicResist@ %i:scaleMR%",
+      "category": "artifact",
+      "composition": [],
+      "tags": [
+        "{44ace175}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "Armor": 55,
+        "MagicResist": 55,
+        "AllyShieldDuration": 5,
+        "PercentHealthShield": 0.7,
+        "ShieldFrequency": 3
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_artifact_lightshieldcrest.png"
+    },
+    {
+      "id": "DA_Artifact_LudensTempest",
+      "name": "Bão Tố Luden",
+      "nameEn": "Luden's Tempest",
+      "description": "@AttackDamage*100@% %i:scaleAD% @AbilityPower*100@% %i:scaleAP%",
+      "category": "artifact",
+      "composition": [],
+      "tags": [
+        "{44ace175}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "AttackDamage": 0.55,
+        "AD": 0.55,
+        "AbilityPower": 0.55,
+        "AP": 0.55,
+        "BonusFlatDamage": 100,
+        "OverkillDamageRatio": 1,
+        "NumProjectiles": 2
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_artifact_ludenstempest.png"
+    },
+    {
+      "id": "DA_Artifact_Manazane",
+      "name": "Thánh Kiếm Manazane",
+      "nameEn": "Manazane",
+      "description": "@AttackDamage*100@% %i:scaleAD% @AbilityPower*100@% %i:scaleAP% @ManaRegen@ %i:scaleManaRegen%",
+      "category": "artifact",
+      "composition": [],
+      "tags": [
+        "{44ace175}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "AbilityPower": 0.15,
+        "AP": 0.15,
+        "AttackSpeed": 1,
+        "AS": 1,
+        "AttackDamage": 0.15,
+        "AD": 0.15,
+        "CastManaGain": 110,
+        "CastManaGainDuration": 5,
+        "ManaRegen": 1,
+        "ManaGainPeriod": 0.1
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_artifact_manazane.png"
+    },
+    {
+      "id": "DA_Artifact_Mittens",
+      "name": "Găng Đấu Sĩ",
+      "nameEn": "Mittens",
+      "description": "@AttackSpeedMinusOne*100@% %i:scaleAS% @DamageAmp*100@% %i:scaleDamageAmp%",
+      "category": "artifact",
+      "composition": [],
+      "tags": [
+        "{44ace175}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "Scale": 0.75,
+        "MovementSpeedIncrease": 1500,
+        "AttackSpeed": 1.65,
+        "AS": 1.65,
+        "DamageAmp": 0.15,
+        "BonusDamage": 0.15,
+        "AttackSpeedMinusOne": 0.65
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_artifact_mittens.png"
+    },
+    {
+      "id": "DA_Artifact_MogulsMail",
+      "name": "Giáp Đại Hãn",
+      "nameEn": "Mogul's Mail",
+      "description": "@Health@ %i:scaleHealth%",
+      "category": "artifact",
+      "composition": [],
+      "tags": [
+        "{d8d00bcc}",
+        "{44ace175}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "GoldFrequency": 11,
+        "ArmorPerStack": 1,
+        "MRPerStack": 1,
+        "Health": 300,
+        "MaxStacks": 35,
+        "HealthPerStack": 5
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_artifact_mogulsmail.png"
+    },
+    {
+      "id": "DA_Artifact_RapidFireCannon",
+      "name": "Đại Bác Liên Thanh",
+      "nameEn": "Rapid Firecannon",
+      "description": "@AttackSpeedMinusOne*100@% %i:scaleAS% @DamageAmpMinusOne*100@% %i:scaleDamageAmp%",
+      "category": "artifact",
+      "composition": [],
+      "tags": [
+        "{44ace175}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "BaseRangeIncrease": 1,
+        "RangeIncreaseOnKill": 1,
+        "AttackSpeed": 1.55,
+        "AS": 1.55,
+        "DamageAmp": 1.05,
+        "BonusDamage": 1.05,
+        "AttackSpeedMinusOne": 0.55,
+        "DamageAmpMinusOne": 0.05
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_artifact_rapidfirecannon.png"
+    },
+    {
+      "id": "DA_Artifact_SeekersArmguard",
+      "name": "Giáp Tay Seeker",
+      "nameEn": "Seeker's Armguard",
+      "description": "@AbilityPower*100@% %i:scaleAP% @Armor@ %i:scaleArmor% @MagicResist@ %i:scaleMR% @Omnivamp*100@% %i:scaleOmnivamp%",
+      "category": "artifact",
+      "composition": [],
+      "tags": [
+        "{44ace175}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "Armor": 10,
+        "MagicResist": 10,
+        "AbilityPower": 0.25,
+        "AP": 0.25,
+        "TakedownArmor": 20,
+        "TakedownMagicResist": 20,
+        "TakedownAbilityPower": 0.2,
+        "KillArmor": 20,
+        "KillMagicResist": 20,
+        "KillAbilityPower": 0.2,
+        "Omnivamp": 0.2
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_artifact_seekersarmguard.png"
+    },
+    {
+      "id": "DA_Artifact_SilvermereDawn",
+      "name": "Chùy Bạch Ngân",
+      "nameEn": "Silvermere Dawn",
+      "description": "@AttackDamage*100@% %i:scaleAD% @Armor@ %i:scaleArmor% @MagicResist@ %i:scaleMR% @Omnivamp@ %i:scaleOmnivamp%%",
+      "category": "artifact",
+      "composition": [],
+      "tags": [
+        "{44ace175}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "StunDuration": 0.8,
+        "Armor": 30,
+        "AttackDamage": 1.25,
+        "AD": 1.25,
+        "AttackSpeedCap": 0.5,
+        "MagicResist": 30,
+        "Omnivamp": 30
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_artifact_silvermeredawn.png"
+    },
+    {
+      "id": "DA_Artifact_StatikkShiv",
+      "name": "Dao Điện Statikk",
+      "nameEn": "Statikk Shiv",
+      "description": "@AbilityPower*100@% %i:scaleAP% @AttackSpeedMinusOne*100@% %i:scaleAS%",
+      "category": "artifact",
+      "composition": [],
+      "tags": [
+        "{44ace175}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "BaseDamage": 15,
+        "AttackSpeed": 1.4,
+        "AS": 1.4,
+        "AbilityPower": 0.15,
+        "AP": 0.15,
+        "NumTargets": 6,
+        "APScalar": 0.35,
+        "AttackSpeedMinusOne": 0.4
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_artifact_statikkshiv.png"
+    },
+    {
+      "id": "DA_Item_Artifact_TalismanOfAscension",
+      "name": "Bùa Thăng Hoa",
+      "nameEn": "Talisman of Ascension",
+      "description": "@HealthBase@ %i:scaleHealth% @ADBase*100@% %i:scaleAD% @APBase*100@% %i:scaleAP%",
+      "category": "artifact",
+      "composition": [],
+      "tags": [
+        "{44ace175}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "APBase": 0.2,
+        "ADBase": 0.2,
+        "HealthBase": 450,
+        "HealthMultiplierBuff": 1,
+        "DamageAmpBuff": 1.2,
+        "DelayBeforeBuff": 22,
+        "ManaGen": 12
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_item_artifact_talismanofascension.png"
+    },
+    {
+      "id": "DA_Artifact_TheIndomitable",
+      "name": "Bất Khuất",
+      "nameEn": "The Indomitable",
+      "description": "@HealthMaxBase@ %i:scaleHealth% @ArmorBase@ %i:scaleArmor% @MagicResistBase@ %i:scaleMR%",
+      "category": "artifact",
+      "composition": [],
+      "tags": [
+        "{44ace175}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "MagicResistBase": 20,
+        "HealthMaxBase": 500,
+        "ArmorBase": 20,
+        "HealthMaxPercent": 1.15,
+        "MovementSlow": 0.2
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_artifact_theindomitable.png"
+    },
+    {
+      "id": "DA_Artifact_TitanicHydra",
+      "name": "Rìu Đại Mãng Xà",
+      "nameEn": "Titanic Hydra",
+      "description": "@HealthMax@ %i:scaleHealth% @AttackDamage*100@% %i:scaleAD% @AttackSpeedMinusOne*100@% %i:scaleAS%",
+      "category": "artifact",
+      "composition": [],
+      "tags": [
+        "{44ace175}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "AttackDamage": 0.2,
+        "AD": 0.2,
+        "AttackSpeed": 1.2,
+        "AS": 1.2,
+        "HealthMax": 300,
+        "Health": 300,
+        "PercentHealthBonusDamage": 0.02,
+        "PercentADBonusDamage": 0.04,
+        "AttackSpeedMinusOne": 0.2
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_artifact_titanichydra.png"
+    },
+    {
+      "id": "DA_Artifact_VoidGauntlet",
+      "name": "Găng Hư Không",
+      "nameEn": "Void Gauntlet",
+      "description": "@HealthBase@ %i:scaleHealth% @DurabilityBaseInverted*100@%",
+      "category": "artifact",
+      "composition": [],
+      "tags": [
+        "{44ace175}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "DurabilityBase": 0.9,
+        "HealthBase": 300,
+        "HealthStoreInitial": 0.3,
+        "HealthStoreTickAmount": 0.025,
+        "HealthStoreInterval": 1,
+        "MaxTime": 24,
+        "DurabilityBaseInverted": 0.1
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_artifact_voidgauntlet.png"
+    },
+    {
+      "id": "DA_Artifact_WitsEnd",
+      "name": "Đao Tím",
+      "nameEn": "Wit's End",
+      "description": "@Health@ %i:scaleHealth% @Armor@ %i:scaleArmor% @MagicResist@ %i:scaleMR% @AttackSpeedMinusOne*100@% %i:scaleAS%",
+      "category": "artifact",
+      "composition": [],
+      "tags": [
+        "{44ace175}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "MagicResist": 20,
+        "AttackSpeed": 1.25,
+        "AS": 1.25,
+        "Health": 300,
+        "Armor": 20,
+        "MagicVampPercent": 25,
+        "OnHitDamage": 30,
+        "AttackSpeedMinusOne": 0.25
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_artifact_witsend.png"
+    },
+    {
+      "id": "DA_Artifact_ZhonyasParadox",
+      "name": "Lưỡng Cực Zhonya",
+      "nameEn": "Zhonya's Paradox",
+      "description": "@AbilityPower*100@% %i:scaleAP% @Armor@ %i:scaleArmor% @MagicResist@ %i:scaleMR%",
+      "category": "artifact",
+      "composition": [],
+      "tags": [
+        "{44ace175}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "MagicResist": 25,
+        "Armor": 25,
+        "AbilityPower": 0.25,
+        "AP": 0.25,
+        "HealthRatioThreshold": 0.4,
+        "InvulnerableDuration": 3
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_artifact_zhonyasparadox.png"
+    },
+    {
+      "id": "DA_AdaptiveHelm",
+      "name": "Mũ Thích Nghi",
+      "nameEn": "Adaptive Helm",
+      "description": "@MagicResistBase@ %i:scaleMR% @ManaRegenBase@ %i:scaleManaRegen%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_TearOfTheGoddess",
+        "DA_Component_NegatronCloak"
+      ],
+      "tags": [
+        "{7ea41d13}",
+        "Mana",
+        "{15b72700}"
+      ],
+      "effects": {
+        "ManaMultiplierFromAllSources": 1.15,
+        "ManaRegenBase": 3,
+        "ManaRegen": 3,
+        "ArmorForTanksandFighters": 30,
+        "MRForTanksandFighters": 30,
+        "ADForOthers": 0.1,
+        "APForOthers": 0.1,
+        "MagicResistBase": 20
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_adaptivehelm.png"
+    },
+    {
+      "id": "DA_ArchangelsStaff",
+      "name": "Quyền Trượng Thiên Thần",
+      "nameEn": "Archangel's Staff",
+      "description": "@Base_AP*100@% %i:scaleAP% @Base_ManaPerSecond@ %i:scaleManaRegen%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_NeedlesslyLargeRod",
+        "DA_Component_TearOfTheGoddess"
+      ],
+      "tags": [
+        "{7ea41d13}",
+        "AbilityPower"
+      ],
+      "effects": {
+        "Period": 5,
+        "APStack": 20,
+        "Base_AP": 0.3,
+        "AP": 0.3,
+        "Base_ManaPerSecond": 1,
+        "ManaRegen": 1
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_archangelsstaff.png"
+    },
+    {
+      "id": "DA_Bloodthirster",
+      "name": "Huyết Kiếm",
+      "nameEn": "Bloodthirster",
+      "description": "@BaseAD@ %i:scaleAD%% @BaseAP@ %i:scaleAP%% @BaseMagicResist@ %i:scaleMR% @BaseOmnivamp@ %i:scaleOmnivamp%%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_BFSword",
+        "DA_Component_NegatronCloak"
+      ],
+      "tags": [
+        "{7ea41d13}",
+        "AbilityPower",
+        "AttackDamage"
+      ],
+      "effects": {
+        "Duration": 5,
+        "ThresholdMaxHealthRatio": 0.4,
+        "ShieldMaxHealthRatio": 0.25,
+        "BaseAD": 15,
+        "AD": 15,
+        "BaseAP": 15,
+        "AP": 15,
+        "BaseMagicResist": 20,
+        "BaseOmnivamp": 20,
+        "Omnivamp": 20
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_bloodthirster.png"
+    },
+    {
+      "id": "DA_BlueBuff",
+      "name": "Bùa Xanh",
+      "nameEn": "Blue Buff",
+      "description": "@Base_AD*100@% %i:scaleAD% @Base_AP*100@% %i:scaleAP% @ManaRegen@ %i:scaleManaRegen%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_TearOfTheGoddess",
+        "DA_Component_TearOfTheGoddess"
+      ],
+      "tags": [
+        "{7ea41d13}",
+        "Mana"
+      ],
+      "effects": {
+        "ManaRegen": 5,
+        "Base_AP": 0.15,
+        "AP": 0.15,
+        "Base_AD": 0.15,
+        "AD": 0.15,
+        "ADAPMultiplier": 1.1
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_bluebuff.png"
+    },
+    {
+      "id": "DA_BrambleVest",
+      "name": "Áo Choàng Gai",
+      "nameEn": "Bramble Vest",
+      "description": "@ArmorBase@ %i:scaleArmor%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_ChainVest",
+        "DA_Component_ChainVest"
+      ],
+      "tags": [
+        "{7ea41d13}",
+        "{15b72700}"
+      ],
+      "effects": {
+        "ArmorBase": 50,
+        "MaxHealthMultiplier": 1.06,
+        "AADamageReduction": 0.95,
+        "MagicDamageWhenHit": 100,
+        "HexRange": 1,
+        "Cooldown": 2
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_bramblevest.png"
+    },
+    {
+      "id": "DA_Crownguard",
+      "name": "Vương Miện Hoàng Gia",
+      "nameEn": "Crownguard",
+      "description": "@Health@ %i:scaleHealth% @AbilityPower@ %i:scaleAP% @Armor@ %i:scaleArmor%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_NeedlesslyLargeRod",
+        "DA_Component_ChainVest"
+      ],
+      "tags": [
+        "{7ea41d13}",
+        "AbilityPower"
+      ],
+      "effects": {
+        "Armor": 20,
+        "Health": 100,
+        "AbilityPower": 20,
+        "AP": 20,
+        "ShieldDuration": 8,
+        "AbilityPowerOnShieldExpire": 25,
+        "MaxHealthShieldPercent": 25
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_crownguard.png"
+    },
+    {
+      "id": "DA_Deathblade",
+      "name": "Kiếm Tử Thần",
+      "nameEn": "Deathblade",
+      "description": "@AttackDamage*100@% %i:scaleAD% @DamageAmp*100@% %i:scaleDamageAmp%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_BFSword",
+        "DA_Component_BFSword"
+      ],
+      "tags": [
+        "{7ea41d13}",
+        "AttackDamage"
+      ],
+      "effects": {
+        "DamageAmp": 0.1,
+        "BonusDamage": 0.1,
+        "AttackDamage": 0.55,
+        "AD": 0.55
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_deathblade.png"
+    },
+    {
+      "id": "DA_DragonsClaw",
+      "name": "Vuốt Rồng",
+      "nameEn": "Dragon's Claw",
+      "description": "@MagicResist@ %i:scaleMR%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_NegatronCloak",
+        "DA_Component_NegatronCloak"
+      ],
+      "tags": [
+        "{7ea41d13}",
+        "{15b72700}"
+      ],
+      "effects": {
+        "MaxHealthMultiplier": 1.06,
+        "MagicResist": 60,
+        "PercentHealthHeal": 0.025
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_dragonsclaw.png"
+    },
+    {
+      "id": "DA_EdgeOfNight",
+      "name": "Áo Choàng Bóng Tối",
+      "nameEn": "Edge of Night",
+      "description": "@AttackDamage*100@% %i:scaleAD% @AbilityPower*100@% %i:scaleAP% @Armor@ %i:scaleArmor% @AttackSpeedMinusOne*100@% %i:scaleAS%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_BFSword",
+        "DA_Component_ChainVest"
+      ],
+      "tags": [
+        "{7ea41d13}",
+        "AttackSpeed",
+        "AttackDamage"
+      ],
+      "effects": {
+        "Armor": 20,
+        "AttackDamage": 0.1,
+        "AD": 0.1,
+        "UntargetableDuration": 1,
+        "HPPercentageToProcAt": 0.6,
+        "AbilityPower": 0.1,
+        "AP": 0.1,
+        "AttackSpeed": 1.15,
+        "AS": 1.15,
+        "MissingHPHeal": 0.2,
+        "AttackSpeedMinusOne": 0.15
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_edgeofnight.png"
+    },
+    {
+      "id": "DA_Evenshroud",
+      "name": "Giáp Vai Nguyệt Thần",
+      "nameEn": "Evenshroud",
+      "description": "@MagicResist@ %i:scaleMR% @HealthMax@ %i:scaleHealth%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_NegatronCloak",
+        "DA_Component_GiantsBelt"
+      ],
+      "tags": [
+        "{7ea41d13}",
+        "{15b72700}"
+      ],
+      "effects": {
+        "MagicResist": 20,
+        "HealthMax": 250,
+        "Health": 250,
+        "OnBattleStartEffectDuration": 15,
+        "SunderPercent": 30,
+        "ArmorOnBattleStart": 15,
+        "MagicResistOnBattleStart": 15,
+        "HexRange": 2
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_evenshroud.png"
+    },
+    {
+      "id": "DA_GargoyleStoneplate",
+      "name": "Thú Tượng Thạch Giáp",
+      "nameEn": "Gargoyle Stoneplate",
+      "description": "@HealthMax@ %i:scaleHealth% @Armor@ %i:scaleArmor% @MagicResist@ %i:scaleMR%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_ChainVest",
+        "DA_Component_NegatronCloak"
+      ],
+      "tags": [
+        "{7ea41d13}",
+        "{15b72700}"
+      ],
+      "effects": {
+        "Armor": 25,
+        "MagicResist": 25,
+        "HealthMax": 100,
+        "Health": 100,
+        "ArmorPerTargetingEnemy": 10,
+        "MRPerTargetingEnemy": 10
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_gargoylestoneplate.png"
+    },
+    {
+      "id": "DA_GiantSlayer",
+      "name": "Diệt Khổng Lồ",
+      "nameEn": "Giant Slayer",
+      "description": "@AttackDamage*100@% %i:scaleAD% @AbilityPower*100@% %i:scaleAP% @AttackSpeedMinusOne*100@% %i:scaleAS% @OutgoingDamageMultiplier*100@% %i:scaleDamageAmp%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_RecurveBow",
+        "DA_Component_BFSword"
+      ],
+      "tags": [
+        "{7ea41d13}"
+      ],
+      "effects": {
+        "AttackSpeed": 1.15,
+        "AS": 1.15,
+        "AbilityPower": 0.15,
+        "AP": 0.15,
+        "AttackDamage": 0.15,
+        "AD": 0.15,
+        "OutgoingDamageMultiplier": 0.15,
+        "AmpRatioAgainstTanks": 0.15,
+        "AttackSpeedMinusOne": 0.15
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_giantslayer.png"
+    },
+    {
+      "id": "DA_GuinsoosRageblade",
+      "name": "Cuồng Đao Guinsoo",
+      "nameEn": "Guinsoo's Rageblade",
+      "description": "@BaseAP*100@% %i:scaleAP% @BaseASMinusOne*100@% %i:scaleAS%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_RecurveBow",
+        "DA_Component_NeedlesslyLargeRod"
+      ],
+      "tags": [
+        "{7ea41d13}",
+        "AttackSpeed"
+      ],
+      "effects": {
+        "BaseAS": 1.1,
+        "BaseAP": 0.1,
+        "AP": 0.1,
+        "ASCounter": 7,
+        "BaseASMinusOne": 0.1
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_guinsoosrageblade.png"
+    },
+    {
+      "id": "DA_HandOfJustice",
+      "name": "Bàn Tay Công Lý",
+      "nameEn": "Hand of Justice",
+      "description": "@CritChanceBase*100@% %i:scaleCrit% @ManaRegenBase@ %i:scaleManaRegen%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_TearOfTheGoddess",
+        "DA_Component_SparringGloves"
+      ],
+      "tags": [
+        "{7ea41d13}",
+        "CritChance"
+      ],
+      "effects": {
+        "CritChanceBase": 0.2,
+        "ManaRegenBase": 1,
+        "ManaRegen": 1,
+        "APBase": 0.15,
+        "ADBase": 0.15,
+        "HealthThreshold": 0.5,
+        "OmnivampBase": 0.12
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_handofjustice.png"
+    },
+    {
+      "id": "DA_HextechGunblade",
+      "name": "Kiếm Súng Hextech",
+      "nameEn": "Hextech Gunblade",
+      "description": "@BaseAD*100@% %i:scaleAD% @BaseAP*100@% %i:scaleAP% @BaseOmnivamp*100@% %i:scaleOmnivamp% @BaseManaRegen@ %i:scaleManaRegen%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_BFSword",
+        "DA_Component_NeedlesslyLargeRod"
+      ],
+      "tags": [
+        "{7ea41d13}",
+        "AbilityPower",
+        "AttackDamage",
+        "Heal"
+      ],
+      "effects": {
+        "BaseAP": 0.2,
+        "AP": 0.2,
+        "BaseAD": 0.2,
+        "AD": 0.2,
+        "DamageToHealRatio": 0.2,
+        "BaseOmnivamp": 0.15,
+        "Omnivamp": 0.15,
+        "BaseManaRegen": 1,
+        "ManaRegen": 1
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_hextechgunblade.png"
+    },
+    {
+      "id": "DA_InfinityEdge",
+      "name": "Vô Cực Kiếm",
+      "nameEn": "Infinity Edge",
+      "description": "@AttackDamage*100@% %i:scaleAD% @CriticalStrikeChance*100@% %i:scaleCrit%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_BFSword",
+        "DA_Component_SparringGloves"
+      ],
+      "tags": [
+        "{7ea41d13}",
+        "CritChance"
+      ],
+      "effects": {
+        "CriticalStrikeChance": 0.35,
+        "CritChance": 0.35,
+        "AttackDamage": 0.35,
+        "AD": 0.35
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_infinityedge.png"
+    },
+    {
+      "id": "DA_IonicSpark",
+      "name": "Nỏ Sét",
+      "nameEn": "Ionic Spark",
+      "description": "@Base_Health@ %i:scaleHealth% @Base_AP*100@% %i:scaleAP% @Base_MR@ %i:scaleMR%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_NeedlesslyLargeRod",
+        "DA_Component_NegatronCloak"
+      ],
+      "tags": [
+        "{7ea41d13}"
+      ],
+      "effects": {
+        "Base_MR": 35,
+        "MagicResist": 35,
+        "Base_AP": 0.15,
+        "AP": 0.15,
+        "EnemyCastManaAsDamagePercent": 1.5,
+        "ShredPercent": 0.3,
+        "HexRange": 2,
+        "Base_Health": 250,
+        "Health": 250
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_ionicspark.png"
+    },
+    {
+      "id": "DA_JeweledGauntlet",
+      "name": "Găng Bảo Thạch",
+      "nameEn": "Jeweled Gauntlet",
+      "description": "@Base_AP*100@% %i:scaleAP% @Base_CritChance*100@% %i:scaleCrit%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_SparringGloves",
+        "DA_Component_NeedlesslyLargeRod"
+      ],
+      "tags": [
+        "{7ea41d13}",
+        "CritChance"
+      ],
+      "effects": {
+        "Base_CritChance": 0.35,
+        "CritChance": 0.35,
+        "Base_AP": 0.35,
+        "AP": 0.35
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_jeweledgauntlet.png"
+    },
+    {
+      "id": "DA_KrakensFury",
+      "name": "Thịnh Nộ Thủy Quái",
+      "nameEn": "Kraken's Fury",
+      "description": "@Base_AD*100@% %i:scaleAD% @Base_MR@ %i:scaleMR% @Base_ASMinusOne*100@% %i:scaleAS%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_RecurveBow",
+        "DA_Component_NegatronCloak"
+      ],
+      "tags": [
+        "{7ea41d13}",
+        "AttackDamage"
+      ],
+      "effects": {
+        "ADCounter": 3.5,
+        "Base_AS": 1.1,
+        "Base_MR": 20,
+        "MagicResist": 20,
+        "Base_AD": 0.1,
+        "AD": 0.1,
+        "StackCounter": 1,
+        "Bonus_AS": 0.15,
+        "MaxStacks": 15,
+        "Base_ASMinusOne": 0.1
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_krakensfury.png"
+    },
+    {
+      "id": "DA_LastWhisper",
+      "name": "Cung Xanh",
+      "nameEn": "Last Whisper",
+      "description": "@AttackDamage*100@% %i:scaleAD% @AttackSpeedMinusOne*100@% %i:scaleAS% @CritChance*100@% %i:scaleCrit%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_RecurveBow",
+        "DA_Component_SparringGloves"
+      ],
+      "tags": [
+        "{7ea41d13}"
+      ],
+      "effects": {
+        "AttackSpeed": 1.2,
+        "AS": 1.2,
+        "AttackDamage": 0.15,
+        "AD": 0.15,
+        "CritChance": 0.2,
+        "SunderPercent": 30,
+        "SunderDuration": 3,
+        "AttackSpeedMinusOne": 0.2
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_lastwhisper.png"
+    },
+    {
+      "id": "DA_Morellonomicon",
+      "name": "Quỷ Thư Morello",
+      "nameEn": "Morellonomicon",
+      "description": "@BaseHealth@ %i:scaleHealth% @BaseAP*100@% %i:scaleAP% @BaseManaRegen@ %i:scaleManaRegen%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_GiantsBelt",
+        "DA_Component_NeedlesslyLargeRod"
+      ],
+      "tags": [
+        "{7ea41d13}",
+        "AttackSpeed",
+        "AbilityPower"
+      ],
+      "effects": {
+        "BaseManaRegen": 1,
+        "ManaRegen": 1,
+        "BaseHealth": 150,
+        "Health": 150,
+        "BurnPercent": 1,
+        "BaseAP": 0.2,
+        "AP": 0.2,
+        "WoundPercent": 33,
+        "BurnAndWoundDuration": 10
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_morellonomicon.png"
+    },
+    {
+      "id": "DA_NashorsTooth",
+      "name": "Nanh Nashor",
+      "nameEn": "Nashor's Tooth",
+      "description": "@HealthBase@ %i:scaleHealth% @AbilityPowerBase*100@% %i:scaleAP% @AttackSpeedBaseMinusOne*100@% %i:scaleAS% @CritChance*100@% %i:scaleCrit%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_RecurveBow",
+        "DA_Component_GiantsBelt"
+      ],
+      "tags": [
+        "{7ea41d13}",
+        "AttackSpeed",
+        "AbilityPower"
+      ],
+      "effects": {
+        "HealthBase": 150,
+        "AttackSpeedBase": 1.1,
+        "AbilityPowerBase": 0.15,
+        "ManaPerAttack": 2,
+        "ManaPerAttack_BonusOnCrit": 2,
+        "CritChance": 0.2,
+        "Default_CritBonus": 4,
+        "AttackSpeedBaseMinusOne": 0.1
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_nashorstooth.png"
+    },
+    {
+      "id": "DA_ProtectorsVow",
+      "name": "Lời Thề Hộ Vệ",
+      "nameEn": "Protector's Vow",
+      "description": "@Armor@ %i:scaleArmor% @MR@ %i:scaleMR% @ManaRegen@ %i:scaleManaRegen%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_ChainVest",
+        "DA_Component_TearOfTheGoddess"
+      ],
+      "tags": [
+        "{7ea41d13}",
+        "{15b72700}"
+      ],
+      "effects": {
+        "MR": 25,
+        "MagicResist": 25,
+        "StartingMana": 20,
+        "ManaRegen": 1,
+        "ProcGainMana": 15,
+        "ProcShield%MaxHealth": 0.2,
+        "Proc%HealthThreshold": 0.4,
+        "Armor": 25
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_protectorsvow.png"
+    },
+    {
+      "id": "DA_Quicksilver",
+      "name": "Áo Choàng Thủy Ngân",
+      "nameEn": "Quicksilver",
+      "description": "@Base_MagicResist@ %i:scaleMR% @Base_AttackSpeedMinusOne*100@% %i:scaleAS% @Base_CritChance*100@% %i:scaleCrit%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_NegatronCloak",
+        "DA_Component_SparringGloves"
+      ],
+      "tags": [
+        "{7ea41d13}",
+        "AttackSpeed"
+      ],
+      "effects": {
+        "Base_MagicResist": 20,
+        "Base_AttackSpeed": 1.15,
+        "AS": 1.15,
+        "EffectDuration": 18,
+        "StackFrequency": 1,
+        "Base_CritChance": 0.2,
+        "CritChance": 0.2,
+        "StacksToAtkSpd": 1.03,
+        "Base_AttackSpeedMinusOne": 0.15
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_quicksilver.png"
+    },
+    {
+      "id": "DA_RabadonsDeathcap",
+      "name": "Mũ Phù Thủy Rabadon",
+      "nameEn": "Rabadon's Deathcap",
+      "description": "@AbilityPower*100@% %i:scaleAP% @DamageAmp*100@% %i:scaleDamageAmp%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_NeedlesslyLargeRod",
+        "DA_Component_NeedlesslyLargeRod"
+      ],
+      "tags": [
+        "{7ea41d13}",
+        "AbilityPower"
+      ],
+      "effects": {
+        "DamageAmp": 0.15,
+        "BonusDamage": 0.15,
+        "AbilityPower": 0.55,
+        "AP": 0.55
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_rabadonsdeathcap.png"
+    },
+    {
+      "id": "DA_RedBuff",
+      "name": "Bùa Đỏ",
+      "nameEn": "Red Buff",
+      "description": "@Base_AttackSpeedMinusOne*100@% %i:scaleAS% @Base_DamageAmp*100@% %i:scaleDamageAmp%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_RecurveBow",
+        "DA_Component_RecurveBow"
+      ],
+      "tags": [
+        "{7ea41d13}",
+        "AttackSpeed"
+      ],
+      "effects": {
+        "Duration": 5,
+        "Burn": 1,
+        "Wound": 33,
+        "Base_DamageAmp": 0.03,
+        "Base_AttackSpeed": 1.45,
+        "AS": 1.45,
+        "Base_AttackSpeedMinusOne": 0.45
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_redbuff.png"
+    },
+    {
+      "id": "DA_SpearOfShojin",
+      "name": "Ngọn Giáo Shojin",
+      "nameEn": "Spear of Shojin",
+      "description": "@AttackDamage*100@% %i:scaleAD% @AbilityPower*100@% %i:scaleAP% @ManaPerSecond@ %i:scaleManaRegen%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_TearOfTheGoddess",
+        "DA_Component_BFSword"
+      ],
+      "tags": [
+        "{7ea41d13}",
+        "Mana"
+      ],
+      "effects": {
+        "AbilityPower": 0.15,
+        "AP": 0.15,
+        "ManaPerSecond": 1,
+        "AttackDamage": 0.15,
+        "AD": 0.15,
+        "ManaPerAttack": 5
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_spearofshojin.png"
+    },
+    {
+      "id": "DA_SpiritVisage",
+      "name": "Giáp Tâm Linh",
+      "nameEn": "Spirit Visage",
+      "description": "@BaseHealth@ %i:scaleHealth% @IncomingDmgModInverted*100@% @BaseManaRegen@ %i:scaleManaRegen%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_GiantsBelt",
+        "DA_Component_TearOfTheGoddess"
+      ],
+      "tags": [
+        "{7ea41d13}",
+        "Heal"
+      ],
+      "effects": {
+        "BaseHealth": 300,
+        "Health": 300,
+        "BaseManaRegen": 2,
+        "ManaRegen": 2,
+        "MissingHealthRegen": 2,
+        "RegenTickRate": 1,
+        "IncomingDmgMod": 0.92,
+        "IncomingDmgModInverted": 0.08
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_spiritvisage.png"
+    },
+    {
+      "id": "DA_SteadfastHeart",
+      "name": "Trái Tim Kiên Định",
+      "nameEn": "Steadfast Heart",
+      "description": "",
+      "category": "completed",
+      "composition": [
+        "DA_Component_ChainVest",
+        "DA_Component_SparringGloves"
+      ],
+      "tags": [
+        "{7ea41d13}"
+      ],
+      "effects": {
+        "Base_Health": 250,
+        "Health": 250,
+        "LowHealthIncDmgMod": 5,
+        "Base_CritChance": 0.2,
+        "CritChance": 0.2,
+        "MaxHealthThreshold": 0.5,
+        "HighHealthIncomingDmgMod": 15,
+        "Base_Armor": 20,
+        "Armor": 20
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_steadfastheart.png"
+    },
+    {
+      "id": "DA_SteraksGage",
+      "name": "Móng Vuốt Sterak",
+      "nameEn": "Sterak's Gage",
+      "description": "@BaseHealth@ %i:scaleHealth% @BaseAD*100@% %i:scaleAD%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_BFSword",
+        "DA_Component_GiantsBelt"
+      ],
+      "tags": [
+        "{7ea41d13}",
+        "AttackDamage"
+      ],
+      "effects": {
+        "BaseAD": 0.45,
+        "AD": 0.45,
+        "BaseHealth": 300,
+        "Health": 300,
+        "ShieldMaxHealthRatio": 0.4,
+        "MaxHealthProcThreshold": 0.6,
+        "Duration": 4
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_steraksgage.png"
+    },
+    {
+      "id": "DA_StrikersFlail",
+      "name": "Chùy Đoản Côn",
+      "nameEn": "Striker's Flail",
+      "description": "@Base_Health@ %i:scaleHealth% @Base_AttackSpeedMinusOne*100@% %i:scaleAS% @Base_CritChance*100@% %i:scaleCrit% @Base_DamageAmp*100@% %i:scaleDamageAmp%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_GiantsBelt",
+        "DA_Component_SparringGloves"
+      ],
+      "tags": [
+        "{7ea41d13}",
+        "CritChance"
+      ],
+      "effects": {
+        "Base_CritChance": 0.2,
+        "CritChance": 0.2,
+        "Base_AttackSpeed": 1.1,
+        "AS": 1.1,
+        "Base_DamageAmp": 0.1,
+        "BuffDuration": 5,
+        "DABuff": 0.05,
+        "MaxStacks": 4,
+        "Base_Health": 150,
+        "Health": 150,
+        "Base_AttackSpeedMinusOne": 0.1
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_strikersflail.png"
+    },
+    {
+      "id": "DA_SunfireCape",
+      "name": "Áo Choàng Lửa",
+      "nameEn": "Sunfire Cape",
+      "description": "@MaxHealth@ %i:scaleHealth% @Armor@ %i:scaleArmor%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_ChainVest",
+        "DA_Component_GiantsBelt"
+      ],
+      "tags": [
+        "{7ea41d13}",
+        "Health"
+      ],
+      "effects": {
+        "BurnWoundFrequency": 2,
+        "Armor": 20,
+        "MaxHealth": 150,
+        "BurnWoundDuration": 10,
+        "MaxHealthMultiplier": 1.08,
+        "BurnWoundRange": 2,
+        "BurnPercent": 1,
+        "WoundPercent": 33
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_sunfirecape.png"
+    },
+    {
+      "id": "DA_TacticiansCape",
+      "name": "Áo Choàng Chiến Thuật",
+      "nameEn": "Tactician's Cape",
+      "description": "Your team gains +1 maximum team size.\n@%ChanceToDropGold*100@% chance to drop 1 gold after @DelayToTrigger@ seconds of combat.\n...and a bit of Luck.",
+      "category": "completed",
+      "composition": [
+        "DA_Component_Spatula",
+        "DA_Component_FryingPan"
+      ],
+      "tags": [
+        "{ec243f6b}",
+        "{d304f83b}"
+      ],
+      "effects": {
+        "%ChanceToDropGold": 0.1,
+        "BonusTeamSize": 1,
+        "DelayToTrigger": 10
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_tacticianscape.png"
+    },
+    {
+      "id": "DA_TacticiansCrown",
+      "name": "Vương Miện Chiến Thuật",
+      "nameEn": "Tactician's Crown",
+      "description": "Your team gains +@BonusTeamSize@ maximum team size.\n@%ChanceToDropGold*100@% chance to drop 1 gold when you win combat.\n...the Heart of a hero...",
+      "category": "completed",
+      "composition": [
+        "DA_Component_Spatula",
+        "DA_Component_Spatula"
+      ],
+      "tags": [
+        "{ec243f6b}",
+        "{d304f83b}"
+      ],
+      "effects": {
+        "%ChanceToDropGold": 0.1,
+        "BonusTeamSize": 1
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_tacticianscrown.png"
+    },
+    {
+      "id": "DA_TacticiansShield",
+      "name": "Lá Chắn Chiến Thuật",
+      "nameEn": "Tactician's Shield",
+      "description": "Your team gains +@BonusTeamSize@ maximum team size.\n@%ChanceToDropGold*100@% chance to drop 1 gold when the holder dies.\nImbued with a Philosopher's wisdom...",
+      "category": "completed",
+      "composition": [
+        "DA_Component_FryingPan",
+        "DA_Component_FryingPan"
+      ],
+      "tags": [
+        "{ec243f6b}",
+        "{d304f83b}"
+      ],
+      "effects": {
+        "%ChanceToDropGold": 0.1,
+        "BonusTeamSize": 1
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_tacticiansshield.png"
+    },
+    {
+      "id": "DA_ThiefsGloves",
+      "name": "Găng Đạo Tặc",
+      "nameEn": "Thief's Gloves",
+      "description": "@Base_Health@ %i:scaleHealth% @Base_CritChance*100@% %i:scaleCrit%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_SparringGloves",
+        "DA_Component_SparringGloves"
+      ],
+      "tags": [
+        "{7ea41d13}",
+        "{2905e581}",
+        "{218b53a5}"
+      ],
+      "effects": {
+        "Base_CritChance": 0.2,
+        "CritChance": 0.2,
+        "Base_Health": 150,
+        "Health": 150
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_thiefsgloves.png"
+    },
+    {
+      "id": "DA_TitansResolve",
+      "name": "Quyền Năng Khổng Lồ",
+      "nameEn": "Titan's Resolve",
+      "description": "@Base_Armor@ %i:scaleArmor% @Base_AttackSpeedMinusOne*100@% %i:scaleAS%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_RecurveBow",
+        "DA_Component_ChainVest"
+      ],
+      "tags": [
+        "{7ea41d13}",
+        "{15b72700}",
+        "AttackDamage",
+        "AbilityPower"
+      ],
+      "effects": {
+        "Base_AttackSpeed": 1.1,
+        "AS": 1.1,
+        "MaxStacks": 25,
+        "ADAPPerStack": 0.02,
+        "DamageAmpFullStacks": 10,
+        "Base_Armor": 20,
+        "Armor": 20,
+        "Base_AttackSpeedMinusOne": 0.1
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_titansresolve.png"
+    },
+    {
+      "id": "DA_VoidStaff",
+      "name": "Trượng Hư Vô",
+      "nameEn": "Void Staff",
+      "description": "@Base_AP*100@% %i:scaleAP% @Base_AttackSpeedMinusOne*100@% %i:scaleAS% @Base_ManaPerSecond@ %i:scaleManaRegen%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_RecurveBow",
+        "DA_Component_TearOfTheGoddess"
+      ],
+      "tags": [
+        "{7ea41d13}"
+      ],
+      "effects": {
+        "Base_ManaPerSecond": 1,
+        "ManaRegen": 1,
+        "Base_AttackSpeed": 1.15,
+        "AS": 1.15,
+        "ShredDuration": 5,
+        "ShredPercent": 30,
+        "Base_AP": 0.35,
+        "AP": 0.35,
+        "Base_AttackSpeedMinusOne": 0.15
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_voidstaff.png"
+    },
+    {
+      "id": "DA_WarmogsArmor",
+      "name": "Giáp Máu Warmog",
+      "nameEn": "Warmog's Armor",
+      "description": "@Base_Health@ %i:scaleHealth%",
+      "category": "completed",
+      "composition": [
+        "DA_Component_GiantsBelt",
+        "DA_Component_GiantsBelt"
+      ],
+      "tags": [
+        "{7ea41d13}",
+        "Health"
+      ],
+      "effects": {
+        "HealthMaxMultiplier": 1.18,
+        "Base_Health": 500,
+        "Health": 500
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_warmogsarmor.png"
+    },
+    {
+      "id": "DA_Component_BFSword",
+      "name": "Kiếm B.F.",
+      "nameEn": "B.F. Sword",
+      "description": "@AD%*100@% %i:scaleAD%",
+      "category": "component",
+      "composition": [],
+      "tags": [
+        "component"
+      ],
+      "effects": {
+        "AD%": 0.1,
+        "AD": 0.1
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_component_bfsword.png"
+    },
+    {
+      "id": "DA_Component_ChainVest",
+      "name": "Giáp Lưới",
+      "nameEn": "Chain Vest",
+      "description": "@Armor@ %i:scaleArmor%",
+      "category": "component",
+      "composition": [],
+      "tags": [
+        "component"
+      ],
+      "effects": {
+        "Armor": 20
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_component_chainvest.png"
+    },
+    {
+      "id": "DA_Component_FryingPan",
+      "name": "Chảo Vàng",
+      "nameEn": "Frying Pan",
+      "description": "Details not in the PBE data yet.",
+      "category": "component",
+      "composition": [],
+      "tags": [
+        "component"
+      ],
+      "effects": {},
+      "traits": [],
+      "image": "/assets/set18/items/da_component_fryingpan.png"
+    },
+    {
+      "id": "DA_Component_GiantsBelt",
+      "name": "Đai Khổng Lồ",
+      "nameEn": "Giant's Belt",
+      "description": "@Health@ %i:scaleHealth%",
+      "category": "component",
+      "composition": [],
+      "tags": [
+        "component"
+      ],
+      "effects": {
+        "Health": 150
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_component_giantsbelt.png"
+    },
+    {
+      "id": "DA_Component_NeedlesslyLargeRod",
+      "name": "Gậy Quá Khổ",
+      "nameEn": "Needlessly Large Rod",
+      "description": "@AP*100@% %i:scaleAP%",
+      "category": "component",
+      "composition": [],
+      "tags": [
+        "component"
+      ],
+      "effects": {
+        "AP": 0.1
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_component_needlesslylargerod.png"
+    },
+    {
+      "id": "DA_Component_NegatronCloak",
+      "name": "Áo Choàng Bạc",
+      "nameEn": "Negatron Cloak",
+      "description": "@MR@ %i:scaleMR%",
+      "category": "component",
+      "composition": [],
+      "tags": [
+        "component"
+      ],
+      "effects": {
+        "MR": 20,
+        "MagicResist": 20
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_component_negatroncloak.png"
+    },
+    {
+      "id": "DA_Component_RecurveBow",
+      "name": "Cung Gỗ",
+      "nameEn": "Recurve Bow",
+      "description": "@ASMinusOne*100@% %i:scaleAS%",
+      "category": "component",
+      "composition": [],
+      "tags": [
+        "component"
+      ],
+      "effects": {
+        "AS": 1.1,
+        "ASMinusOne": 0.1
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_component_recurvebow.png"
+    },
+    {
+      "id": "DA_Component_SparringGloves",
+      "name": "Găng Đấu Tập",
+      "nameEn": "Sparring Gloves",
+      "description": "@CritChance*100@% %i:scaleCrit%",
+      "category": "component",
+      "composition": [],
+      "tags": [
+        "component"
+      ],
+      "effects": {
+        "CritChance": 0.2
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_component_sparringgloves.png"
+    },
+    {
+      "id": "DA_Component_Spatula",
+      "name": "Xẻng Vàng",
+      "nameEn": "Spatula",
+      "description": "Details not in the PBE data yet.",
+      "category": "component",
+      "composition": [],
+      "tags": [
+        "component"
+      ],
+      "effects": {},
+      "traits": [],
+      "image": "/assets/set18/items/da_component_spatula.png"
+    },
+    {
+      "id": "DA_Component_TearOfTheGoddess",
+      "name": "Nước Mắt Nữ Thần",
+      "nameEn": "Tear of the Goddess",
+      "description": "@ManaRegen@ %i:scaleManaRegen%",
+      "category": "component",
+      "composition": [],
+      "tags": [
+        "component"
+      ],
+      "effects": {
+        "ManaRegen": 1
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_component_tearofthegoddess.png"
+    },
+    {
+      "id": "DA_18_EmblemBlackthorn",
+      "name": "Ấn Gai Đen",
+      "nameEn": "Blackthorn Emblem",
+      "description": "@Health@ %i:scaleHealth% @AttackDamage*100@% %i:scaleAD% @AbilityPower*100@% %i:scaleAP%",
+      "category": "emblem",
+      "composition": [
+        "DA_Component_Spatula",
+        "DA_Component_GiantsBelt"
+      ],
+      "tags": [
+        "{ebcd1bac}"
+      ],
+      "effects": {
+        "Health": 250,
+        "AbilityPower": 0.15,
+        "AP": 0.15,
+        "AttackDamage": 0.15,
+        "AD": 0.15
+      },
+      "traits": [
+        "Blackthorn"
+      ],
+      "image": "/assets/set18/emblems/da_18_emblemblackthorn.png"
+    },
+    {
+      "id": "DA_18_EmblemBlossom",
+      "name": "Ấn Hoa Linh",
+      "nameEn": "Blossom Emblem",
+      "description": "@Health@ %i:scaleHealth% @ADAP*100@% %i:scaleAD% @ADAP*100@% %i:scaleAP%",
+      "category": "emblem",
+      "composition": [
+        "DA_Component_Spatula",
+        "DA_Component_NeedlesslyLargeRod"
+      ],
+      "tags": [
+        "{ebcd1bac}"
+      ],
+      "effects": {
+        "Health": 250,
+        "ADAP": 0.1
+      },
+      "traits": [
+        "Blossom"
+      ],
+      "image": "/assets/set18/emblems/da_18_emblemblossom.png"
+    },
+    {
+      "id": "DA_18_EmblemBrawler",
+      "name": "Ấn Đấu Sĩ",
+      "nameEn": "Brawler Emblem",
+      "description": "@HP@ %i:scaleHealth%",
+      "category": "emblem",
+      "composition": [
+        "DA_Component_FryingPan",
+        "DA_Component_GiantsBelt"
+      ],
+      "tags": [
+        "{ebcd1bac}"
+      ],
+      "effects": {
+        "HP": 250,
+        "MaxHealthDamageRatio": 0.02
+      },
+      "traits": [
+        "Brawler"
+      ],
+      "image": "/assets/set18/emblems/da_18_emblembrawler.png"
+    },
+    {
+      "id": "DA_18_EmblemCoven",
+      "name": "Ấn Tiên Hắc Ám",
+      "nameEn": "Coven Emblem",
+      "description": "@Health@ %i:scaleHealth%",
+      "category": "emblem",
+      "composition": [],
+      "tags": [
+        "{ebcd1bac}"
+      ],
+      "effects": {
+        "Health": 150
+      },
+      "traits": [
+        "Coven"
+      ],
+      "image": "/assets/set18/emblems/da_18_emblemcoven.png"
+    },
+    {
+      "id": "DA_18_EmblemDefender",
+      "name": "Ấn Vệ Quân",
+      "nameEn": "Defender Emblem",
+      "description": "@ArmorMR@ %i:scaleArmor% @ArmorMR@ %i:scaleMR%",
+      "category": "emblem",
+      "composition": [],
+      "tags": [
+        "{ebcd1bac}"
+      ],
+      "effects": {
+        "ArmorMR": 30,
+        "ASPerFrontlineAlly": 0.06
+      },
+      "traits": [
+        "Defender"
+      ],
+      "image": "/assets/set18/emblems/da_18_emblemdefender.png"
+    },
+    {
+      "id": "DA_18_EmblemElderwood",
+      "name": "Ấn Thần Rừng",
+      "nameEn": "Elderwood Emblem",
+      "description": "@AttackSpeedMinusOne*100@% %i:scaleAS% @ArmorMR@ %i:scaleArmor% @ArmorMR@ %i:scaleMR%",
+      "category": "emblem",
+      "composition": [
+        "DA_Component_Spatula",
+        "DA_Component_ChainVest"
+      ],
+      "tags": [
+        "{ebcd1bac}"
+      ],
+      "effects": {
+        "ArmorMR": 35,
+        "AttackSpeed": 1.25,
+        "AS": 1.25,
+        "AttackSpeedMinusOne": 0.25
+      },
+      "traits": [
+        "Elderwood"
+      ],
+      "image": "/assets/set18/emblems/da_18_emblemelderwood.png"
+    },
+    {
+      "id": "DA_18_EmblemExecutioner",
+      "name": "Ấn Đao Phủ",
+      "nameEn": "Executioner Emblem",
+      "description": "@CritChance*100@% %i:scaleCrit% @CritDamage*100@%",
+      "category": "emblem",
+      "composition": [
+        "DA_Component_FryingPan",
+        "DA_Component_SparringGloves"
+      ],
+      "tags": [
+        "{ebcd1bac}"
+      ],
+      "effects": {
+        "CritChance": 0.2,
+        "CritDamage": 0.08,
+        "ExecuteThreshold": 0.08
+      },
+      "traits": [
+        "Executioner"
+      ],
+      "image": "/assets/set18/emblems/da_18_emblemexecutioner.png"
+    },
+    {
+      "id": "DA_18_EmblemFae",
+      "name": "Ấn Tiên Linh",
+      "nameEn": "Fae Emblem",
+      "description": "@Health@ %i:scaleHealth% @ADAP*100@% %i:scaleAD% @ADAP*100@% %i:scaleAP%",
+      "category": "emblem",
+      "composition": [
+        "DA_Component_Spatula",
+        "DA_Component_BFSword"
+      ],
+      "tags": [
+        "{ebcd1bac}"
+      ],
+      "effects": {
+        "Health": 250,
+        "ADAP": 0.15
+      },
+      "traits": [
+        "Fae"
+      ],
+      "image": "/assets/set18/emblems/da_18_emblemfae.png"
+    },
+    {
+      "id": "DA_18_EmblemFloraFatalis",
+      "name": "Ấn Thực Vật",
+      "nameEn": "Flora Fatalis Emblem",
+      "description": "@Health@ %i:scaleHealth% @ManaRegen@ %i:scaleManaRegen%",
+      "category": "emblem",
+      "composition": [],
+      "tags": [
+        "emblem.elusive"
+      ],
+      "effects": {
+        "ManaRegen": 2,
+        "Health": 250
+      },
+      "traits": [
+        "Flora Fatalis"
+      ],
+      "image": "/assets/set18/emblems/da_18_emblemflorafatalis.png"
+    },
+    {
+      "id": "DA_18_EmblemHunter",
+      "name": "Ấn Thợ Săn",
+      "nameEn": "Hunter Emblem",
+      "description": "@AttackDamage*100@% %i:scaleAD%",
+      "category": "emblem",
+      "composition": [
+        "DA_Component_FryingPan",
+        "DA_Component_BFSword"
+      ],
+      "tags": [
+        "{ebcd1bac}"
+      ],
+      "effects": {
+        "AttackDamage": 0.3,
+        "AD": 0.3,
+        "AttackDamagePerTakedown": 0.18
+      },
+      "traits": [
+        "Hunter"
+      ],
+      "image": "/assets/set18/emblems/da_18_emblemhunter.png"
+    },
+    {
+      "id": "DA_18_EmblemInferno",
+      "name": "Ấn Hỏa Ngục",
+      "nameEn": "Inferno Emblem",
+      "description": "@AttackSpeedMinusOne*100@% %i:scaleAS%",
+      "category": "emblem",
+      "composition": [
+        "DA_Component_Spatula",
+        "DA_Component_RecurveBow"
+      ],
+      "tags": [
+        "{ebcd1bac}"
+      ],
+      "effects": {
+        "AttackSpeed": 1.4,
+        "AS": 1.4,
+        "AttackSpeedMinusOne": 0.4
+      },
+      "traits": [
+        "Inferno"
+      ],
+      "image": "/assets/set18/emblems/da_18_embleminferno.png"
+    },
+    {
+      "id": "DA_18_EmblemInvoker",
+      "name": "Ấn Thuật Sĩ",
+      "nameEn": "Invoker Emblem",
+      "description": "@ManaRegen@ %i:scaleManaRegen%",
+      "category": "emblem",
+      "composition": [
+        "DA_Component_FryingPan",
+        "DA_Component_TearOfTheGoddess"
+      ],
+      "tags": [
+        "{ebcd1bac}"
+      ],
+      "effects": {
+        "ManaRegen": 3,
+        "APPerManaSpentRatio": 0.1
+      },
+      "traits": [
+        "Invoker"
+      ],
+      "image": "/assets/set18/emblems/da_18_embleminvoker.png"
+    },
+    {
+      "id": "DA_18_EmblemJuggernaut",
+      "name": "Ấn Dũng Sĩ",
+      "nameEn": "Juggernaut Emblem",
+      "description": "@Health@ %i:scaleHealth%",
+      "category": "emblem",
+      "composition": [],
+      "tags": [
+        "emblem.elusive"
+      ],
+      "effects": {
+        "Health": 350,
+        "ManaPerDeath": 15
+      },
+      "traits": [
+        "Juggernaut"
+      ],
+      "image": "/assets/set18/emblems/da_18_emblemjuggernaut.png"
+    },
+    {
+      "id": "DA_18_EmblemLunar",
+      "name": "Ấn Mặt Trăng",
+      "nameEn": "Lunar Emblem",
+      "description": "@AttackSpeedMinusOne*100@% %i:scaleAS% @ManaRegen@ %i:scaleManaRegen%",
+      "category": "emblem",
+      "composition": [
+        "DA_Component_Spatula",
+        "DA_Component_TearOfTheGoddess"
+      ],
+      "tags": [
+        "{ebcd1bac}"
+      ],
+      "effects": {
+        "ManaRegen": 3,
+        "AttackSpeed": 1.2,
+        "AS": 1.2,
+        "AttackSpeedMinusOne": 0.2
+      },
+      "traits": [
+        "Lunar"
+      ],
+      "image": "/assets/set18/emblems/da_18_emblemlunar.png"
+    },
+    {
+      "id": "DA_PhantomEmblem18",
+      "name": "Ấn Ma Mị",
+      "nameEn": "Phantom Emblem",
+      "description": "Nhận 1 ấn tạm thời cho tộc/hệ kích hoạt cao nhất của bạn.",
+      "category": "emblem",
+      "composition": [],
+      "tags": [
+        "{5b609ae2}"
+      ],
+      "effects": {
+        "Cost": 3,
+        "CostUpgrade": 1
+      },
+      "traits": [],
+      "image": "/assets/set18/emblems/da_phantomemblem18.png"
+    },
+    {
+      "id": "DA_18_EmblemPrimal",
+      "name": "Ấn Nguyên Sinh",
+      "nameEn": "Primal Emblem",
+      "description": "@AttackSpeedMinusOne*100@% %i:scaleAS% @Health@ %i:scaleHealth% @CriticalStrikeChance*100@% %i:scaleCrit%",
+      "category": "emblem",
+      "composition": [
+        "DA_Component_Spatula",
+        "DA_Component_SparringGloves"
+      ],
+      "tags": [
+        "{ebcd1bac}"
+      ],
+      "effects": {
+        "CriticalStrikeChance": 0.2,
+        "CritChance": 0.2,
+        "Health": 250,
+        "AttackSpeed": 1.25,
+        "AS": 1.25,
+        "AttackSpeedMinusOne": 0.25
+      },
+      "traits": [
+        "Primal"
+      ],
+      "image": "/assets/set18/emblems/da_18_emblemprimal.png"
+    },
+    {
+      "id": "DA_18_EmblemRapidfire",
+      "name": "Ấn Liên Kích",
+      "nameEn": "Rapidfire Emblem",
+      "description": "@AttackSpeedMinusOne*100@% %i:scaleAS%",
+      "category": "emblem",
+      "composition": [
+        "DA_Component_FryingPan",
+        "DA_Component_RecurveBow"
+      ],
+      "tags": [
+        "{ebcd1bac}",
+        "{d8d00bcc}"
+      ],
+      "effects": {
+        "AttackSpeed": 1.2,
+        "AS": 1.2,
+        "MaxHealthTrueDamageRatio": 0.01,
+        "AttackSpeedMinusOne": 0.2
+      },
+      "traits": [
+        "Rapidfire"
+      ],
+      "image": "/assets/set18/emblems/da_18_emblemrapidfire.png"
+    },
+    {
+      "id": "DA_18_EmblemSlayer",
+      "name": "Ấn Tàn Phá",
+      "nameEn": "Ravager Emblem",
+      "description": "@Base_AD*100@% %i:scaleAD% @Base_AP*100@% %i:scaleAP% @ArmorMR@ %i:scaleArmor% @ArmorMR@ %i:scaleMR%",
+      "category": "emblem",
+      "composition": [
+        "DA_Component_FryingPan",
+        "DA_Component_NegatronCloak"
+      ],
+      "tags": [
+        "{ebcd1bac}"
+      ],
+      "effects": {
+        "ArmorMR": 20,
+        "DamageAmpIncrease": 0.03,
+        "HealingAmount": 300,
+        "Base_AD": 0.2,
+        "AD": 0.2,
+        "Base_AP": 0.2,
+        "AP": 0.2
+      },
+      "traits": [
+        "Ravager"
+      ],
+      "image": "/assets/set18/emblems/da_18_emblemslayer.png"
+    },
+    {
+      "id": "DA_18_EmblemSpellweaver",
+      "name": "Ấn Thuật Sư",
+      "nameEn": "Spellweaver Emblem",
+      "description": "@AP*100@% %i:scaleAP%",
+      "category": "emblem",
+      "composition": [
+        "DA_Component_FryingPan",
+        "DA_Component_NeedlesslyLargeRod"
+      ],
+      "tags": [
+        "{ebcd1bac}"
+      ],
+      "effects": {
+        "AP": 0.25,
+        "ManaGainPerTeamCast": 2
+      },
+      "traits": [
+        "Spellweaver"
+      ],
+      "image": "/assets/set18/emblems/da_18_emblemspellweaver.png"
+    },
+    {
+      "id": "DA_18_EmblemSprykin",
+      "name": "Ấn Tinh Nghịch",
+      "nameEn": "Sprykin Emblem",
+      "description": "@BaseAttackSpeedMinusOne*100@% %i:scaleAS% @BaseArmorMR@ %i:scaleArmor% @BaseArmorMR@ %i:scaleMR%",
+      "category": "emblem",
+      "composition": [
+        "DA_Component_Spatula",
+        "DA_Component_NegatronCloak"
+      ],
+      "tags": [
+        "{ebcd1bac}"
+      ],
+      "effects": {
+        "BaseAttackSpeed": 1.1,
+        "RiderAttackSpeed": 1.3,
+        "BaseArmorMR": 20,
+        "RiderArmorMR": 20,
+        "BaseAttackSpeedMinusOne": 0.1
+      },
+      "traits": [
+        "Sprykin"
+      ],
+      "image": "/assets/set18/emblems/da_18_emblemsprykin.png"
+    },
+    {
+      "id": "DA_18_EmblemVanguard",
+      "name": "Ấn Tiên Phong",
+      "nameEn": "Vanguard Emblem",
+      "description": "@ArmorMR@ %i:scaleArmor% @ArmorMR@ %i:scaleMR%",
+      "category": "emblem",
+      "composition": [
+        "DA_Component_FryingPan",
+        "DA_Component_ChainVest"
+      ],
+      "tags": [
+        "{ebcd1bac}"
+      ],
+      "effects": {
+        "ArmorMR": 30,
+        "SurviveTimeSeconds": 22,
+        "PlayerHealthGain": 1
+      },
+      "traits": [
+        "Vanguard"
+      ],
+      "image": "/assets/set18/emblems/da_18_emblemvanguard.png"
+    },
+    {
+      "id": "DA_AdaptiveHelm_Radiant",
+      "name": "Mũ Thích Nghi Ánh Sáng",
+      "nameEn": "Radiant Adaptive Helm",
+      "description": "@MagicResistBase@ %i:scaleMR% @ManaRegenBase@ %i:scaleManaRegen%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}"
+      ],
+      "effects": {
+        "MagicResistBase": 40,
+        "ManaMultiplierFromAllSources": 1.3,
+        "ArmorForTanksAndFighters": 80,
+        "MRForTanksAndFighters": 80,
+        "ADForOthers": 0.4,
+        "APForOthers": 0.4,
+        "ManaRegenBase": 7,
+        "ManaRegen": 7
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_adaptivehelm_radiant.png"
+    },
+    {
+      "id": "DA_ArchangelsStaffRadiant",
+      "name": "Quyền Trượng Thiên Thần Ánh Sáng",
+      "nameEn": "Radiant Archangel's Staff",
+      "description": "@Base_AP*100@% %i:scaleAP% @Base_ManaPerSecond@ %i:scaleManaRegen%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "{ec243f6b}",
+        "AbilityPower"
+      ],
+      "effects": {
+        "Period": 5,
+        "APStack": 40,
+        "Base_AP": 0.6,
+        "AP": 0.6,
+        "Base_ManaPerSecond": 2,
+        "ManaRegen": 2
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_archangelsstaffradiant.png"
+    },
+    {
+      "id": "DA_BlastPotion18_Radiant",
+      "name": "Lọ Thuốc Phát Nổ Ánh Sáng",
+      "nameEn": "Radiant Blast Potion",
+      "description": "After @TimeIntoCombat@ seconds of combat, knock up enemies within @HexRadius@ hexes for @KnockupDuration@ seconds.\n[Single Use - This item is destroyed after activating in combat.]",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "temporary",
+        "potion.radiant"
+      ],
+      "effects": {
+        "KnockupDuration": 2,
+        "TimeIntoCombat": 8,
+        "HexRadius": 4
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_blastpotion18_radiant.png"
+    },
+    {
+      "id": "DA_BloodthirsterRadiant",
+      "name": "Huyết Kiếm Ánh Sáng",
+      "nameEn": "Radiant Bloodthirster",
+      "description": "@BaseAD@ %i:scaleAD%% @BaseAP@ %i:scaleAP%% @BaseMagicResist@ %i:scaleMR% @BaseOmnivamp@ %i:scaleOmnivamp%%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "Duration": 5,
+        "ThresholdMaxHealthRatio": 0.4,
+        "ShieldMaxHealthRatio": 0.5,
+        "BaseMagicResist": 40,
+        "BaseAD": 30,
+        "AD": 30,
+        "BaseOmnivamp": 40,
+        "Omnivamp": 40,
+        "BaseAP": 30,
+        "AP": 30
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_bloodthirsterradiant.png"
+    },
+    {
+      "id": "DA_BlueBuffRadiant",
+      "name": "Bùa Xanh Ánh Sáng",
+      "nameEn": "Radiant Blue Buff",
+      "description": "@Base_AD*100@% %i:scaleAD% @Base_AP*100@% %i:scaleAP% @ManaRegen@ %i:scaleManaRegen%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "{ec243f6b}",
+        "Mana"
+      ],
+      "effects": {
+        "Base_AD": 0.3,
+        "AD": 0.3,
+        "ManaRegen": 10,
+        "Base_AP": 0.3,
+        "AP": 0.3,
+        "ADAPMultiplier": 1.2
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_bluebuffradiant.png"
+    },
+    {
+      "id": "DA_BrambleVestRadiant",
+      "name": "Áo Choàng Gai Ánh Sáng",
+      "nameEn": "Radiant Bramble Vest",
+      "description": "@ArmorBase@ %i:scaleArmor%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "{ec243f6b}",
+        "{15b72700}"
+      ],
+      "effects": {
+        "ArmorBase": 100,
+        "MaxHealthMultiplier": 1.12,
+        "AADamageReduction": 0.9,
+        "HexRange": 1,
+        "MagicDamageWhenHit": 200,
+        "Cooldown": 2
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_bramblevestradiant.png"
+    },
+    {
+      "id": "DA_CrownguardRadiant",
+      "name": "Vương Miện Hoàng Gia Ánh Sáng",
+      "nameEn": "Radiant Crownguard",
+      "description": "@Health@ %i:scaleHealth% @AbilityPower@ %i:scaleAP%% @Armor@ %i:scaleArmor%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "AbilityPower"
+      ],
+      "effects": {
+        "Armor": 40,
+        "Health": 200,
+        "AbilityPower": 40,
+        "AP": 40,
+        "ShieldDuration": 8,
+        "AbilityPowerOnShieldExpire": 50,
+        "MaxHealthShieldPercent": 50
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_crownguardradiant.png"
+    },
+    {
+      "id": "DA_DeathbladeRadiant",
+      "name": "Kiếm Tử Thần Ánh Sáng",
+      "nameEn": "Radiant Deathblade",
+      "description": "@AttackDamage*100@% %i:scaleAD% @DamageAmp*100@% %i:scaleDamageAmp%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "{ec243f6b}",
+        "AttackDamage"
+      ],
+      "effects": {
+        "DamageAmp": 0.2,
+        "BonusDamage": 0.2,
+        "AttackDamage": 1,
+        "AD": 1
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_deathbladeradiant.png"
+    },
+    {
+      "id": "DA_DragonsClawRadiant",
+      "name": "Vuốt Rồng Ánh Sáng",
+      "nameEn": "Radiant Dragon's Claw",
+      "description": "@MagicResist@ %i:scaleMR%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "{ec243f6b}",
+        "{15b72700}"
+      ],
+      "effects": {
+        "MaxHealthMultiplier": 1.28,
+        "MagicResist": 120,
+        "PercentHealthHeal": 0.05
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_dragonsclawradiant.png"
+    },
+    {
+      "id": "DA_EdgeOfNightRadiant",
+      "name": "Áo Choàng Bóng Tối Ánh Sáng",
+      "nameEn": "Radiant Edge of Night",
+      "description": "@AttackDamage*100@% %i:scaleAD% @AbilityPower*100@% %i:scaleAP% @Armor@ %i:scaleArmor% @AttackSpeedMinusOne*100@% %i:scaleAS%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "Armor": 40,
+        "AttackDamage": 0.3,
+        "AD": 0.3,
+        "AttackSpeed": 1.3,
+        "AS": 1.3,
+        "AbilityPower": 0.3,
+        "AP": 0.3,
+        "HPPercentageToProcAt": 0.6,
+        "AttackSpeedMinusOne": 0.3
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_edgeofnightradiant.png"
+    },
+    {
+      "id": "DA_EvenshroudRadiant",
+      "name": "Giáp Vai Nguyệt Thần Ánh Sáng",
+      "nameEn": "Radiant Evenshroud",
+      "description": "@HealthMax@ %i:scaleHealth% @MagicResist@ %i:scaleMR%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "{ec243f6b}",
+        "{15b72700}"
+      ],
+      "effects": {
+        "MagicResist": 40,
+        "HealthMax": 500,
+        "Health": 500,
+        "OnBattleStartEffectDuration": 20,
+        "SunderPercent": 30,
+        "ArmorOnBattleStart": 50,
+        "MagicResistOnBattleStart": 50,
+        "HexRange": 3
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_evenshroudradiant.png"
+    },
+    {
+      "id": "DA_GargoyleStoneplate_Radiant",
+      "name": "Thú Tượng Thạch Giáp Ánh Sáng",
+      "nameEn": "Radiant Gargoyle Stoneplate",
+      "description": "@HealthMax@ %i:scaleHealth% @Armor@ %i:scaleArmor% @MagicResist@ %i:scaleMR%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "{ec243f6b}",
+        "{15b72700}"
+      ],
+      "effects": {
+        "Armor": 50,
+        "MagicResist": 50,
+        "HealthMax": 400,
+        "Health": 400,
+        "MRPerTargetingEnemy": 20,
+        "ArmorPerTargetingEnemy": 20,
+        "MaxHealthHeal": 1.5
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_gargoylestoneplate_radiant.png"
+    },
+    {
+      "id": "DA_GiantSlayer_Radiant",
+      "name": "Diệt Khổng Lồ Ánh Sáng",
+      "nameEn": "Radiant Giant Slayer",
+      "description": "@AttackDamage*100@% %i:scaleAD% @AbilityPower*100@% %i:scaleAP% @AttackSpeedMinusOne*100@% %i:scaleAS% @OutgoingDamageMultiplier*100@% %i:scaleDamageAmp%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "AttackSpeed": 1.3,
+        "AS": 1.3,
+        "AbilityPower": 0.3,
+        "AP": 0.3,
+        "AttackDamage": 0.3,
+        "AD": 0.3,
+        "OutgoingDamageMultiplier": 0.3,
+        "AmpRatioAgainstTanks": 0.3,
+        "AttackSpeedMinusOne": 0.3
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_giantslayer_radiant.png"
+    },
+    {
+      "id": "DA_GuinsoosRagebladeRadiant",
+      "name": "Cuồng Đao Guinsoo Ánh Sáng",
+      "nameEn": "Radiant Guinsoo's Rageblade",
+      "description": "@BaseAP*100@% %i:scaleAP% @BaseASMinusOne*100@% %i:scaleAS%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "{ec243f6b}",
+        "AttackSpeed"
+      ],
+      "effects": {
+        "BaseAS": 1.25,
+        "BaseAP": 0.2,
+        "AP": 0.2,
+        "ASCounter": 16,
+        "BaseASMinusOne": 0.25
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_guinsoosragebladeradiant.png"
+    },
+    {
+      "id": "DA_HandOfJusticeRadiant",
+      "name": "Bàn Tay Công Lý Ánh Sáng",
+      "nameEn": "Radiant Hand of Justice",
+      "description": "@CritChanceBase*100@% %i:scaleCrit% @ManaRegenBase@ %i:scaleManaRegen%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "{ec243f6b}",
+        "CritChance"
+      ],
+      "effects": {
+        "CritChanceBase": 0.4,
+        "ManaRegenBase": 2,
+        "ManaRegen": 2,
+        "APBase": 0.35,
+        "ADBase": 0.35,
+        "HealthThreshold": 0.5,
+        "OmnivampBase": 0.24
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_handofjusticeradiant.png"
+    },
+    {
+      "id": "DA_HealthPotion18_Radiant",
+      "name": "Bình Máu Ánh Sáng",
+      "nameEn": "Radiant Health Potion",
+      "description": "When the holder drops below @MaxHealthThreshold*100@% health, heal for @MaxHealthHeal@ Health and heal allies for @TeamwideHeal@ Health over @Duration@ seconds.\n[Single Use - This item is destroyed after activating in combat.]",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "temporary",
+        "potion.radiant"
+      ],
+      "effects": {
+        "MaxHealthThreshold": 0.5,
+        "TeamwideHeal": 150,
+        "Duration": 3,
+        "MaxHealthHeal": 850
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_healthpotion18_radiant.png"
+    },
+    {
+      "id": "DA_HextechGunbladeRadiant",
+      "name": "Kiếm Súng Hextech Ánh Sáng",
+      "nameEn": "Radiant Hextech Gunblade",
+      "description": "@BaseAD*100@% %i:scaleAD% @BaseAP*100@% %i:scaleAP% @BaseOmnivamp*100@% %i:scaleOmnivamp% @BaseManaRegen@ %i:scaleManaRegen%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "BaseAP": 0.4,
+        "AP": 0.4,
+        "BaseAD": 0.4,
+        "AD": 0.4,
+        "DamageToHealRatio": 0.4,
+        "BaseOmnivamp": 0.3,
+        "Omnivamp": 0.3,
+        "BaseManaRegen": 2,
+        "ManaRegen": 2
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_hextechgunbladeradiant.png"
+    },
+    {
+      "id": "DA_InfinityEdgeRadiant",
+      "name": "Vô Cực Kiếm Ánh Sáng",
+      "nameEn": "Radiant Infinity Edge",
+      "description": "@AttackDamage*100@% %i:scaleAD% @CriticalStrikeChance*100@% %i:scaleCrit%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "CriticalStrikeChance": 0.75,
+        "CritChance": 0.75,
+        "AttackDamage": 0.75,
+        "AD": 0.75
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_infinityedgeradiant.png"
+    },
+    {
+      "id": "DA_IonicSparkRadiant",
+      "name": "Nỏ Sét Ánh Sáng",
+      "nameEn": "Radiant Ionic Spark",
+      "description": "@Base_Health@ %i:scaleHealth% @Base_AP*100@% %i:scaleAP% @Base_MR@ %i:scaleMR%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "Base_MR": 70,
+        "MagicResist": 70,
+        "Base_AP": 0.3,
+        "AP": 0.3,
+        "EnemyCastManaAsDamagePercent": 3,
+        "ShredPercent": 0.3,
+        "HexRange": 2,
+        "Base_Health": 500,
+        "Health": 500
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_ionicsparkradiant.png"
+    },
+    {
+      "id": "DA_JeweledGauntletRadiant",
+      "name": "Găng Bảo Thạch Ánh Sáng",
+      "nameEn": "Radiant Jeweled Gauntlet",
+      "description": "@Base_AP*100@% %i:scaleAP% @Base_CritChance*100@% %i:scaleCrit%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "{ec243f6b}",
+        "CritChance"
+      ],
+      "effects": {
+        "Base_AP": 0.75,
+        "AP": 0.75,
+        "Base_CritChance": 0.75,
+        "CritChance": 0.75
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_jeweledgauntletradiant.png"
+    },
+    {
+      "id": "DA_KrakensFury_Radiant",
+      "name": "Thịnh Nộ Thủy Quái Ánh Sáng",
+      "nameEn": "Radiant Kraken's Fury",
+      "description": "@Base_AD*100@% %i:scaleAD% @Base_MR@ %i:scaleMR% @Base_ASMinusOne*100@% %i:scaleAS%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "{ec243f6b}",
+        "AttackDamage"
+      ],
+      "effects": {
+        "Base_AS": 1.2,
+        "Base_MR": 40,
+        "MagicResist": 40,
+        "ADCounter": 7,
+        "Base_AD": 0.2,
+        "AD": 0.2,
+        "MaxStacks": 15,
+        "Bonus_AS": 0.3,
+        "StackCounter": 1,
+        "Base_ASMinusOne": 0.2
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_krakensfury_radiant.png"
+    },
+    {
+      "id": "DA_LastWhisperRadiant",
+      "name": "Cung Xanh Ánh Sáng",
+      "nameEn": "Radiant Last Whisper",
+      "description": "@AttackDamage*100@% %i:scaleAD% @AttackSpeedMinusOne*100@% %i:scaleAS% @CritChance*100@% %i:scaleCrit%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "AttackSpeed": 1.4,
+        "AS": 1.4,
+        "AttackDamage": 0.45,
+        "AD": 0.45,
+        "CritChance": 0.4,
+        "SunderPercent": 30,
+        "SunderDuration": 50,
+        "AttackSpeedMinusOne": 0.4
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_lastwhisperradiant.png"
+    },
+    {
+      "id": "DA_ManaPotion18_Radiant",
+      "name": "Bình Năng Lượng Ánh Sáng",
+      "nameEn": "Radiant Mana Potion",
+      "description": "The holder gains @UpgradeStartingMana@ Mana. On cast, restore @UpgradeManaRestore@ Mana to the holder and @UpgradeAllyManaRestore@ Mana to allies over @Duration@ seconds.\n[Single Use - This item is destroyed after activating in combat.]",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "temporary",
+        "potion.radiant"
+      ],
+      "effects": {
+        "Duration": 5,
+        "UpgradeManaRestore": 90,
+        "UpgradeStartingMana": 20,
+        "UpgradeAllyManaRestore": 10
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_manapotion18_radiant.png"
+    },
+    {
+      "id": "DA_MorellonomiconRadiant",
+      "name": "Quỷ Thư Morello Ánh Sáng",
+      "nameEn": "Radiant Morellonomicon",
+      "description": "@BaseHealth@ %i:scaleHealth% @BaseAP*100@% %i:scaleAP% @BaseManaRegen@ %i:scaleManaRegen%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "{ec243f6b}",
+        "AttackSpeed",
+        "AbilityPower"
+      ],
+      "effects": {
+        "BaseManaRegen": 2,
+        "ManaRegen": 2,
+        "BaseHealth": 300,
+        "Health": 300,
+        "BurnPercent": 2,
+        "BaseAP": 0.35,
+        "AP": 0.35,
+        "WoundPercent": 33,
+        "BurnAndWoundDuration": 10
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_morellonomiconradiant.png"
+    },
+    {
+      "id": "DA_NashorsToothRadiant",
+      "name": "Nanh Nashor Ánh Sáng",
+      "nameEn": "Radiant Nashor's Tooth",
+      "description": "@HealthBase@ %i:scaleHealth% @AbilityPowerBase*100@% %i:scaleAP% @AttackSpeedBaseMinusOne*100@% %i:scaleAS% @CritChance*100@% %i:scaleCrit%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "AttackSpeed",
+        "AbilityPower"
+      ],
+      "effects": {
+        "HealthBase": 300,
+        "AttackSpeedBase": 1.2,
+        "AbilityPowerBase": 0.3,
+        "ManaPerAttack": 4,
+        "CritChance": 0.4,
+        "ManaPerAttack_BonusCritical": 2,
+        "Default_CritBonus": 6,
+        "AttackSpeedBaseMinusOne": 0.2
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_nashorstoothradiant.png"
+    },
+    {
+      "id": "DA_ProtectorsVowRadiant",
+      "name": "Lời Thề Hộ Vệ Ánh Sáng",
+      "nameEn": "Radiant Protector's Vow",
+      "description": "@Armor@ %i:scaleArmor% @MR@ %i:scaleMR% @ManaRegen@ %i:scaleManaRegen%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "{ec243f6b}",
+        "{15b72700}"
+      ],
+      "effects": {
+        "StartingMana": 40,
+        "ManaRegen": 2,
+        "ProcGainMana": 30,
+        "Armor": 50,
+        "ProcShield%MaxHealth": 0.5,
+        "Proc%HealthThreshold": 0.4,
+        "MR": 50,
+        "MagicResist": 50
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_protectorsvowradiant.png"
+    },
+    {
+      "id": "DA_QuicksilverRadiant",
+      "name": "Áo Choàng Thủy Ngân Ánh Sáng",
+      "nameEn": "Radiant Quicksilver",
+      "description": "@Base_MagicResist@ %i:scaleMR% @Base_AttackSpeedMinusOne*100@% %i:scaleAS% @Base_CritChance*100@% %i:scaleCrit%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "{ec243f6b}",
+        "AttackSpeed"
+      ],
+      "effects": {
+        "Base_AttackSpeed": 1.4,
+        "AS": 1.4,
+        "EffectDuration": 45,
+        "StacksToAtkSpd": 1.06,
+        "StackFrequency": 1,
+        "Base_CritChance": 0.4,
+        "CritChance": 0.4,
+        "Base_MagicResist": 40,
+        "Base_AttackSpeedMinusOne": 0.4
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_quicksilverradiant.png"
+    },
+    {
+      "id": "DA_RabadonsDeathcap_Radiant",
+      "name": "Mũ Phù Thủy Rabadon Ánh Sáng",
+      "nameEn": "Radiant Rabadon's Deathcap",
+      "description": "@AbilityPower*100@% %i:scaleAP% @DamageAmp*100@% %i:scaleDamageAmp%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "DamageAmp": 0.3,
+        "BonusDamage": 0.3,
+        "AbilityPower": 1,
+        "AP": 1
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_rabadonsdeathcap_radiant.png"
+    },
+    {
+      "id": "DA_RedBuffRadiant",
+      "name": "Bùa Đỏ Ánh Sáng",
+      "nameEn": "Radiant Red Buff",
+      "description": "@Base_AttackSpeedMinusOne*100@% %i:scaleAS% @Base_DamageAmp*100@% %i:scaleDamageAmp%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "{ec243f6b}",
+        "AttackSpeed"
+      ],
+      "effects": {
+        "Duration": 5,
+        "Burn": 2,
+        "Wound": 33,
+        "Base_DamageAmp": 0.06,
+        "Base_AttackSpeed": 1.8,
+        "AS": 1.8,
+        "Base_AttackSpeedMinusOne": 0.8
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_redbuffradiant.png"
+    },
+    {
+      "id": "DA_SpearOfShojinRadiant",
+      "name": "Ngọn Giáo Shojin Ánh Sáng",
+      "nameEn": "Radiant Spear of Shojin",
+      "description": "@AttackDamage*100@% %i:scaleAD% @AbilityPower*100@% %i:scaleAP% @ManaPerSecond@ %i:scaleManaRegen%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "{ec243f6b}",
+        "Mana"
+      ],
+      "effects": {
+        "AbilityPower": 0.3,
+        "AP": 0.3,
+        "ManaPerSecond": 2,
+        "AttackDamage": 0.3,
+        "AD": 0.3,
+        "ManaPerAttack": 10
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_spearofshojinradiant.png"
+    },
+    {
+      "id": "DA_SpiritVisage_Radiant",
+      "name": "Giáp Tâm Linh Ánh Sáng",
+      "nameEn": "Radiant Spirit Visage",
+      "description": "@BaseHealth@ %i:scaleHealth% @IncomingDmgModInverted*100@% @BaseManaRegen@ %i:scaleManaRegen%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "{ec243f6b}",
+        "Heal"
+      ],
+      "effects": {
+        "BaseHealth": 700,
+        "Health": 700,
+        "BaseManaRegen": 4,
+        "ManaRegen": 4,
+        "MissingHealthRegen": 4,
+        "RegenTickRate": 1,
+        "IncomingDmgMod": 0.85,
+        "IncomingDmgModInverted": 0.15
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_spiritvisage_radiant.png"
+    },
+    {
+      "id": "DA_SteadfastHeartRadiant",
+      "name": "Trái Tim Kiên Định Ánh Sáng",
+      "nameEn": "Radiant Steadfast Heart",
+      "description": "",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}"
+      ],
+      "effects": {
+        "Base_CritChance": 0.4,
+        "CritChance": 0.4,
+        "LowHealthIncDmgMod": 10,
+        "MaxHealthThreshold": 0.5,
+        "Base_Health": 500,
+        "Health": 500,
+        "HighHealthIncDmgMod": 30,
+        "Base_Armor": 40,
+        "Armor": 40
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_steadfastheartradiant.png"
+    },
+    {
+      "id": "DA_SteraksGageRadiant",
+      "name": "Móng Vuốt Sterak Ánh Sáng",
+      "nameEn": "Radiant Sterak's Gage",
+      "description": "@BaseHealth@ %i:scaleHealth% @BaseAD*100@% %i:scaleAD%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "AttackDamage"
+      ],
+      "effects": {
+        "BaseAD": 0.9,
+        "AD": 0.9,
+        "BaseHealth": 600,
+        "Health": 600,
+        "Duration": 6,
+        "ShieldMaxHealthRatio": 0.8,
+        "MaxHealthProcThreshold": 0.6
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_steraksgageradiant.png"
+    },
+    {
+      "id": "DA_StrikersFlailRadiant",
+      "name": "Chùy Đoản Côn Ánh Sáng",
+      "nameEn": "Radiant Striker's Flail",
+      "description": "@Base_Health@ %i:scaleHealth% @Base_AttackSpeedMinusOne*100@% %i:scaleAS% @Base_CritChance*100@% %i:scaleCrit% @Base_DamageAmp*100@% %i:scaleDamageAmp%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "{ec243f6b}",
+        "CritChance"
+      ],
+      "effects": {
+        "Base_CritChance": 0.4,
+        "CritChance": 0.4,
+        "Base_AttackSpeed": 1.2,
+        "AS": 1.2,
+        "Base_DamageAmp": 0.2,
+        "BuffDuration": 5,
+        "DABuff": 0.1,
+        "MaxStacks": 4,
+        "Base_Health": 300,
+        "Health": 300,
+        "Base_AttackSpeedMinusOne": 0.2
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_strikersflailradiant.png"
+    },
+    {
+      "id": "DA_SunfireCape_Radiant",
+      "name": "Áo Choàng Lửa Ánh Sáng",
+      "nameEn": "Radiant Sunfire Cape",
+      "description": "@MaxHealth@ %i:scaleHealth% @Armor@ %i:scaleArmor%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "BurnWoundFrequency": 2,
+        "Armor": 40,
+        "MaxHealth": 300,
+        "BurnWoundDuration": 10,
+        "MaxHealthMultiplier": 1.16,
+        "BurnWoundRange": 2,
+        "BurnPercent": 2,
+        "WoundPercent": 33
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_sunfirecape_radiant.png"
+    },
+    {
+      "id": "DA_ThiefsGlovesRadiant",
+      "name": "Găng Đạo Tặc Ánh Sáng",
+      "nameEn": "Radiant Thief's Gloves",
+      "description": "@Base_Health@ %i:scaleHealth% @Base_CritChance*100@% %i:scaleCrit%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "{ec243f6b}",
+        "{2905e581}",
+        "{218b53a5}"
+      ],
+      "effects": {
+        "Base_CritChance": 0.2,
+        "CritChance": 0.2,
+        "Base_Health": 150,
+        "Health": 150
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_thiefsglovesradiant.png"
+    },
+    {
+      "id": "DA_TitansResolve_Radiant",
+      "name": "Quyền Năng Khổng Lồ Ánh Sáng",
+      "nameEn": "Radiant Titan's Resolve",
+      "description": "@Base_Armor@ %i:scaleArmor% @Base_AttackSpeedMinusOne*100@% %i:scaleAS%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "Base_AttackSpeed": 1.2,
+        "AS": 1.2,
+        "MaxStacks": 25,
+        "ADAPPerStack": 0.04,
+        "DamageAmpFullStacks": 20,
+        "Base_Armor": 40,
+        "Armor": 40,
+        "Base_AttackSpeedMinusOne": 0.2
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_titansresolve_radiant.png"
+    },
+    {
+      "id": "DA_VoidStaffRadiant",
+      "name": "Trượng Hư Vô Ánh Sáng",
+      "nameEn": "Radiant Void Staff",
+      "description": "@Base_AP*100@% %i:scaleAP% @Base_AttackSpeedMinusOne*100@% %i:scaleAS% @Base_ManaPerSecond@ %i:scaleManaRegen%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "{ec243f6b}"
+      ],
+      "effects": {
+        "Base_AttackSpeed": 1.3,
+        "AS": 1.3,
+        "ShredPercent": 30,
+        "Base_ManaPerSecond": 2,
+        "ManaRegen": 2,
+        "ShredDuration": 60,
+        "Base_AP": 0.75,
+        "AP": 0.75,
+        "Base_AttackSpeedMinusOne": 0.3
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_voidstaffradiant.png"
+    },
+    {
+      "id": "DA_WarmogsArmorRadiant",
+      "name": "Giáp Máu Warmog Ánh Sáng",
+      "nameEn": "Radiant Warmog's Armor",
+      "description": "@Base_Health@ %i:scaleHealth%",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{6ef5c598}",
+        "{ec243f6b}",
+        "Health"
+      ],
+      "effects": {
+        "HealthMaxMultiplier": 1.36,
+        "Base_Health": 1200,
+        "Health": 1200
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_warmogsarmorradiant.png"
+    },
+    {
+      "id": "DA_18_Radiantize",
+      "name": "Ánh Sáng Hóa",
+      "nameEn": "Radiantize",
+      "description": "Sau @Delay@ giây, @NumItems@ trang bị ngẫu nhiên đang được trang bị sẽ tạm thời trở thành dạng Ánh Sáng.",
+      "category": "radiant",
+      "composition": [],
+      "tags": [
+        "{5b609ae2}"
+      ],
+      "effects": {
+        "Delay": 8,
+        "NumItems": 1
+      },
+      "traits": [],
+      "image": "/assets/set18/items/da_18_radiantize.png"
+    }
+  ]
+}
