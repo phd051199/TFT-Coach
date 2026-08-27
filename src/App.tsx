@@ -17,7 +17,7 @@ import {
 import { useEffect, useMemo, useRef, useState } from 'react'
 import setRaw from './data/set18.generated.json'
 import metaRaw from './data/meta.generated.json'
-import { requestCoach } from './api/coach'
+import { requestCoach, requestHealth } from './api/coach'
 import { BoardCanvas } from './components/BoardCanvas'
 import { ChampionPicker } from './components/ChampionPicker'
 import { ItemPicker } from './components/ItemPicker'
@@ -35,6 +35,8 @@ import type {
   MetaData,
   Set18Data,
 } from './types'
+import { encodeTeamPlannerCode } from './utils/teamPlanner'
+import { copyText } from './utils/clipboard'
 import './App.css'
 
 const setData = setRaw as unknown as Set18Data
@@ -54,7 +56,6 @@ function formatAge(iso: string) {
 function LineupCopyButton({
   champions,
   title,
-  stars = {},
   compact = false,
 }: {
   champions: Champion[]
@@ -66,10 +67,7 @@ function LineupCopyButton({
 
   async function copyLineup() {
     if (!champions.length) return
-    const lineup = champions
-      .map((champion) => `${champion.name}${stars[champion.id] ? ` ${stars[champion.id]}★` : ''}`)
-      .join(', ')
-    await navigator.clipboard.writeText(title ? `${title}\n${lineup}` : lineup)
+    await copyText(encodeTeamPlannerCode(champions, setData.champions, setData.set))
     setCopied(true)
     window.setTimeout(() => setCopied(false), 1400)
   }
@@ -84,10 +82,10 @@ function LineupCopyButton({
         void copyLineup()
       }}
       onKeyDown={(event) => event.stopPropagation()}
-      title={copied ? 'Đã copy đội hình' : 'Copy đội hình'}
+      title={copied ? 'Đã copy mã Team Planner' : `Copy mã Team Planner${title ? ` · ${title}` : ''}`}
     >
       {copied ? <Check size={13} /> : <Copy size={13} />}
-      <span>{copied ? 'Đã copy' : compact ? 'Copy' : 'Copy đội hình'}</span>
+      <span>{copied ? 'Đã copy' : compact ? 'Copy' : 'Copy mã'}</span>
     </button>
   )
 }
@@ -473,7 +471,10 @@ function CoachView() {
         </section>
 
         <section className="panel shop-plan-panel">
-          <div className="panel-title"><div><span className="eyebrow">SHOP PLAN</span><h2>Tướng nên bắt tiếp</h2></div><Target size={20} /></div>
+          <div className="panel-title">
+            <div><span className="eyebrow">SHOP PLAN</span><h2>Tướng nên bắt tiếp</h2></div>
+            <LineupCopyButton champions={buyNext} title="Tướng nên bắt tiếp" compact />
+          </div>
           <div className="buy-list">
             {buyNext.map((champion, index) => <ChampionMini key={champion.id} champion={champion} label={index < 3 ? 'Ưu tiên cao' : 'Giữ nếu dư bench'} />)}
           </div>
@@ -665,6 +666,16 @@ function SourcesView() {
 
 export default function App() {
   const [view, setView] = useState<View>('coach')
+  const [liveData, setLiveData] = useState<ApiCoachResult['data'] | null>(null)
+
+  useEffect(() => {
+    const controller = new AbortController()
+    void requestHealth(controller.signal)
+      .then((result) => setLiveData(result.data))
+      .catch(() => setLiveData(null))
+    return () => controller.abort()
+  }, [])
+
   const nav = [
     { id: 'coach' as const, label: 'Coach', icon: LayoutDashboard },
     { id: 'meta' as const, label: 'Đội hình Meta', icon: BarChart3 },
@@ -682,7 +693,13 @@ export default function App() {
         <nav>
           {nav.map((item) => { const Icon = item.icon; return <button key={item.id} type="button" className={view === item.id ? 'active' : ''} onClick={() => setView(item.id)}><Icon size={16} />{item.label}</button> })}
         </nav>
-        <div className="patch-status"><RefreshCw size={14} /><div><b>{metaData.patch} · Set 18</b><span>data {formatAge(setData.generatedAt)}</span></div></div>
+        <div className="patch-status">
+          <RefreshCw size={14} />
+          <div>
+            <b>{liveData?.patch ?? metaData.patch} · Set 18</b>
+            <span>{liveData?.generatedAt ? 'live data' : 'catalog data'} {formatAge(liveData?.generatedAt ?? setData.generatedAt)}</span>
+          </div>
+        </div>
       </header>
       {view === 'coach' && <CoachView />}
       {view === 'meta' && <MetaView />}

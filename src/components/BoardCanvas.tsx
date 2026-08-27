@@ -1,6 +1,12 @@
 import { Copy, Check } from 'lucide-react'
 import { useEffect, useMemo, useRef, useState } from 'react'
+import setRaw from '../data/set18.generated.json'
 import type { ApiBoardPosition, Champion, ItemSuggestion } from '../types'
+import type { Set18Data } from '../types'
+import { encodeTeamPlannerCode } from '../utils/teamPlanner'
+import { copyText } from '../utils/clipboard'
+
+const setData = setRaw as unknown as Set18Data
 
 type Props = {
   champions: Champion[]
@@ -182,17 +188,7 @@ export function BoardCanvas({ champions, title = 'Đội hình', items = [], pos
   }, [champions, itemByHolder, positionByUnit, stars])
 
   async function copyComp() {
-    const units = champions.map((champion) => {
-      const predictedStars = stars[champion.id]
-      return predictedStars === undefined
-        ? champion.name
-        : `${champion.name} ${Math.max(1, Math.min(3, predictedStars))}★`
-    }).join(', ')
-    const itemText = items
-      .filter((entry) => entry.holder)
-      .map((entry) => `${entry.holder!.name}: ${entry.item.name}`)
-      .join(' | ')
-    await navigator.clipboard.writeText(`${title}\n${units}${itemText ? `\n${itemText}` : ''}`)
+    await copyText(encodeTeamPlannerCode(champions, setData.champions, setData.set))
     setCopied(true)
     window.setTimeout(() => setCopied(false), 1400)
   }
@@ -206,7 +202,7 @@ export function BoardCanvas({ champions, title = 'Đội hình', items = [], pos
         </div>
         <button className="ghost-button" onClick={copyComp} type="button">
           {copied ? <Check size={16} /> : <Copy size={16} />}
-          {copied ? 'Đã copy' : 'Copy đội hình'}
+          {copied ? 'Đã copy' : 'Copy mã'}
         </button>
       </div>
       <canvas ref={canvasRef} className="board-canvas" aria-label={`${title}: ${champions.map((champion) => champion.name).join(', ')}`} />

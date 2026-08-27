@@ -173,6 +173,8 @@ def canonical_signature(row: dict, index: int = 0) -> str:
     units = ",".join(sorted(str(value) for value in row.get("units") or []))
     items = ",".join(sorted(str(value) for value in row.get("items") or [])) if family == "item" else ""
     level = int(row.get("level") or 8) if family == "board" else 0
+    if family == "item" and items:
+        return f"{family}::{level}::{units or '*'}::{items}"
     if not units:
         return f"empty::{index}"
     return f"{family}::{level}::{units}::{items}"
@@ -315,10 +317,12 @@ def train_model(
             callbacks=callbacks,
             verbose=0,
         )
-        calibration_predictions.append(model.predict(cal_x, verbose=0).reshape(-1))
-        test_predictions.append(model.predict(test_x, verbose=0).reshape(-1))
+        # Direct inference avoids rebuilding Keras predict functions for every freshly-created
+        # ensemble member. This removes TensorFlow retracing overhead during training/eval.
+        calibration_predictions.append(np.asarray(model(cal_x, training=False)).reshape(-1))
+        test_predictions.append(np.asarray(model(test_x, training=False)).reshape(-1))
         if external_matrix is not None:
-            external_predictions.append(model.predict(external_matrix[0], verbose=0).reshape(-1))
+            external_predictions.append(np.asarray(model(external_matrix[0], training=False)).reshape(-1))
         model_path = MODEL_DIR / (f"{model_name}.keras" if member == 0 else f"{model_name}.{member}.keras")
         model.save(model_path)
         member_paths.append(str(model_path.relative_to(ROOT)))
@@ -405,12 +409,12 @@ def train_model(
 
 
 def load_item_affinity_rows() -> list[dict]:
-    """Build single-item holder labels from the current live MetaTFT snapshot.
+    """Build globally consistent single-item holder labels from live MetaTFT data.
 
-    MetaTFT's per-holder `placeChange` is a much cleaner target for "who should hold this
-    item?" than whole-game placement. Negative place change means the item improved that
-    holder's result relative to the unit baseline. We convert it into a bounded 0..1 affinity
-    label and weight by holder sample count + item pick share.
+    Runtime affinity only sees ``(holder, item)``. Older training code emitted one row per
+    comp cluster, which meant the *same input vector* could receive many conflicting labels
+    depending on the comp it came from. Aggregate every holder/item pair first so supervision
+    matches the information available to the model at inference time.
     """
     snapshot_path = ROOT / "backend" / "data" / "metatft.snapshot.json"
     if not snapshot_path.exists():
@@ -419,7 +423,7 @@ def load_item_affinity_rows() -> list[dict]:
     if snapshot.get("queue") != "LIVE" or not str(snapshot.get("patch") or "").startswith("18."):
         return []
     catalog = load_catalog()
-    rows: list[dict] = []
+    aggregates: dict[tuple[str, str], dict[str, object]] = {}
     for cluster in snapshot.get("clusters") or []:
         cluster_id = str(cluster.get("id") or "")
         for item_row in cluster.get("itemStats") or []:
@@ -429,34 +433,63 @@ def load_item_affinity_rows() -> list[dict]:
             for holder in item_row.get("units") or []:
                 unit_id = str(holder.get("unit") or "")
                 count = int(holder.get("count") or 0)
-                if unit_id not in catalog.champion_by_id or count < 8:
+                if unit_id not in catalog.champion_by_id or count <= 0:
                     continue
                 place_change = float(holder.get("placeChange") or 0.0)
                 item_pick = max(0.0, float(holder.get("itemPick") or 0.0))
-                target = float(np.clip(0.5 - place_change * 0.48, 0.04, 0.96))
-                weight = 0.55 + min(1.45, np.log1p(count) / 4.0) + min(0.35, item_pick * 0.8)
-                rows.append({
-                    "source": "metatft-item-affinity",
-                    "sample_kind": "item_affinity",
-                    "units": [unit_id],
-                    "items": [item_id],
-                    "traits": [],
-                    "level": 8,
-                    "target_strength": target,
-                    "training_weight": float(weight),
-                    "context_id": cluster_id,
+                key = (unit_id, item_id)
+                aggregate = aggregates.setdefault(key, {
+                    "count": 0,
+                    "place_change_sum": 0.0,
+                    "item_pick_sum": 0.0,
+                    "clusters": set(),
                 })
+                aggregate["count"] = int(aggregate["count"]) + count
+                aggregate["place_change_sum"] = float(aggregate["place_change_sum"]) + place_change * count
+                aggregate["item_pick_sum"] = float(aggregate["item_pick_sum"]) + item_pick * count
+                clusters = aggregate["clusters"]
+                assert isinstance(clusters, set)
+                clusters.add(cluster_id)
+
+    rows: list[dict] = []
+    for (unit_id, item_id), aggregate in aggregates.items():
+        count = int(aggregate["count"])
+        cluster_count = len(aggregate["clusters"])
+        # One tiny cluster is too contextual to become a global holder prior. A well sampled
+        # single cluster is still useful, while sparse observations need repeated contexts.
+        if count < 10 or (cluster_count < 2 and count < 35):
+            continue
+        place_change = float(aggregate["place_change_sum"]) / max(1, count)
+        item_pick = float(aggregate["item_pick_sum"]) / max(1, count)
+        target = float(np.clip(0.5 - place_change * 0.48, 0.04, 0.96))
+        weight = (
+            0.55
+            + min(1.45, np.log1p(count) / 4.0)
+            + min(0.30, item_pick * 0.75)
+            + min(0.25, np.log1p(cluster_count) / 7.0)
+        )
+        rows.append({
+            "source": "metatft-item-affinity",
+            "sample_kind": "item_affinity",
+            "units": [unit_id],
+            "items": [item_id],
+            "traits": [],
+            "level": 8,
+            "target_strength": target,
+            "training_weight": float(weight),
+            "context_id": f"global:{unit_id}:{item_id}",
+            "games": count,
+            "clusters": cluster_count,
+        })
     return rows
 
 
 def load_item_pair_affinity_rows() -> list[dict]:
-    """Build positive and counterfactual pair labels from live holder build frequency.
+    """Build holder/item-pair labels aggregated across all live comp clusters.
 
-    MetaTFT build rows are exact 2/3-item bundles with a sample count. For each holder inside
-    each comp we estimate pair affinity from weighted co-occurrence, then also emit pairs of
-    popular holder items that were *not* observed together. Those zero-pair examples are the
-    important signal for duplicated/non-stacking effects: both items can be strong alone while
-    the pair still gets a low target.
+    The pair model, like the affinity model, does not receive a comp id at runtime. Pooling
+    holder support before creating targets removes contradictory labels for identical input
+    vectors and makes the learned signal line up with the runtime co-occurrence index.
     """
     if not SNAPSHOT_PATH.exists():
         return []
@@ -472,59 +505,57 @@ def load_item_pair_affinity_rows() -> list[dict]:
     rows: list[dict] = []
     global_item_support: Counter[str] = Counter()
     global_pair_support: Counter[tuple[str, str]] = Counter()
+    holder_item_support: dict[str, Counter[str]] = defaultdict(Counter)
+    holder_pair_support: dict[str, Counter[tuple[str, str]]] = defaultdict(Counter)
+    holder_clusters: dict[str, set[str]] = defaultdict(set)
     for cluster in snapshot.get("clusters") or []:
         cluster_id = str(cluster.get("id") or "")
-        by_holder: dict[str, list[dict]] = defaultdict(list)
         for build in cluster.get("builds") or []:
             unit_id = str(build.get("unit") or "")
             count = int(build.get("count") or 0)
             items = [str(value) for value in build.get("items") or [] if str(value) in allowed_items]
             if unit_id in catalog.champion_by_id and count >= 3 and len(set(items)) >= 2:
                 unique_items = sorted(set(items))
-                by_holder[unit_id].append({"items": unique_items, "count": count})
+                holder_clusters[unit_id].add(cluster_id)
+                holder_item_support[unit_id].update({item_id: count for item_id in unique_items})
+                holder_pair_support[unit_id].update({pair: count for pair in combinations(unique_items, 2)})
                 global_item_support.update({item_id: count for item_id in unique_items})
                 global_pair_support.update({pair: count for pair in combinations(unique_items, 2)})
 
-        for unit_id, builds in by_holder.items():
-            item_support: Counter[str] = Counter()
-            pair_support: Counter[tuple[str, str]] = Counter()
-            for build in builds:
-                count = int(build["count"])
-                items = sorted(set(build["items"]))
-                item_support.update({item_id: count for item_id in items})
-                pair_support.update({pair: count for pair in combinations(items, 2)})
-
-            # Top 14 keeps hard negatives representative without exploding quadratically.
-            pool = [item_id for item_id, support in item_support.most_common(14) if support >= 8]
-            for left, right in combinations(sorted(pool), 2):
-                left_support = int(item_support[left])
-                right_support = int(item_support[right])
-                cooccurrence = int(pair_support[(left, right)])
-                if min(left_support, right_support) < 8:
-                    continue
-                cosine = cooccurrence / max(1.0, float(np.sqrt(left_support * right_support)))
-                conditional = cooccurrence / max(1.0, float(min(left_support, right_support)))
-                target = float(np.clip(cosine * 0.60 + conditional * 0.40, 0.0, 1.0))
-                support = min(left_support, right_support)
-                weight = 0.55 + min(1.35, np.log1p(support) / 4.2)
-                # An observed pair has direct positive evidence; a zero pair is still a strong
-                # negative only when both individual items have enough holder support.
-                if cooccurrence > 0:
-                    weight += min(0.45, np.log1p(cooccurrence) / 12.0)
-                rows.append({
-                    "source": "metatft-item-pair",
-                    "sample_kind": "item_pair_affinity",
-                    "units": [unit_id],
-                    "items": [left, right],
-                    "traits": [],
-                    "level": 8,
-                    "target_strength": target,
-                    "training_weight": float(weight),
-                    "context_id": cluster_id,
-                    "pair_count": cooccurrence,
-                    "left_support": left_support,
-                    "right_support": right_support,
-                })
+    for unit_id, item_support in holder_item_support.items():
+        pair_support = holder_pair_support[unit_id]
+        # A slightly wider global pool is affordable after aggregation and prevents one noisy
+        # cluster's top items from deciding which negative examples exist.
+        pool = [item_id for item_id, support in item_support.most_common(18) if support >= 12]
+        for left, right in combinations(sorted(pool), 2):
+            left_support = int(item_support[left])
+            right_support = int(item_support[right])
+            support = min(left_support, right_support)
+            if support < 12:
+                continue
+            cooccurrence = int(pair_support[(left, right)])
+            cosine = cooccurrence / max(1.0, float(np.sqrt(left_support * right_support)))
+            conditional = cooccurrence / max(1.0, float(support))
+            target = float(np.clip(cosine * 0.60 + conditional * 0.40, 0.0, 1.0))
+            weight = 0.55 + min(1.35, np.log1p(support) / 4.2)
+            if cooccurrence > 0:
+                weight += min(0.45, np.log1p(cooccurrence) / 12.0)
+            weight += min(0.20, np.log1p(len(holder_clusters[unit_id])) / 8.0)
+            rows.append({
+                "source": "metatft-item-pair",
+                "sample_kind": "item_pair_affinity",
+                "units": [unit_id],
+                "items": [left, right],
+                "traits": [],
+                "level": 8,
+                "target_strength": target,
+                "training_weight": float(weight),
+                "context_id": f"global:{unit_id}",
+                "pair_count": cooccurrence,
+                "left_support": left_support,
+                "right_support": right_support,
+                "clusters": len(holder_clusters[unit_id]),
+            })
 
     # A small holder-agnostic layer makes global anti-synergies learnable too. This captures
     # cases such as Wound/Sunder items that are each popular but never coexist in any holder
@@ -726,7 +757,7 @@ def train_star_ranker(rows: list[dict]) -> dict:
             callbacks=callbacks,
             verbose=0,
         )
-        test_predictions.append(model.predict(test_x, verbose=0))
+        test_predictions.append(np.asarray(model(test_x, training=False)))
         model_path = MODEL_DIR / ("star_ranker.keras" if member == 0 else f"star_ranker.{member}.keras")
         model.save(model_path)
         member_paths.append(str(model_path.relative_to(ROOT)))
@@ -832,7 +863,7 @@ def train_position_ranker() -> dict:
             callbacks=callbacks,
             verbose=0,
         )
-        test_predictions.append(model.predict(test_x, verbose=0))
+        test_predictions.append(np.asarray(model(test_x, training=False)))
         model_path = MODEL_DIR / ("position_ranker.keras" if member == 0 else f"position_ranker.{member}.keras")
         model.save(model_path)
         member_paths.append(str(model_path.relative_to(ROOT)))

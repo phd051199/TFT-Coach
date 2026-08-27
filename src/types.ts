@@ -2,6 +2,7 @@ export type Champion = {
   id: string
   name: string
   cost: number
+  teamPlannerCode?: number
   role: string
   traits: string[]
   traitNames: string[]

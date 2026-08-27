@@ -147,6 +147,7 @@ async function main() {
       id: champion.characterId,
       name: champion.displayName,
       cost: champion.cost,
+      teamPlannerCode: champion.teamPlannerCode,
       role: champion.role,
       traits: liveUnits[champion.characterId].trait_bonus.filter((trait) => trait.value > 0).map((trait) => trait.apiName),
       traitNames: liveUnits[champion.characterId].trait_bonus

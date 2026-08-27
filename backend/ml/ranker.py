@@ -89,7 +89,8 @@ class LearnedRanker:
             level=level,
             sample_kind=sample_kind,
         )
-        predictions = [float(model.predict(np.expand_dims(vector, 0), verbose=0)[0][0]) for model in models]
+        batch = np.expand_dims(vector, 0)
+        predictions = [float(np.asarray(model(batch, training=False)).reshape(-1)[0]) for model in models]
         value = self._calibrate(float(np.mean(predictions)))
         self._cache[key] = value
         self._uncertainty_cache[key] = float(np.std(predictions))
@@ -131,7 +132,11 @@ class LearnedRanker:
             missing_indexes.append(index)
             keys.append(key)
         if vectors:
-            member_predictions = np.stack([model.predict(np.stack(vectors), verbose=0).reshape(-1) for model in models])
+            batch = np.stack(vectors)
+            member_predictions = np.stack([
+                np.asarray(model(batch, training=False)).reshape(-1)
+                for model in models
+            ])
             predictions = np.mean(member_predictions, axis=0)
             uncertainties = np.std(member_predictions, axis=0)
             for index, key, prediction, uncertainty in zip(missing_indexes, keys, predictions, uncertainties, strict=True):
@@ -331,7 +336,11 @@ class StarRanker:
             missing_indexes.append(index)
             keys.append(key)
         if vectors:
-            member_predictions = np.stack([model.predict(np.stack(vectors), verbose=0) for model in models])
+            batch = np.stack(vectors)
+            member_predictions = np.stack([
+                np.asarray(model(batch, training=False))
+                for model in models
+            ])
             mean_predictions = np.mean(member_predictions, axis=0)
             std_predictions = np.std(member_predictions, axis=0)
             for output_index, key, distribution, std in zip(

@@ -1,7 +1,7 @@
 from backend.app.catalog import load_catalog
 from backend.app.optimizer import HybridCoach
 from backend.ml.position import display_grid_position
-from backend.ml.train import load_item_pair_affinity_rows, load_lobby_star_rows
+from backend.ml.train import load_item_affinity_rows, load_item_pair_affinity_rows, load_lobby_star_rows
 
 
 def test_fallback_returns_legal_board() -> None:
@@ -305,6 +305,21 @@ def test_target_comp_returns_positioning_for_selected_comp() -> None:
     assert target["positioning"]
 
 
+def test_target_comp_outside_default_top_six_is_still_returned() -> None:
+    coach = HybridCoach(load_catalog())
+    initial = coach.recommend(4, [], [])
+    shown = {row["id"] for row in initial["comps"]}
+    target_id = next(
+        str(cluster.get("id"))
+        for cluster in reversed(coach.clusters)
+        if str(cluster.get("id")) not in shown and len(coach._best_final(cluster)[0]) >= 4
+    )
+    selected = coach.recommend(4, [], [], target_id)
+    target = next(row for row in selected["comps"] if row["id"] == target_id)
+    assert target["positioning"]
+    assert target["rank"] >= 1
+
+
 def test_transition_path_is_monotonic_and_legal() -> None:
     coach = HybridCoach(load_catalog())
     result = coach.recommend(4, [], [])
@@ -400,6 +415,26 @@ def test_item_pair_training_has_global_zero_cooccurrence_targets() -> None:
         assert min(row["left_support"], row["right_support"]) >= 100
 
 
+def test_item_affinity_training_has_one_label_per_holder_item_input() -> None:
+    rows = load_item_affinity_rows()
+    assert len(rows) >= 1000
+    signatures = {
+        (str(row["units"][0]), str(row["items"][0]))
+        for row in rows
+    }
+    assert len(signatures) == len(rows)
+    assert all(int(row.get("games") or 0) >= 10 for row in rows)
+
+
+def test_item_pair_training_has_one_label_per_model_input() -> None:
+    rows = load_item_pair_affinity_rows()
+    signatures = {
+        (tuple(sorted(str(value) for value in row.get("units") or [])), tuple(sorted(row["items"])))
+        for row in rows
+    }
+    assert len(signatures) == len(rows)
+
+
 def test_position_model_reports_runtime_status() -> None:
     coach = HybridCoach(load_catalog())
     status = coach.model_status()
@@ -407,3 +442,5 @@ def test_position_model_reports_runtime_status() -> None:
     if status["positionAvailable"]:
         assert status["position"].get("samples", 0) >= 100
     assert "itemPairAvailable" in status
+    assert 0.0 <= float(status["boardRuntimeValueReliability"]) <= 1.0
+    assert 0.0 <= float(status["itemRuntimeValueReliability"]) <= 1.0

@@ -190,6 +190,31 @@ class HybridCoach:
         }
 
     @staticmethod
+    def _ranker_value_reliability(ranker: LearnedRanker) -> float:
+        """Estimate how much an absolute neural score should influence runtime decisions.
+
+        Ranking models can still order examples well while being badly shifted on an
+        independent source. Absolute score blending (core-item quality, board strength) must
+        care about that calibration error, otherwise one overfit model can overpower live
+        empirical data. Keep a non-zero floor because the model is still useful as a prior.
+        """
+        metadata = ranker.metadata()
+        evaluation = metadata.get("evaluation") or {}
+        internal_gain = float(evaluation.get("improvementVsBaseline") or 0.0)
+        internal_quality = clamp(0.48 + internal_gain * 1.35, 0.25, 0.95)
+        external = metadata.get("externalEvaluation") or {}
+        samples = int(external.get("samples") or 0)
+        baseline = float(external.get("baselineMAE") or 0.0)
+        mae = float(external.get("mae") or 0.0)
+        if samples < 8 or baseline <= 0 or mae <= 0:
+            return internal_quality
+        mae_quality = clamp(baseline / mae, 0.15, 1.0)
+        ranking_accuracy = float(external.get("rankingAccuracy") or 0.5)
+        ranking_quality = clamp((ranking_accuracy - 0.5) / 0.25)
+        external_quality = mae_quality * 0.75 + ranking_quality * 0.25
+        return clamp(internal_quality * external_quality, 0.15, 0.95)
+
+    @staticmethod
     def _aggregate_strength(avg: float, top4: float | None = None, win: float | None = None) -> float:
         values: list[tuple[float, float]] = [(placement_strength(avg), 0.72)]
         if top4 is not None:
@@ -278,6 +303,7 @@ class HybridCoach:
     def _precompute_ml(self) -> None:
         rows: list[dict[str, Any]] = []
         destinations: list[dict[str, Any]] = []
+        board_model_reliability = self._ranker_value_reliability(self.board_ranker)
         for cluster in self.clusters:
             for level_key, options in (cluster.get("options") or {}).items():
                 try:
@@ -308,7 +334,9 @@ class HybridCoach:
                     destinations.append(option)
         for destination, score in zip(destinations, self.board_ranker.score_many(rows), strict=True):
             if score is not None:
-                destination["ml"] = score
+                observed = placement_strength(float(destination.get("avg") or 0))
+                destination["ml"] = observed * (1.0 - board_model_reliability) + score * board_model_reliability
+                destination["mlReliability"] = board_model_reliability
         for destination, row in zip(destinations, rows, strict=True):
             uncertainty = self.board_ranker.uncertainty(
                 units=list(row.get("units") or []),
@@ -321,6 +349,7 @@ class HybridCoach:
 
         item_rows: list[dict[str, Any]] = []
         item_destinations: list[dict[str, Any]] = []
+        item_model_reliability = self._ranker_value_reliability(self.item_ranker)
         for cluster in self.clusters:
             for build in cluster.get("builds") or []:
                 unit_id = str(build.get("unit") or "")
@@ -336,7 +365,9 @@ class HybridCoach:
                 item_destinations.append(build)
         for destination, score in zip(item_destinations, self.item_ranker.score_many(item_rows), strict=True):
             if score is not None:
-                destination["ml"] = score
+                observed = placement_strength(float(destination.get("avg") or 0))
+                destination["ml"] = observed * (1.0 - item_model_reliability) + score * item_model_reliability
+                destination["mlReliability"] = item_model_reliability
         for destination, row in zip(item_destinations, item_rows, strict=True):
             uncertainty = self.item_ranker.uncertainty(
                 units=list(row["units"]),
@@ -1705,7 +1736,13 @@ class HybridCoach:
                         "corePriority": core_priority,
                         "coreHolderId": core_holder,
                     })
-            ranked.sort(key=lambda value: value["score"], reverse=True)
+            # Core items must survive candidate pruning even when their isolated slam score is
+            # slightly lower. The exact solver already prices component opportunity cost; give
+            # it a chance to see recurrent BIS pieces instead of pruning them before search.
+            ranked.sort(
+                key=lambda value: float(value["score"]) + float(value.get("corePriority") or 0.0) * 10.0,
+                reverse=True,
+            )
             selected = self._select_stage_item_set(
                 ranked,
                 components,
@@ -1800,6 +1837,9 @@ class HybridCoach:
                 final_board,
                 craftable_items,
             )
+            component_signal_confidence = clamp(
+                component_coverage * min(1.0, len(components) / 4.0)
+            )
             own_final = len(owned.intersection(final_board)) / max(1, len(owned)) if owned else 0.5
             overall = cluster.get("overall") or {}
             overall_strength = placement_strength(float(overall.get("avg") or 0))
@@ -1813,8 +1853,13 @@ class HybridCoach:
                 (overall_strength, 0.09),
                 (sample, 0.07),
             ]
-            if len(components) >= 2:
-                weighted_signals.extend([(component_fit, 0.12), (component_coverage, 0.03)])
+            if len(components) >= 2 and component_signal_confidence > 0:
+                # A couple of awkward components should not redirect the whole comp ranking.
+                # Item fit becomes material only when the bag can actually make useful slams.
+                weighted_signals.extend([
+                    (component_fit, 0.10 * component_signal_confidence),
+                    (component_coverage, 0.025 * component_signal_confidence),
+                ])
             if opgg_row is not None:
                 weighted_signals.extend([(opgg_strength, 0.09), (opgg_ev * opgg_similarity, 0.03)])
             if pro_ev > 0:
@@ -1844,8 +1889,8 @@ class HybridCoach:
                 * (0.72 + agreement * 0.28)
                 * model_agreement
             )
-            if len(components) >= 2:
-                confidence = clamp(confidence * (0.90 + component_coverage * 0.10))
+            if len(components) >= 2 and component_signal_confidence > 0:
+                confidence = clamp(confidence * (0.98 + component_signal_confidence * 0.02))
             reasons: list[str] = []
             hits = len(owned.intersection(early_board))
             if hits:
@@ -1856,8 +1901,10 @@ class HybridCoach:
                 reasons.append(f"Board cuối avg {float(final_option.get('avg') or 0):.2f} / {int(final_option.get('count') or 0)} mẫu")
             if opgg_row is not None and opgg_similarity >= 0.62:
                 reasons.append(f"OP.GG cross-check {int(opgg_similarity * 100)}% board · {int(opgg_row.get('games') or 0)} mẫu")
-            if len(components) >= 2:
+            if len(components) >= 2 and component_coverage > 0:
                 reasons.append(f"Đồ hiện tại fit {int(component_fit * 100)}% · dùng được {int(component_coverage * 100)}% slot ghép")
+            elif len(components) >= 2:
+                reasons.append("Chưa có slam đủ tốt; giữ component không làm lệch hướng đội hình")
             candidates.append({
                 "cluster": cluster,
                 "score": cluster_score,
@@ -1870,6 +1917,7 @@ class HybridCoach:
                 "modelStd": model_std,
                 "componentFit": component_fit,
                 "componentCoverage": component_coverage,
+                "componentSignalConfidence": component_signal_confidence,
                 "transitionFit": transition_fit,
                 "transitionPath": transition_path,
                 "baseNumerator": base_numerator,
@@ -1880,7 +1928,15 @@ class HybridCoach:
         # realistically promote a weak comp from the bottom of 53 clusters into the top six,
         # so evaluate it exactly only for a generous preliminary shortlist.
         candidates.sort(key=lambda value: value["score"], reverse=True)
-        for candidate in candidates[:18]:
+        transition_candidates = list(candidates[:18])
+        if target_comp_id is not None:
+            target_candidate = next(
+                (candidate for candidate in candidates if str(candidate["cluster"].get("id")) == str(target_comp_id)),
+                None,
+            )
+            if target_candidate is not None and all(candidate is not target_candidate for candidate in transition_candidates):
+                transition_candidates.append(target_candidate)
+        for candidate in transition_candidates:
             transition_path, transition_fit = self._transition_path(
                 candidate["cluster"],
                 level,
@@ -1895,6 +1951,25 @@ class HybridCoach:
                 float(candidate["baseNumerator"]) + transition_fit * 0.07
             ) / (float(candidate["baseDenominator"]) + 0.07)
         candidates.sort(key=lambda value: value["score"], reverse=True)
+        stable_state = (
+            previous_level == level
+            and set(previous_owned_ids or []) == owned
+            and all(
+                Counter(components)[component] >= amount
+                for component, amount in Counter(previous_components or []).items()
+            )
+        )
+        if stable_state and target_comp_id is None and previous_comp_id and candidates:
+            previous_candidate = next(
+                (candidate for candidate in candidates if str(candidate["cluster"].get("id")) == str(previous_comp_id)),
+                None,
+            )
+            # Adding unrelated components should not cause a tiny item-fit delta to flicker the
+            # recommended comp. A clearly stronger comp still replaces it immediately.
+            if previous_candidate is not None and float(previous_candidate["score"]) >= float(candidates[0]["score"]) - 0.018:
+                candidates.remove(previous_candidate)
+                candidates.insert(0, previous_candidate)
+                previous_candidate["reasons"].append("Giữ hướng cũ: thay đổi hiện tại chưa đủ lớn để pivot")
         top = next(
             (candidate for candidate in candidates if str(candidate["cluster"].get("id")) == str(target_comp_id)),
             candidates[0] if candidates else None,
@@ -1935,7 +2010,9 @@ class HybridCoach:
         # Reroll/star models answer a different question than board strength: what upgrade
         # state this observed comp normally needs. Batch all six candidates so TensorFlow is
         # invoked once per ensemble instead of once per champion.
-        shown_candidates = candidates[:6]
+        shown_candidates = list(candidates[:6])
+        if all(candidate is not top for candidate in shown_candidates):
+            shown_candidates = [top] + [candidate for candidate in shown_candidates if candidate is not top][:5]
         reroll_predictions = self.reroll_ranker.score_many([
             {
                 "units": list(candidate["finalBoard"]),
@@ -1969,7 +2046,10 @@ class HybridCoach:
 
         comps: list[dict[str, Any]] = []
         for candidate_index, candidate in enumerate(shown_candidates):
-            rank = candidate_index + 1
+            rank = next(
+                (index + 1 for index, ranked_candidate in enumerate(candidates) if ranked_candidate is candidate),
+                candidate_index + 1,
+            )
             cluster = candidate["cluster"]
             avg = float((cluster.get("overall") or {}).get("avg") or 0)
             tier = "S" if avg and avg <= 3.45 else "A" if avg and avg <= 4.05 else "B"
@@ -2031,6 +2111,7 @@ class HybridCoach:
                 "crossSource": bool(candidate["crossSource"]),
                 "modelDisagreement": round(float(candidate["modelStd"]) * 100, 2),
                 "componentFit": round(float(candidate["componentFit"]) * 100, 1),
+                "componentFitConfidence": round(float(candidate["componentSignalConfidence"]) * 100, 1),
                 "transitionFit": round(float(candidate["transitionFit"]) * 100, 1),
                 "avgPlacement": avg or None,
                 "games": int((cluster.get("overall") or {}).get("count") or 0),
@@ -2104,9 +2185,11 @@ class HybridCoach:
         return {
             "boardAvailable": self.board_ranker.available and self.board_ranker.error is None,
             "board": self.board_ranker.metadata(),
+            "boardRuntimeValueReliability": round(self._ranker_value_reliability(self.board_ranker), 3),
             "boardError": self.board_ranker.error,
             "itemAvailable": self.item_ranker.available and self.item_ranker.error is None,
             "item": self.item_ranker.metadata(),
+            "itemRuntimeValueReliability": round(self._ranker_value_reliability(self.item_ranker), 3),
             "itemError": self.item_ranker.error,
             "itemAffinityAvailable": self.item_affinity_ranker.available and self.item_affinity_ranker.error is None,
             "itemAffinity": self.item_affinity_ranker.metadata(),
