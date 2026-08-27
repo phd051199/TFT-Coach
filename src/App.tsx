@@ -1,6 +1,8 @@
 import {
   BarChart3,
   BookOpen,
+  Check,
+  Copy,
   Database,
   ExternalLink,
   Flame,
@@ -12,10 +14,9 @@ import {
   Target,
   TrendingUp,
 } from 'lucide-react'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import setRaw from './data/set18.generated.json'
 import metaRaw from './data/meta.generated.json'
-import { recommend } from './engine/recommend'
 import { requestCoach } from './api/coach'
 import { BoardCanvas } from './components/BoardCanvas'
 import { ChampionPicker } from './components/ChampionPicker'
@@ -23,9 +24,11 @@ import { ItemPicker } from './components/ItemPicker'
 import type {
   ActiveTrait,
   ApiBisBuild,
+  ApiBoardPosition,
   ApiCoachResult,
   ApiStageItem,
   Champion,
+  CoachHistoryHint,
   CoachInput,
   Item,
   ItemSuggestion,
@@ -46,6 +49,47 @@ const costLabels: Record<number, string> = {
 function formatAge(iso: string) {
   const date = new Date(iso)
   return new Intl.DateTimeFormat('vi-VN', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }).format(date)
+}
+
+function LineupCopyButton({
+  champions,
+  title,
+  stars = {},
+  compact = false,
+}: {
+  champions: Champion[]
+  title?: string
+  stars?: Record<string, number>
+  compact?: boolean
+}) {
+  const [copied, setCopied] = useState(false)
+
+  async function copyLineup() {
+    if (!champions.length) return
+    const lineup = champions
+      .map((champion) => `${champion.name}${stars[champion.id] ? ` ${stars[champion.id]}★` : ''}`)
+      .join(', ')
+    await navigator.clipboard.writeText(title ? `${title}\n${lineup}` : lineup)
+    setCopied(true)
+    window.setTimeout(() => setCopied(false), 1400)
+  }
+
+  return (
+    <button
+      type="button"
+      className={`lineup-copy-button ${compact ? 'compact' : ''}`}
+      disabled={!champions.length}
+      onClick={(event) => {
+        event.stopPropagation()
+        void copyLineup()
+      }}
+      onKeyDown={(event) => event.stopPropagation()}
+      title={copied ? 'Đã copy đội hình' : 'Copy đội hình'}
+    >
+      {copied ? <Check size={13} /> : <Copy size={13} />}
+      <span>{copied ? 'Đã copy' : compact ? 'Copy' : 'Copy đội hình'}</span>
+    </button>
+  )
 }
 
 function ChampionMini({ champion, label }: { champion: Champion; label?: string }) {
@@ -89,8 +133,13 @@ type DisplayComp = {
   componentFit?: number
   transitionFit?: number
   transitionPath?: Array<{ level: number; board: Champion[]; avgPlacement?: number | null; games: number }>
+  positioning?: ApiBoardPosition[]
   board: Champion[]
   carries: Champion[]
+  reroll?: boolean
+  rerollScore?: number
+  rollLevel?: number | null
+  starTargets?: Array<{ unitId: string; stars: number; confidence: number; threeStarProbability: number }>
   activeTraits: ActiveTrait[]
   matchReasons: string[]
   leveling: string
@@ -171,27 +220,44 @@ function StageItemPlan({
 
 function CoachView() {
   const [input, setInput] = useState<CoachInput>({ level: 4, ownedChampionIds: [], components: [] })
-  const components = useMemo(() => setData.items.filter((item) => item.category === 'component' && !/spatula|pan/i.test(item.nameEn)), [])
+  const components = useMemo(() => setData.items.filter((item) => item.category === 'component'), [])
   const championById = useMemo(() => new Map(setData.champions.map((champion) => [champion.id, champion])), [])
   const traitById = useMemo(() => new Map(setData.traits.map((trait) => [trait.id, trait])), [])
   const itemById = useMemo(() => new Map(setData.items.map((item) => [item.id, item])), [])
-  const fallback = useMemo(() => recommend(input, setData, metaData.comps), [input])
   const [apiResult, setApiResult] = useState<ApiCoachResult | null>(null)
-  const [apiState, setApiState] = useState<'loading' | 'live' | 'fallback'>('loading')
+  const [apiState, setApiState] = useState<'loading' | 'live' | 'error'>('loading')
+  const historyRef = useRef<CoachHistoryHint | undefined>(undefined)
 
   useEffect(() => {
     const controller = new AbortController()
     const timer = window.setTimeout(() => {
       setApiState('loading')
-      void requestCoach(input, controller.signal)
+      const history = historyRef.current
+      void requestCoach(input, history, controller.signal)
         .then((result) => {
           setApiResult(result)
           setApiState('live')
+          const selectedCompId = result.comps.find((comp) => (comp.positioning?.length ?? 0) > 0)?.id ?? result.comps[0]?.id
+          if (selectedCompId) {
+            historyRef.current = {
+              previousLevel: input.level,
+              previousCompId: selectedCompId,
+              previousOwnedChampionIds: [...input.ownedChampionIds],
+              previousComponents: [...input.components],
+              previousItemPlan: result.itemPlan
+                .filter((row): row is ApiStageItem => row.stage !== 'bis')
+                .map((row) => ({
+                  stage: row.stage,
+                  itemId: row.itemId,
+                  holderId: row.holderId,
+                })),
+            }
+          }
         })
         .catch((error: unknown) => {
           if (error instanceof DOMException && error.name === 'AbortError') return
           setApiResult(null)
-          setApiState('fallback')
+          setApiState('error')
         })
     }, 100)
     return () => {
@@ -200,33 +266,34 @@ function CoachView() {
     }
   }, [input])
 
-  const usingApi = apiState === 'live' && Boolean(apiResult)
-  const earlyBoard = usingApi
-    ? apiResult!.earlyBoardIds.map((id) => championById.get(id)).filter((unit): unit is Champion => Boolean(unit))
-    : fallback.earlyBoard
-  const earlyTraits: ActiveTrait[] = usingApi
-    ? apiResult!.earlyTraits.map((row) => {
+  const earlyBoard = apiResult
+    ? apiResult.earlyBoardIds.map((id) => championById.get(id)).filter((unit): unit is Champion => Boolean(unit))
+    : []
+  const earlyTraits: ActiveTrait[] = apiResult
+    ? apiResult.earlyTraits.map((row) => {
       const trait = traitById.get(row.traitId)
       return trait ? { trait, count: row.count, activeBreakpoint: row.activeBreakpoint, ...(row.nextBreakpoint === undefined ? {} : { nextBreakpoint: row.nextBreakpoint }) } : null
     }).filter((row): row is ActiveTrait => Boolean(row))
-    : fallback.earlyTraits
-  const buyNext = usingApi
-    ? apiResult!.buyNextIds.map((id) => championById.get(id)).filter((unit): unit is Champion => Boolean(unit))
-    : fallback.buyNext
-  const stageRows = (usingApi ? apiResult!.itemPlan.filter((row): row is ApiStageItem => row.stage !== 'bis') : [])
-  const bisRows = (usingApi ? apiResult!.itemPlan.filter((row): row is ApiBisBuild => row.stage === 'bis') : [])
+    : []
+  const buyNext = apiResult
+    ? apiResult.buyNextIds.map((id) => championById.get(id)).filter((unit): unit is Champion => Boolean(unit))
+    : []
+  const stageRows = apiResult ? apiResult.itemPlan.filter((row): row is ApiStageItem => row.stage !== 'bis') : []
+  const bisRows = apiResult ? apiResult.itemPlan.filter((row): row is ApiBisBuild => row.stage === 'bis') : []
 
-  const openerBoardItems: ItemSuggestion[] = usingApi
-    ? stageRows.filter((row) => row.stage === 'opener').slice(0, 3).map((row) => ({
+  const openerBoardItems: ItemSuggestion[] = stageRows
+    .filter((row) => row.stage === 'opener')
+    .slice(0, 3)
+    .map((row) => ({
       item: itemById.get(row.itemId)!,
       holder: championById.get(row.holderId),
       score: row.score,
       reason: row.reason,
-    })).filter((row) => Boolean(row.item))
-    : fallback.itemSuggestions.slice(0, 3)
+    }))
+    .filter((row) => Boolean(row.item))
 
-  const displayComps: DisplayComp[] = usingApi
-    ? apiResult!.comps.map((comp) => ({
+  const displayComps: DisplayComp[] = apiResult
+    ? apiResult.comps.map((comp) => ({
       id: comp.id,
       name: comp.name,
       tier: comp.tier,
@@ -243,8 +310,13 @@ function CoachView() {
         avgPlacement: row.avgPlacement,
         games: row.games,
       })),
+      positioning: comp.positioning,
       board: comp.boardIds.map((id) => championById.get(id)).filter((unit): unit is Champion => Boolean(unit)),
       carries: comp.carryIds.map((id) => championById.get(id)).filter((unit): unit is Champion => Boolean(unit)),
+      reroll: comp.reroll,
+      rerollScore: comp.rerollScore,
+      rollLevel: comp.rollLevel,
+      starTargets: comp.starTargets,
       activeTraits: comp.activeTraits.map((row) => {
         const trait = traitById.get(row.traitId)
         return trait ? { trait, count: row.count, activeBreakpoint: row.activeBreakpoint, ...(row.nextBreakpoint === undefined ? {} : { nextBreakpoint: row.nextBreakpoint }) } : null
@@ -255,23 +327,38 @@ function CoachView() {
       games: comp.games,
       pickRate: comp.pickRate,
     }))
-    : fallback.comps.map((recommendation) => ({
-      id: recommendation.comp.id,
-      name: recommendation.comp.name,
-      tier: recommendation.comp.tier,
-      score: recommendation.score,
-      board: recommendation.board,
-      carries: recommendation.comp.carries
-        .map((name) => setData.champions.find((unit) => unit.name === name))
-        .filter((unit): unit is Champion => Boolean(unit)),
-      activeTraits: recommendation.activeTraits,
-      matchReasons: recommendation.matchReasons,
-      leveling: recommendation.comp.leveling,
-    }))
-  const top = displayComps[0]
+    : []
+  const top = displayComps.find((comp) => comp.id === input.targetCompId) ?? displayComps[0]
+  const topStars = Object.fromEntries((top?.starTargets ?? []).map((row) => [row.unitId, row.stars]))
   const firstSlam = stageRows.find((row) => row.stage === 'opener')
-  const firstSlamItem = firstSlam ? itemById.get(firstSlam.itemId) : fallback.itemSuggestions[0]?.item
-  const firstSlamHolder = firstSlam ? championById.get(firstSlam.holderId) : fallback.itemSuggestions[0]?.holder
+  const firstSlamItem = firstSlam ? itemById.get(firstSlam.itemId) : undefined
+  const firstSlamHolder = firstSlam ? championById.get(firstSlam.holderId) : undefined
+
+  const finalBoardItems: ItemSuggestion[] = (() => {
+    const rows: ItemSuggestion[] = []
+    const usedHolders = new Set<string>()
+    for (const build of bisRows) {
+      if (usedHolders.has(build.holderId)) continue
+      const holder = championById.get(build.holderId)
+      if (!holder) continue
+      usedHolders.add(build.holderId)
+      for (const itemId of build.itemIds.slice(0, 3)) {
+        const item = itemById.get(itemId)
+        if (item) rows.push({ item, holder, score: build.score, reason: `${build.sampleCount} mẫu BIS live` })
+      }
+      if (usedHolders.size >= 2) break
+    }
+    if (rows.length) return rows
+    return stageRows
+      .filter((row) => row.stage === 'late')
+      .map((row) => ({
+        item: itemById.get(row.itemId)!,
+        holder: championById.get(row.holderId),
+        score: row.score,
+        reason: row.reason,
+      }))
+      .filter((row) => Boolean(row.item))
+  })()
 
   function loadExample() {
     const names = ['Rakan', 'Xayah', 'Kobuko']
@@ -317,7 +404,7 @@ function CoachView() {
               <i />
               {apiState === 'live'
                 ? `LIVE · ${apiResult?.data.trainingSamples?.toLocaleString('vi-VN') ?? 0} samples · ${apiResult?.data.crossSourceRows?.toLocaleString('vi-VN') ?? 0} cross-source · ${apiResult?.data.clusters ?? 0} clusters`
-                : apiState === 'loading' ? 'Đang tính bằng backend ML…' : 'Backend offline · dùng solver local fallback'}
+                : apiState === 'loading' ? 'Đang tính bằng backend ML…' : 'Backend offline · không có local fallback'}
             </div>
           </div>
           <div className="confidence-card">
@@ -347,7 +434,7 @@ function CoachView() {
           </article>
           <article>
             <TrendingUp size={18} />
-            <div><span>Đích đến</span><strong>{top?.leveling ?? 'Flex theo lobby'}</strong></div>
+            <div className="destination-summary"><span>Đích đến</span><strong>{top?.leveling ?? 'Flex theo lobby'}</strong></div>
           </article>
         </section>
 
@@ -355,10 +442,15 @@ function CoachView() {
           <section className="transition-route" aria-label="Lộ trình chuyển đội hình">
             <div className="transition-title"><span>TRANSITION PATH</span><strong>Giữ board mạnh, giảm số lần thay quân</strong></div>
             <div className="transition-steps">
-              {top.transitionPath.slice(0, 7).map((step, index) => (
+              {top.transitionPath.map((step, index) => (
                 <div className="transition-step" key={`${step.level}-${index}`}>
-                  <b>Lv.{step.level}</b>
-                  <span>{step.board.slice(0, 4).map((unit) => unit.name).join(' · ')}{step.board.length > 4 ? '…' : ''}</span>
+                  <div className="transition-step-head">
+                    <b>Lv.{step.level}</b>
+                    <LineupCopyButton champions={step.board} title={`Transition Lv.${step.level}`} compact />
+                  </div>
+                  <div className="transition-units">
+                    {step.board.map((unit) => <span key={unit.id}>{unit.name}</span>)}
+                  </div>
                   {step.games > 0 && <small>{step.games} mẫu{step.avgPlacement ? ` · avg ${step.avgPlacement.toFixed(2)}` : ''}</small>}
                 </div>
               ))}
@@ -366,27 +458,17 @@ function CoachView() {
           </section>
         )}
 
-        <BoardCanvas champions={earlyBoard} title={`Board def level ${input.level}`} items={openerBoardItems} />
+        <BoardCanvas champions={earlyBoard} title={`Board def level ${input.level}`} items={openerBoardItems} positions={apiResult?.earlyPositioning} />
 
         <section className="panel item-roadmap-panel">
           <div className="panel-title">
             <div><span className="eyebrow">ITEM ROUTE · LIVE HOLDER DATA</span><h2>Ghép món nào, cho ai cầm, lúc nào chuyển?</h2></div>
             <Flame size={20} />
           </div>
-          {usingApi && (stageRows.length || bisRows.length) ? (
+          {stageRows.length || bisRows.length ? (
             <StageItemPlan rows={stageRows} bis={bisRows} itemById={itemById} championById={championById} components={components} />
-          ) : fallback.itemSuggestions.length ? (
-            <div className="item-suggestions">
-              {fallback.itemSuggestions.slice(0, 4).map((suggestion, index) => (
-                <article className="ranked-item" key={suggestion.item.id}>
-                  <span className="rank-number">0{index + 1}</span>
-                  <ItemMini item={suggestion.item} components={components} />
-                  <p>{suggestion.reason}</p>
-                </article>
-              ))}
-            </div>
           ) : (
-            <div className="empty-state"><Sword size={24} /><strong>Chọn ít nhất 2 mảnh đồ</strong><span>Engine sẽ tối ưu recipe không tranh mảnh, holder đầu game và đích chuyển đồ cuối game.</span></div>
+            <div className="empty-state"><Sword size={24} /><strong>{apiState === 'error' ? 'Backend chưa sẵn sàng' : 'Chọn ít nhất 2 mảnh đồ'}</strong><span>{apiState === 'error' ? 'Khởi động FastAPI backend để nhận recommendation.' : 'Backend sẽ tối ưu recipe không tranh mảnh, holder đầu game và đích chuyển đồ cuối game.'}</span></div>
           )}
         </section>
 
@@ -404,13 +486,37 @@ function CoachView() {
           </div>
           <div className="pivot-list">
             {displayComps.slice(0, 5).map((recommendation, index) => (
-              <article key={recommendation.id} className={`pivot-card ${index === 0 ? 'best' : ''}`}>
+              <article
+                key={recommendation.id}
+                className={`pivot-card ${recommendation.id === top?.id ? 'best selected' : ''}`}
+                role="button"
+                tabIndex={0}
+                aria-pressed={recommendation.id === top?.id}
+                onClick={() => setInput((state) => ({
+                  ...state,
+                  targetCompId: state.targetCompId === recommendation.id ? undefined : recommendation.id,
+                }))}
+                onKeyDown={(event) => {
+                  if (event.key !== 'Enter' && event.key !== ' ') return
+                  event.preventDefault()
+                  setInput((state) => ({
+                    ...state,
+                    targetCompId: state.targetCompId === recommendation.id ? undefined : recommendation.id,
+                  }))
+                }}
+              >
                 <div className="pivot-rank"><b>#{index + 1}</b><span className={`tier tier-${recommendation.tier.toLowerCase()}`}>{recommendation.tier}</span></div>
                 <div className="pivot-main">
-                  <h3>{recommendation.name}</h3>
+                  <div className="pivot-name-row">
+                    <h3>{recommendation.name}</h3>
+                    {recommendation.reroll && <span className="reroll-chip">REROLL · Lv.{recommendation.rollLevel ?? '?'}</span>}
+                  </div>
                   <p>{recommendation.matchReasons.slice(0, 2).join(' · ') || 'Meta score cao, có đường ghép trait ổn định.'}</p>
                   <div className="carry-row">
-                    {recommendation.carries.map((champion) => <img key={champion.id} src={champion.image} title={champion.name} alt={champion.name} />)}
+                    {recommendation.carries.map((champion) => {
+                      const stars = recommendation.starTargets?.find((row) => row.unitId === champion.id)?.stars
+                      return <img key={champion.id} src={champion.image} title={`${champion.name}${stars ? ` · ${stars}★` : ''}`} alt={champion.name} />
+                    })}
                   </div>
                 </div>
                 <div className="pivot-traits">
@@ -418,13 +524,23 @@ function CoachView() {
                     <span key={trait.trait.id}><img src={trait.trait.image} alt="" />{trait.trait.name} {trait.activeBreakpoint}</span>
                   ))}
                 </div>
-                <div className="pivot-score"><strong>{Math.round(recommendation.score)}</strong><span>fit score</span><small>{recommendation.confidence !== undefined ? `tin cậy ${Math.round(recommendation.confidence)}%${recommendation.componentFit !== undefined ? ` · đồ ${Math.round(recommendation.componentFit)}%` : ''}` : recommendation.avgPlacement ? `avg ${recommendation.avgPlacement.toFixed(2)} · ${recommendation.games ?? 0} mẫu` : recommendation.leveling}</small></div>
+                <div className="pivot-score">
+                  <strong>{Math.round(recommendation.score)}</strong>
+                  <span>{recommendation.id === top?.id ? 'đang chọn' : 'bấm để chuyển'}</span>
+                  <small>{recommendation.reroll ? recommendation.leveling : recommendation.confidence !== undefined ? `tin cậy ${Math.round(recommendation.confidence)}%${recommendation.componentFit !== undefined ? ` · đồ ${Math.round(recommendation.componentFit)}%` : ''}` : recommendation.avgPlacement ? `avg ${recommendation.avgPlacement.toFixed(2)} · ${recommendation.games ?? 0} mẫu` : recommendation.leveling}</small>
+                  <LineupCopyButton
+                    champions={recommendation.board}
+                    title={recommendation.name}
+                    stars={Object.fromEntries((recommendation.starTargets ?? []).map((row) => [row.unitId, row.stars]))}
+                    compact
+                  />
+                </div>
               </article>
             ))}
           </div>
         </section>
 
-        {top && <BoardCanvas champions={top.board} title={`Đích đến · ${top.name}`} compact />}
+        {top && <BoardCanvas champions={top.board} title={`Đích đến · ${top.name}`} positions={top.positioning} items={finalBoardItems} stars={topStars} compact />}
       </main>
     </div>
   )
@@ -432,19 +548,43 @@ function CoachView() {
 
 function MetaView() {
   const championsByName = useMemo(() => new Map(setData.champions.map((champion) => [champion.name, champion])), [])
+  const championById = useMemo(() => new Map(setData.champions.map((champion) => [champion.id, champion])), [])
+  const traitById = useMemo(() => new Map(setData.traits.map((trait) => [trait.id, trait])), [])
   return (
     <main className="page-shell">
       <header className="page-hero"><span className="eyebrow">META LIVE · PATCH {metaData.patch}</span><h1>Đội hình mạnh mùa 18</h1><p>Cluster và placement lấy từ Set 18 live/current. Snapshot PBE cũ không còn tham gia meta ranking hoặc TensorFlow training.</p></header>
       <div className="meta-grid">
         {metaData.comps.map((comp, index) => (
           <article className="meta-card" key={comp.id}>
-            <div className="meta-card-top"><span className={`tier tier-${comp.tier.toLowerCase()}`}>{comp.tier}</span><small>#{index + 1}</small></div>
+            <div className="meta-card-top">
+              <span className={`tier tier-${comp.tier.toLowerCase()}`}>{comp.tier}</span>
+              <div className="meta-card-actions">
+                <small>#{index + 1}</small>
+                <LineupCopyButton
+                  champions={(comp.boardIds ?? []).map((unitId) => championById.get(unitId)).filter((unit): unit is Champion => Boolean(unit))}
+                  title={comp.name}
+                  compact
+                />
+              </div>
+            </div>
             <h2>{comp.name}</h2>
             <p>{comp.leveling}</p>
             <div className="meta-carries">
               {comp.carries.map((name) => {
                 const champion = championsByName.get(name)
                 return champion ? <ChampionMini key={name} champion={champion} /> : null
+              })}
+            </div>
+            <div className="meta-board-strip">
+              {(comp.boardIds ?? []).slice(0, 10).map((unitId) => {
+                const champion = championById.get(unitId)
+                return champion ? <img key={unitId} src={champion.image} title={champion.name} alt={champion.name} /> : null
+              })}
+            </div>
+            <div className="meta-traits" aria-label="Tộc hệ đã kích hoạt">
+              {(comp.activeTraitIds ?? []).slice(0, 7).map((row) => {
+                const trait = traitById.get(row.traitId)
+                return trait ? <span key={row.traitId}><img src={trait.image} alt="" /><b>{row.activeBreakpoint}</b>{trait.name}</span> : null
               })}
             </div>
             <footer><span>{comp.games ? `${comp.games} mẫu · avg ${comp.avgPlacement?.toFixed(2)}` : 'Live score'}</span><strong>{Math.round(comp.metaScore * 100)}%</strong></footer>
@@ -513,7 +653,7 @@ function SourcesView() {
       <section className="algorithm-panel">
         <h2>Recommendation engine hybrid</h2>
         <div className="algorithm-grid">
-          <article><b>1</b><h3>Observed live candidates</h3><p>Ưu tiên board opener/final đã xuất hiện ở patch live; beam search chỉ làm fallback khi level hoặc opener quá lạ.</p></article>
+          <article><b>1</b><h3>Observed live candidates</h3><p>Toàn bộ candidate generation, transition search và fallback logic nằm ở Python backend; frontend chỉ gửi input và render kết quả.</p></article>
           <article><b>2</b><h3>TensorFlow ensemble</h3><p>3 model độc lập cùng rank board/item; bất đồng giữa model làm giảm confidence thay vì che giấu uncertainty.</p></article>
           <article><b>3</b><h3>Stage-aware item solver</h3><p>Tối ưu multiset mảnh đồ không dùng trùng nguyên liệu, chấm holder live ở opener/mid/late và chỉ rõ đường chuyển đồ về carry cuối.</p></article>
           <article><b>4</b><h3>Cross-source + high Elo</h3><p>MetaTFT aggregate, pro live nhiều region và OP.GG được cân theo freshness/evidence; board cùng xuất hiện ở nhiều nguồn được tăng reliability.</p></article>
@@ -527,7 +667,7 @@ export default function App() {
   const [view, setView] = useState<View>('coach')
   const nav = [
     { id: 'coach' as const, label: 'Coach', icon: LayoutDashboard },
-    { id: 'meta' as const, label: 'Meta', icon: BarChart3 },
+    { id: 'meta' as const, label: 'Đội hình Meta', icon: BarChart3 },
     { id: 'library' as const, label: 'Tướng & Tộc/Hệ', icon: BookOpen },
     { id: 'items' as const, label: 'Trang bị', icon: Sword },
     { id: 'sources' as const, label: 'Dữ liệu', icon: Database },

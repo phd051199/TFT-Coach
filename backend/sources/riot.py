@@ -91,9 +91,12 @@ class RiotHighEloSource:
                     if placement < 1 or placement > 8 or len(unit_ids) < 4:
                         continue
                     item_holders: dict[str, list[str]] = {}
+                    unit_stars: dict[str, int] = {}
                     all_items: list[str] = []
                     for unit in units:
                         unit_id = unit.get("character_id")
+                        if unit_id:
+                            unit_stars[str(unit_id)] = max(1, min(3, int(unit.get("tier") or 1)))
                         item_names = [item for item in unit.get("itemNames") or [] if item]
                         if unit_id and item_names:
                             item_holders[unit_id] = item_names
@@ -109,6 +112,7 @@ class RiotHighEloSource:
                             patch=version,
                             region=self.platform.upper(),
                             units=unit_ids,
+                            unit_stars=unit_stars,
                             items=all_items,
                             item_holders=item_holders,
                             traits=traits,

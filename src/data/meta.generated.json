@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-26T10:26:41.199808+00:00",
+  "generatedAt": "2026-08-26T11:29:59.987863+00:00",
   "patch": "18.1",
   "sources": [
     {
@@ -35,27 +35,64 @@
       "carries": [
         "Sett"
       ],
-      "leveling": "Theo board live tối ưu",
-      "metaScore": 0.7549074666666666,
-      "avgPlacement": 3.2417,
-      "games": 11872,
-      "pickRate": 0.06355977793079703,
-      "sourceIds": [
-        "metatft-live"
-      ]
-    },
-    {
-      "id": "422001",
-      "name": "Đao Phủ · Sett",
-      "tier": "S",
-      "carries": [
-        "Sett"
+      "boardIds": [
+        "DA_18_Ahri",
+        "DA_18_Ashe",
+        "DA_18_GnarSmall",
+        "DA_18_Sett",
+        "DA_18_Sivir",
+        "DA_18_Yorick",
+        "DA_18_Zyra",
+        "DA_Karma18",
+        "DA_Vi18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Blossom",
+          "count": 5,
+          "activeBreakpoint": 5
+        },
+        {
+          "traitId": "DA_18_Spellweaver",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Hunter",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Brawler",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Primal18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Juggernaut18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Summoner",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_ZyraUniqueTrait",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
       ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.7514853333333333,
-      "avgPlacement": 3.273,
-      "games": 1143,
-      "pickRate": 0.006121965914959546,
+      "metaScore": 0.7704765333333332,
+      "avgPlacement": 3.0993,
+      "games": 17994,
+      "pickRate": 0.06990652601354515,
       "sourceIds": [
         "metatft-live"
       ]
@@ -67,11 +104,69 @@
       "carries": [
         "Aphelios"
       ],
+      "boardIds": [
+        "DA_18_Alistar",
+        "DA_18_Alune",
+        "DA_18_Aphelios",
+        "DA_18_GnarSmall",
+        "DA_18_Ivern",
+        "DA_18_LeBlanc",
+        "DA_18_Lillia",
+        "DA_18_Ornn",
+        "DA_18_Xayah"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Elderwood",
+          "count": 5,
+          "activeBreakpoint": 5
+        },
+        {
+          "traitId": "DA_18_Brawler",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Lunar",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Spellweaver",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Rapidfire",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Fae",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Defender",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_AluneUniqueTrait18",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_18_Greenfather",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
+      ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.7489816,
-      "avgPlacement": 3.2959,
-      "games": 5445,
-      "pickRate": 0.029173480805646412,
+      "metaScore": 0.7683882666666668,
+      "avgPlacement": 3.1184,
+      "games": 8489,
+      "pickRate": 0.032992884117224806,
       "sourceIds": [
         "metatft-live"
       ]
@@ -84,11 +179,133 @@
         "Ezreal",
         "Amumu"
       ],
+      "boardIds": [
+        "DA_18_Alistar",
+        "DA_18_Ezreal",
+        "DA_18_GnarSmall",
+        "DA_18_Ivern",
+        "DA_18_Kennen",
+        "DA_18_Maokai",
+        "DA_Amumu18",
+        "DA_Draven18",
+        "DA_Taric18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Elderwood",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Brawler",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Executioner",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Inferno",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Juggernaut18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Greenfather",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_18_Maokai_UniqueTrait",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_DravenUniqueTrait18",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_Emerald18",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
+      ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.746292,
-      "avgPlacement": 3.3205,
-      "games": 5757,
-      "pickRate": 0.030851910828025478,
+      "metaScore": 0.7628341333333333,
+      "avgPlacement": 3.1692,
+      "games": 8613,
+      "pickRate": 0.033480540557410815,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422001",
+      "name": "Đao Phủ · Sett",
+      "tier": "S",
+      "carries": [
+        "Sett"
+      ],
+      "boardIds": [
+        "DA_18_Ahri",
+        "DA_18_Ezreal",
+        "DA_18_GnarSmall",
+        "DA_18_Kennen",
+        "DA_18_Ornn",
+        "DA_18_Sett",
+        "DA_18_Soraka",
+        "DA_18_Yunara",
+        "DA_Fiddlesticks18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Executioner",
+          "count": 4,
+          "activeBreakpoint": 4
+        },
+        {
+          "traitId": "DA_18_Blossom",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Elderwood",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Spellweaver",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Brawler",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Defender",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_FloraFatalis18",
+          "count": 2,
+          "activeBreakpoint": 2
+        }
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.7619266666666666,
+      "avgPlacement": 3.1775,
+      "games": 1831,
+      "pickRate": 0.0071158827751942825,
       "sourceIds": [
         "metatft-live"
       ]
@@ -100,11 +317,69 @@
       "carries": [
         "Ahri"
       ],
+      "boardIds": [
+        "DA_18_Ahri",
+        "DA_18_Alune",
+        "DA_18_Ashe",
+        "DA_18_Diana",
+        "DA_18_GnarSmall",
+        "DA_18_Lillia",
+        "DA_18_Rammus",
+        "DA_18_Sett",
+        "DA_18_Tristana"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Blossom",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Sprykin",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Spellweaver",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Lunar",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Hunter",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Brawler",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Fae",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Defender",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_AluneUniqueTrait18",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
+      ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.7428152000000001,
-      "avgPlacement": 3.3523,
-      "games": 721,
-      "pickRate": 0.0038625408848338783,
+      "metaScore": 0.7606693333333332,
+      "avgPlacement": 3.189,
+      "games": 1143,
+      "pickRate": 0.004443525482974938,
       "sourceIds": [
         "metatft-live"
       ]
@@ -116,11 +391,52 @@
       "carries": [
         "Rengar"
       ],
+      "boardIds": [
+        "DA_18_Lillia",
+        "DA_18_Rakan",
+        "DA_18_Rammus",
+        "DA_18_Rengar",
+        "DA_18_Sivir",
+        "DA_18_Tristana",
+        "DA_Vi18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Fae",
+          "count": 3,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Defender",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Juggernaut18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Primal18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Hunter",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Rival",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
+      ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.7337296,
-      "avgPlacement": 3.4354,
-      "games": 526,
-      "pickRate": 0.002829660871062145,
+      "metaScore": 0.7552026666666667,
+      "avgPlacement": 3.239,
+      "games": 996,
+      "pickRate": 0.003881745263880653,
       "sourceIds": [
         "metatft-live"
       ]
@@ -132,27 +448,69 @@
       "carries": [
         "Aphelios"
       ],
-      "leveling": "Theo board live tối ưu",
-      "metaScore": 0.7328986666666666,
-      "avgPlacement": 3.443,
-      "games": 6969,
-      "pickRate": 0.03733968841452918,
-      "sourceIds": [
-        "metatft-live"
-      ]
-    },
-    {
-      "id": "422012",
-      "name": "Thuật Sĩ · Morgana",
-      "tier": "A",
-      "carries": [
-        "Morgana"
+      "boardIds": [
+        "DA_18_Alune",
+        "DA_18_Aphelios",
+        "DA_18_Diana",
+        "DA_18_Hecarim",
+        "DA_18_Zyra",
+        "DA_Brambleback18",
+        "DA_CrimsonRaptor18",
+        "DA_Sentinel18",
+        "DA_Taric18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Vanguard",
+          "count": 4,
+          "activeBreakpoint": 4
+        },
+        {
+          "traitId": "DA_18_Lunar",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_Riftbeast18",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Rapidfire",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Slayer",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Summoner",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_AluneUniqueTrait18",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_18_ZyraUniqueTrait",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_Emerald18",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
       ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.7298373333333332,
-      "avgPlacement": 3.471,
-      "games": 4312,
-      "pickRate": 0.02312144947495266,
+      "metaScore": 0.7489597333333333,
+      "avgPlacement": 3.2961,
+      "games": 10366,
+      "pickRate": 0.040284323210886055,
       "sourceIds": [
         "metatft-live"
       ]
@@ -160,31 +518,125 @@
     {
       "id": "422009",
       "name": "Thích Ứng · Master Yi",
-      "tier": "A",
+      "tier": "S",
       "carries": [
         "Master Yi"
       ],
+      "boardIds": [
+        "DA_18_MasterYi_AD",
+        "DA_18_Sett",
+        "DA_18_Yorick",
+        "DA_KogMaw18_AD",
+        "DA_Krug18",
+        "DA_Nidalee18_AP",
+        "DA_Vi18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Blossom",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Adaptor",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Brawler",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Juggernaut18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Primal18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Caustic",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
+      ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.7296296,
-      "avgPlacement": 3.4729,
-      "games": 4039,
-      "pickRate": 0.021658202788776035,
+      "metaScore": 0.7487301333333334,
+      "avgPlacement": 3.2982,
+      "games": 6183,
+      "pickRate": 0.024055116881495583,
       "sourceIds": [
         "metatft-live"
       ]
     },
     {
-      "id": "422024",
-      "name": "Quái Rừng · Sentinel",
-      "tier": "A",
+      "id": "422012",
+      "name": "Thuật Sĩ · Morgana",
+      "tier": "S",
       "carries": [
-        "Sentinel"
+        "Morgana"
+      ],
+      "boardIds": [
+        "DA_18_Alune",
+        "DA_18_Diana",
+        "DA_18_Hecarim",
+        "DA_18_Morgana",
+        "DA_18_Sentry",
+        "DA_Brambleback18",
+        "DA_KogMaw18_AD",
+        "DA_Sentinel18",
+        "DA_Taric18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Vanguard",
+          "count": 4,
+          "activeBreakpoint": 4
+        },
+        {
+          "traitId": "DA_18_Invoker",
+          "count": 4,
+          "activeBreakpoint": 4
+        },
+        {
+          "traitId": "DA_Riftbeast18",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Lunar",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Slayer",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_AluneUniqueTrait18",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_18_Caustic",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_Emerald18",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
       ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.7185322666666667,
-      "avgPlacement": 3.5744,
-      "games": 2876,
-      "pickRate": 0.015401747288689965,
+      "metaScore": 0.7467730666666665,
+      "avgPlacement": 3.3161,
+      "games": 6365,
+      "pickRate": 0.024753440903841954,
       "sourceIds": [
         "metatft-live"
       ]
@@ -192,31 +644,111 @@
     {
       "id": "422004",
       "name": "Thuật Sư · Cassiopeia",
-      "tier": "A",
+      "tier": "S",
       "carries": [
         "Cassiopeia"
       ],
+      "boardIds": [
+        "DA_18_Ahri",
+        "DA_18_Alune",
+        "DA_18_Cassiopeia",
+        "DA_18_Leona",
+        "DA_18_Lillia",
+        "DA_18_Ornn",
+        "DA_18_Rammus",
+        "DA_18_Shen",
+        "DA_Fiddlesticks18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Defender",
+          "count": 6,
+          "activeBreakpoint": 6
+        },
+        {
+          "traitId": "DA_18_Spellweaver",
+          "count": 4,
+          "activeBreakpoint": 4
+        },
+        {
+          "traitId": "DA_AluneUniqueTrait18",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_FloraFatalis18",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
+      ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.7142573333333333,
-      "avgPlacement": 3.6135,
-      "games": 608,
-      "pickRate": 0.003254647960061973,
+      "metaScore": 0.7428589333333331,
+      "avgPlacement": 3.3519,
+      "games": 1003,
+      "pickRate": 0.0038973502699666054,
       "sourceIds": [
         "metatft-live"
       ]
     },
     {
-      "id": "422017",
-      "name": "Thuật Sĩ · Nidalee",
-      "tier": "A",
+      "id": "422024",
+      "name": "Quái Rừng · Sentinel",
+      "tier": "S",
       "carries": [
-        "Nidalee"
+        "Sentinel"
+      ],
+      "boardIds": [
+        "DA_18_ElderDragon",
+        "DA_18_GnarSmall",
+        "DA_18_Sentry",
+        "DA_Brambleback18",
+        "DA_Krug18",
+        "DA_Murkwolf18",
+        "DA_Sentinel18",
+        "DA_Taric18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_Riftbeast18",
+          "count": 6,
+          "activeBreakpoint": 5
+        },
+        {
+          "traitId": "DA_18_Brawler",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Invoker",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Slayer",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Vanguard",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_ApexPredator",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_Emerald18",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
       ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.7061885333333333,
-      "avgPlacement": 3.6873,
-      "games": 3492,
-      "pickRate": 0.018677913582372183,
+      "metaScore": 0.7417874666666666,
+      "avgPlacement": 3.3617,
+      "games": 4484,
+      "pickRate": 0.017422989294965826,
       "sourceIds": [
         "metatft-live"
       ]
@@ -228,27 +760,138 @@
       "carries": [
         "Ahri"
       ],
+      "boardIds": [
+        "DA_18_Ahri",
+        "DA_18_Alune",
+        "DA_18_Cassiopeia",
+        "DA_18_Diana",
+        "DA_18_Elise",
+        "DA_18_Morgana",
+        "DA_Fiddlesticks18",
+        "DA_Sentinel18",
+        "DA_Taric18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Spellweaver",
+          "count": 4,
+          "activeBreakpoint": 4
+        },
+        {
+          "traitId": "DA_18_Vanguard",
+          "count": 4,
+          "activeBreakpoint": 4
+        },
+        {
+          "traitId": "DA_18_Coven",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Lunar",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Invoker",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_AluneUniqueTrait18",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_FloraFatalis18",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_Emerald18",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
+      ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.7040828241385233,
-      "avgPlacement": 3.6205,
-      "games": 361,
-      "pickRate": 0.0019420296092270614,
+      "metaScore": 0.7320568000000001,
+      "avgPlacement": 3.4507,
+      "games": 537,
+      "pickRate": 0.002094972067039106,
       "sourceIds": [
         "metatft-live"
       ]
     },
     {
-      "id": "422028",
-      "name": "Tinh Nghịch · Teemo",
+      "id": "422017",
+      "name": "Thuật Sĩ · Nidalee",
       "tier": "A",
       "carries": [
-        "Teemo"
+        "Nidalee"
+      ],
+      "boardIds": [
+        "DA_18_Alune",
+        "DA_18_Diana",
+        "DA_18_Morgana",
+        "DA_18_Rakan",
+        "DA_KogMaw18_AD",
+        "DA_Nidalee18_AP",
+        "DA_Sentinel18",
+        "DA_Taric18",
+        "DA_Vi18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Vanguard",
+          "count": 4,
+          "activeBreakpoint": 4
+        },
+        {
+          "traitId": "DA_18_Invoker",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Lunar",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Juggernaut18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Adaptor",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Primal18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_AluneUniqueTrait18",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_18_Caustic",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_Emerald18",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
       ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.702504,
-      "avgPlacement": 3.721,
-      "games": 1681,
-      "pickRate": 0.009010802203477363,
+      "metaScore": 0.7259997333333332,
+      "avgPlacement": 3.5061,
+      "games": 4843,
+      "pickRate": 0.018776723572922194,
       "sourceIds": [
         "metatft-live"
       ]
@@ -260,44 +903,127 @@
       "carries": [
         "Lillia"
       ],
+      "boardIds": [
+        "DA_18_Ahri",
+        "DA_18_Alune",
+        "DA_18_Diana",
+        "DA_18_Lillia",
+        "DA_18_Rakan",
+        "DA_18_Yorick",
+        "DA_18_Zyra",
+        "DA_Fiddlesticks18",
+        "DA_Karma18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Spellweaver",
+          "count": 4,
+          "activeBreakpoint": 4
+        },
+        {
+          "traitId": "DA_18_Blossom",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Lunar",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Vanguard",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Fae",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Defender",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Juggernaut18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Summoner",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_AluneUniqueTrait18",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_18_ZyraUniqueTrait",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_FloraFatalis18",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
+      ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.7024712,
-      "avgPlacement": 3.7213,
-      "games": 732,
-      "pickRate": 0.003932475469099673,
+      "metaScore": 0.7212874666666667,
+      "avgPlacement": 3.5492,
+      "games": 1129,
+      "pickRate": 0.0043811054586311285,
       "sourceIds": [
         "metatft-live"
       ]
     },
     {
-      "id": "422029",
-      "name": "Thần Rừng · Kayle",
+      "id": "422028",
+      "name": "Tinh Nghịch · Teemo",
       "tier": "A",
       "carries": [
-        "Kayle"
+        "Teemo"
+      ],
+      "boardIds": [
+        "DA_18_Kobuko",
+        "DA_18_Lillia",
+        "DA_18_Morgana",
+        "DA_18_Rammus",
+        "DA_18_Teemo",
+        "DA_18_Tristana",
+        "DA_18_Veigar",
+        "DA_Sentinel18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Sprykin",
+          "count": 5,
+          "activeBreakpoint": 5
+        },
+        {
+          "traitId": "DA_18_Invoker",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Fae",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Defender",
+          "count": 2,
+          "activeBreakpoint": 2
+        }
       ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.6876456,
-      "avgPlacement": 3.8569,
-      "games": 8114,
-      "pickRate": 0.04351545016353934,
-      "sourceIds": [
-        "metatft-live"
-      ]
-    },
-    {
-      "id": "422025",
-      "name": "Hoa Linh · Ahri · Malphite",
-      "tier": "A",
-      "carries": [
-        "Ahri",
-        "Malphite"
-      ],
-      "leveling": "Theo board live tối ưu",
-      "metaScore": 0.6829155606573812,
-      "avgPlacement": 3.8932,
-      "games": 487,
-      "pickRate": 0.0026090979514546394,
+      "metaScore": 0.7193631999999999,
+      "avgPlacement": 3.5668,
+      "games": 2703,
+      "pickRate": 0.010509971598888923,
       "sourceIds": [
         "metatft-live"
       ]
@@ -309,27 +1035,42 @@
       "carries": [
         "Kha'Zix"
       ],
-      "leveling": "Theo board live tối ưu",
-      "metaScore": 0.6806045333333333,
-      "avgPlacement": 3.9213,
-      "games": 3214,
-      "pickRate": 0.0172092873127905,
-      "sourceIds": [
-        "metatft-live"
-      ]
-    },
-    {
-      "id": "422032",
-      "name": "Gai Đen · Warwick",
-      "tier": "A",
-      "carries": [
-        "Warwick"
+      "boardIds": [
+        "DA_18_Aphelios",
+        "DA_18_Diana",
+        "DA_18_Ezreal",
+        "DA_18_Hecarim",
+        "DA_18_KhaZix",
+        "DA_18_LeBlanc",
+        "DA_18_Rengar"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Elderwood",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Lunar",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Vanguard",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Rival",
+          "count": 2,
+          "activeBreakpoint": 1
+        }
       ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.6783194666666668,
-      "avgPlacement": 3.9422,
-      "games": 2198,
-      "pickRate": 0.011792046823893957,
+      "metaScore": 0.7175701333333333,
+      "avgPlacement": 3.5832,
+      "games": 4558,
+      "pickRate": 0.017711681907555944,
       "sourceIds": [
         "metatft-live"
       ]
@@ -341,11 +1082,104 @@
       "carries": [
         "Caitlyn"
       ],
+      "boardIds": [
+        "DA_18_Caitlyn",
+        "DA_18_Rakan",
+        "DA_18_Sejuani",
+        "DA_18_Sivir",
+        "DA_18_Tristana",
+        "DA_Scuttlecrab18",
+        "DA_Vi18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_Juggernaut18",
+          "count": 4,
+          "activeBreakpoint": 4
+        },
+        {
+          "traitId": "DA_18_Hunter",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Fae",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Primal18",
+          "count": 2,
+          "activeBreakpoint": 2
+        }
+      ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.6779258666666667,
-      "avgPlacement": 3.9458,
-      "games": 2028,
-      "pickRate": 0.010839860561198142,
+      "metaScore": 0.7117536,
+      "avgPlacement": 3.6364,
+      "games": 2940,
+      "pickRate": 0.01139555569426672,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422029",
+      "name": "Thần Rừng · Kayle",
+      "tier": "A",
+      "carries": [
+        "Kayle"
+      ],
+      "boardIds": [
+        "DA_18_Hecarim",
+        "DA_18_Kayle",
+        "DA_18_Leona",
+        "DA_18_Ornn",
+        "DA_18_Rakan",
+        "DA_18_Sejuani",
+        "DA_18_Xayah"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Elderwood",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Solar",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Vanguard",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Rapidfire",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Defender",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Fae",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Juggernaut18",
+          "count": 2,
+          "activeBreakpoint": 2
+        }
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.710048,
+      "avgPlacement": 3.652,
+      "games": 12133,
+      "pickRate": 0.04718563715239849,
       "sourceIds": [
         "metatft-live"
       ]
@@ -358,11 +1192,64 @@
         "Malphite",
         "Ezreal"
       ],
+      "boardIds": [
+        "DA_18_Azir",
+        "DA_18_Ezreal",
+        "DA_18_Kennen",
+        "DA_18_Malphite",
+        "DA_18_Soraka",
+        "DA_18_Yorick",
+        "DA_18_Zyra",
+        "DA_Amumu18",
+        "DA_Fiddlesticks18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Executioner",
+          "count": 4,
+          "activeBreakpoint": 4
+        },
+        {
+          "traitId": "DA_18_Summoner",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Blackthorn",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Inferno",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_FloraFatalis18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Juggernaut18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Battlemage",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_18_ZyraUniqueTrait",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
+      ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.6708076480233728,
-      "avgPlacement": 3.9363,
-      "games": 377,
-      "pickRate": 0.002028102943708039,
+      "metaScore": 0.7017386666666665,
+      "avgPlacement": 3.728,
+      "games": 522,
+      "pickRate": 0.0020325520426952965,
       "sourceIds": [
         "metatft-live"
       ]
@@ -374,11 +1261,113 @@
       "carries": [
         "Sett"
       ],
+      "boardIds": [
+        "DA_18_Alistar",
+        "DA_18_Ezreal",
+        "DA_18_GnarSmall",
+        "DA_18_Hecarim",
+        "DA_18_Kennen",
+        "DA_18_Ornn",
+        "DA_18_Sett",
+        "DA_18_Soraka",
+        "DA_Krug18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Elderwood",
+          "count": 5,
+          "activeBreakpoint": 5
+        },
+        {
+          "traitId": "DA_18_Brawler",
+          "count": 4,
+          "activeBreakpoint": 4
+        },
+        {
+          "traitId": "DA_18_Executioner",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_FloraFatalis18",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
+      ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.6655478892058425,
-      "avgPlacement": 3.9444,
-      "games": 324,
-      "pickRate": 0.0017376054398347393,
+      "metaScore": 0.7015308602476651,
+      "avgPlacement": 3.7251,
+      "games": 491,
+      "pickRate": 0.0019077119940076777,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422025",
+      "name": "Hoa Linh · Ahri · Malphite",
+      "tier": "A",
+      "carries": [
+        "Ahri",
+        "Malphite"
+      ],
+      "boardIds": [
+        "DA_18_Ahri",
+        "DA_18_Azir",
+        "DA_18_Malphite",
+        "DA_18_Soraka",
+        "DA_18_Yorick",
+        "DA_18_Zyra",
+        "DA_Amumu18",
+        "DA_Fiddlesticks18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Summoner",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Spellweaver",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Blackthorn",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Executioner",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_FloraFatalis18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Juggernaut18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Battlemage",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_18_ZyraUniqueTrait",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6979557333333333,
+      "avgPlacement": 3.7626,
+      "games": 674,
+      "pickRate": 0.0026177397709185105,
       "sourceIds": [
         "metatft-live"
       ]
@@ -386,64 +1375,121 @@
     {
       "id": "422022",
       "name": "Đao Phủ · Malphite · Zyra",
-      "tier": "B",
+      "tier": "A",
       "carries": [
         "Malphite",
         "Zyra"
       ],
+      "boardIds": [
+        "DA_18_Azir",
+        "DA_18_Kennen",
+        "DA_18_Malphite",
+        "DA_18_Soraka",
+        "DA_18_Yorick",
+        "DA_18_Zyra",
+        "DA_Amumu18",
+        "DA_Fiddlesticks18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Executioner",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Summoner",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Blackthorn",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Inferno",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_FloraFatalis18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Juggernaut18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Battlemage",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_18_ZyraUniqueTrait",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
+      ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.6644997333333333,
-      "avgPlacement": 4.0686,
-      "games": 4550,
-      "pickRate": 0.024391031158547082,
+      "metaScore": 0.6908709333333334,
+      "avgPlacement": 3.8274,
+      "games": 6298,
+      "pickRate": 0.024476452045816298,
       "sourceIds": [
         "metatft-live"
       ]
     },
     {
-      "id": "422035",
-      "name": "Khắc Tinh · Rengar",
-      "tier": "B",
+      "id": "422032",
+      "name": "Gai Đen · Warwick",
+      "tier": "A",
       "carries": [
-        "Rengar"
+        "Warwick"
+      ],
+      "boardIds": [
+        "DA_18_Azir",
+        "DA_18_Diana",
+        "DA_18_Malphite",
+        "DA_18_RekSai",
+        "DA_18_Warwick",
+        "DA_Brambleback18",
+        "DA_Krug18",
+        "DA_Murkwolf18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Blackthorn",
+          "count": 4,
+          "activeBreakpoint": 4
+        },
+        {
+          "traitId": "DA_18_Slayer",
+          "count": 4,
+          "activeBreakpoint": 4
+        },
+        {
+          "traitId": "DA_Riftbeast18",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Brawler",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Battlemage",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
       ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.6465143999999999,
-      "avgPlacement": 4.2331,
-      "games": 532,
-      "pickRate": 0.002835040454467206,
-      "sourceIds": [
-        "metatft-live"
-      ]
-    },
-    {
-      "id": "422044",
-      "name": "Mặt Trăng · Aphelios",
-      "tier": "B",
-      "carries": [
-        "Aphelios"
-      ],
-      "leveling": "Theo board live tối ưu",
-      "metaScore": 0.6427423999999999,
-      "avgPlacement": 4.2676,
-      "games": 1035,
-      "pickRate": 0.005551730074023068,
-      "sourceIds": [
-        "metatft-live"
-      ]
-    },
-    {
-      "id": "422045",
-      "name": "Thuật Sư · Kha'Zix",
-      "tier": "B",
-      "carries": [
-        "Kha'Zix"
-      ],
-      "leveling": "Theo board live tối ưu",
-      "metaScore": 0.6399016092490304,
-      "avgPlacement": 4.1656,
-      "games": 308,
-      "pickRate": 0.0016461525219487003,
+      "metaScore": 0.6904007999999999,
+      "avgPlacement": 3.8317,
+      "games": 3416,
+      "pickRate": 0.013287662682188447,
       "sourceIds": [
         "metatft-live"
       ]
@@ -451,31 +1497,147 @@
     {
       "id": "422026",
       "name": "Quái Rừng · Malphite",
-      "tier": "B",
+      "tier": "A",
       "carries": [
         "Malphite"
       ],
+      "boardIds": [
+        "DA_18_Malphite",
+        "DA_18_RekSai",
+        "DA_18_Sivir",
+        "DA_Cinderling18",
+        "DA_KogMaw18_AD",
+        "DA_Krug18",
+        "DA_Nidalee18_AP",
+        "DA_Sentinel18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_Riftbeast18",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Blackthorn",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Brawler",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Primal18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Hunter",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Adaptor",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Invoker",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Battlemage",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_18_Caustic",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
+      ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.638841075915697,
-      "avgPlacement": 4.1753,
-      "games": 308,
-      "pickRate": 0.001635393355138578,
+      "metaScore": 0.6858840912961646,
+      "avgPlacement": 3.8434,
+      "games": 447,
+      "pickRate": 0.0017204519209762493,
       "sourceIds": [
         "metatft-live"
       ]
     },
     {
-      "id": "422040",
-      "name": "Dũng Sĩ · Nidalee",
-      "tier": "B",
+      "id": "422035",
+      "name": "Khắc Tinh · Rengar",
+      "tier": "A",
       "carries": [
-        "Nidalee"
+        "Rengar"
+      ],
+      "boardIds": [
+        "DA_18_Alune",
+        "DA_18_Aphelios",
+        "DA_18_Diana",
+        "DA_18_Kennen",
+        "DA_18_KhaZix",
+        "DA_18_Rammus",
+        "DA_18_Rengar",
+        "DA_18_Soraka",
+        "DA_Fiddlesticks18",
+        "DA_Taric18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Lunar",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Spellweaver",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Vanguard",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Executioner",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Defender",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_FloraFatalis18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Rival",
+          "count": 2,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_AluneUniqueTrait18",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_Emerald18",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
       ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.6359153823105981,
-      "avgPlacement": 4.3209,
-      "games": 483,
-      "pickRate": 0.0025983387846445173,
+      "metaScore": 0.6814354666666667,
+      "avgPlacement": 3.9137,
+      "games": 788,
+      "pickRate": 0.003054679941325177,
       "sourceIds": [
         "metatft-live"
       ]
@@ -483,32 +1645,143 @@
     {
       "id": "422037",
       "name": "Thần Rừng · Ezreal · Alistar",
-      "tier": "B",
+      "tier": "A",
       "carries": [
         "Ezreal",
         "Alistar"
       ],
+      "boardIds": [
+        "DA_18_Alistar",
+        "DA_18_Ezreal",
+        "DA_18_GnarSmall",
+        "DA_18_Hecarim",
+        "DA_18_LeBlanc",
+        "DA_18_Ornn",
+        "DA_18_Soraka",
+        "DA_18_Xayah",
+        "DA_Fiddlesticks18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Elderwood",
+          "count": 7,
+          "activeBreakpoint": 7
+        },
+        {
+          "traitId": "DA_18_Brawler",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Executioner",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Spellweaver",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Defender",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_FloraFatalis18",
+          "count": 2,
+          "activeBreakpoint": 2
+        }
+      ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.6351546666666666,
-      "avgPlacement": 4.337,
-      "games": 6802,
-      "pickRate": 0.03642515923566879,
+      "metaScore": 0.6777618666666666,
+      "avgPlacement": 3.9473,
+      "games": 9989,
+      "pickRate": 0.038833057644892484,
       "sourceIds": [
         "metatft-live"
       ]
     },
     {
-      "id": "422015",
-      "name": "Tinh Nghịch · Veigar",
-      "tier": "B",
+      "id": "422044",
+      "name": "Mặt Trăng · Aphelios",
+      "tier": "A",
       "carries": [
-        "Veigar"
+        "Aphelios"
+      ],
+      "boardIds": [
+        "DA_18_Alune",
+        "DA_18_Aphelios",
+        "DA_18_Diana",
+        "DA_18_Kayle",
+        "DA_18_Leona",
+        "DA_18_Maokai",
+        "DA_18_Sejuani",
+        "DA_Fiddlesticks18",
+        "DA_Taric18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Lunar",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Solar",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Spellweaver",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Rapidfire",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Vanguard",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Defender",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Juggernaut18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_AluneUniqueTrait18",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_18_Maokai_UniqueTrait",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_FloraFatalis18",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_Emerald18",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
       ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.6312186666666666,
-      "avgPlacement": 4.373,
-      "games": 6620,
-      "pickRate": 0.03542455672232742,
+      "metaScore": 0.6693541333333333,
+      "avgPlacement": 4.0242,
+      "games": 1405,
+      "pickRate": 0.005469554633126307,
       "sourceIds": [
         "metatft-live"
       ]
@@ -521,43 +1794,247 @@
         "Tristana",
         "Rammus"
       ],
+      "boardIds": [
+        "DA_18_Kobuko",
+        "DA_18_Lillia",
+        "DA_18_Rakan",
+        "DA_18_Rammus",
+        "DA_18_Sivir",
+        "DA_18_Tristana",
+        "DA_18_Xayah",
+        "DA_Vi18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Fae",
+          "count": 4,
+          "activeBreakpoint": 4
+        },
+        {
+          "traitId": "DA_18_Sprykin",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Defender",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Juggernaut18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Primal18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Hunter",
+          "count": 2,
+          "activeBreakpoint": 2
+        }
+      ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.6240026666666666,
-      "avgPlacement": 4.439,
-      "games": 3836,
-      "pickRate": 0.02055538819073851,
+      "metaScore": 0.6612962666666666,
+      "avgPlacement": 4.0979,
+      "games": 5158,
+      "pickRate": 0.020060235323491778,
       "sourceIds": [
         "metatft-live"
       ]
     },
     {
-      "id": "422043",
-      "name": "Gai Đen · Kha'Zix",
+      "id": "422040",
+      "name": "Dũng Sĩ · Nidalee",
+      "tier": "B",
+      "carries": [
+        "Nidalee"
+      ],
+      "boardIds": [
+        "DA_18_Akali_AD",
+        "DA_18_KhaZix",
+        "DA_18_Shen",
+        "DA_18_Varus",
+        "DA_Amumu18",
+        "DA_Fiddlesticks18",
+        "DA_Nidalee18_AP",
+        "DA_Vi18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Inferno",
+          "count": 4,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Adaptor",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Defender",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Juggernaut18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Primal18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Rival",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_FloraFatalis18",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6606949333333334,
+      "avgPlacement": 4.1034,
+      "games": 677,
+      "pickRate": 0.0026372460285259513,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422015",
+      "name": "Tinh Nghịch · Veigar",
+      "tier": "B",
+      "carries": [
+        "Veigar"
+      ],
+      "boardIds": [
+        "DA_18_GnarSmall",
+        "DA_18_Kobuko",
+        "DA_18_Rammus",
+        "DA_18_RekSai",
+        "DA_18_Sett",
+        "DA_18_Teemo",
+        "DA_18_Veigar",
+        "DA_Fiddlesticks18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Sprykin",
+          "count": 5,
+          "activeBreakpoint": 5
+        },
+        {
+          "traitId": "DA_18_Brawler",
+          "count": 4,
+          "activeBreakpoint": 4
+        },
+        {
+          "traitId": "DA_18_Defender",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Blackthorn",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Spellweaver",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_FloraFatalis18",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6592408000000001,
+      "avgPlacement": 4.1167,
+      "games": 8651,
+      "pickRate": 0.03360147935457695,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422045",
+      "name": "Thuật Sư · Kha'Zix",
       "tier": "B",
       "carries": [
         "Kha'Zix"
       ],
-      "leveling": "Theo board live tối ưu",
-      "metaScore": 0.6187109333333334,
-      "avgPlacement": 4.4874,
-      "games": 915,
-      "pickRate": 0.004906180065415734,
-      "sourceIds": [
-        "metatft-live"
-      ]
-    },
-    {
-      "id": "422042",
-      "name": "Hỏa Ngục · Amumu",
-      "tier": "B",
-      "carries": [
-        "Amumu"
+      "boardIds": [
+        "DA_18_Aphelios",
+        "DA_18_Diana",
+        "DA_18_KhaZix",
+        "DA_18_LeBlanc",
+        "DA_18_Ornn",
+        "DA_18_Rakan",
+        "DA_18_Xayah",
+        "DA_Fiddlesticks18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Elderwood",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Lunar",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Rapidfire",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Vanguard",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Spellweaver",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Defender",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Fae",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Rival",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_FloraFatalis18",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
       ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.6086304,
-      "avgPlacement": 4.5796,
-      "games": 1684,
-      "pickRate": 0.009021561370287486,
+      "metaScore": 0.6591115689218383,
+      "avgPlacement": 4.0841,
+      "games": 440,
+      "pickRate": 0.001708748166411785,
       "sourceIds": [
         "metatft-live"
       ]
@@ -569,27 +2046,153 @@
       "carries": [
         "Cassiopeia"
       ],
+      "boardIds": [
+        "DA_18_Cassiopeia",
+        "DA_18_Leona",
+        "DA_18_Lillia",
+        "DA_18_Ornn",
+        "DA_18_Rammus",
+        "DA_18_Shen",
+        "DA_18_Soraka",
+        "DA_Fiddlesticks18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Defender",
+          "count": 6,
+          "activeBreakpoint": 6
+        },
+        {
+          "traitId": "DA_18_Spellweaver",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_FloraFatalis18",
+          "count": 2,
+          "activeBreakpoint": 2
+        }
+      ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.6044101333333334,
-      "avgPlacement": 4.6182,
-      "games": 4301,
-      "pickRate": 0.023051514890686867,
+      "metaScore": 0.6547144,
+      "avgPlacement": 4.1581,
+      "games": 5971,
+      "pickRate": 0.023220249055897133,
       "sourceIds": [
         "metatft-live"
       ]
     },
     {
-      "id": "422018",
-      "name": "Thích Ứng · Nidalee",
+      "id": "422042",
+      "name": "Hỏa Ngục · Amumu",
       "tier": "B",
       "carries": [
-        "Nidalee"
+        "Amumu"
+      ],
+      "boardIds": [
+        "DA_18_Aphelios",
+        "DA_18_Diana",
+        "DA_18_Kayle",
+        "DA_18_Rakan",
+        "DA_18_Varus",
+        "DA_18_Xayah",
+        "DA_Amumu18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Rapidfire",
+          "count": 4,
+          "activeBreakpoint": 4
+        },
+        {
+          "traitId": "DA_18_Lunar",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Vanguard",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Fae",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Juggernaut18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Inferno",
+          "count": 2,
+          "activeBreakpoint": 2
+        }
       ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.6034692330351552,
-      "avgPlacement": 4.6193,
-      "games": 486,
-      "pickRate": 0.0025983387846445173,
+      "metaScore": 0.6482199999999999,
+      "avgPlacement": 4.2175,
+      "games": 2552,
+      "pickRate": 0.009916981367622733,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422043",
+      "name": "Gai Đen · Kha'Zix",
+      "tier": "B",
+      "carries": [
+        "Kha'Zix"
+      ],
+      "boardIds": [
+        "DA_18_Azir",
+        "DA_18_KhaZix",
+        "DA_18_Malphite",
+        "DA_18_RekSai",
+        "DA_18_Sett",
+        "DA_18_Veigar",
+        "DA_18_Warwick",
+        "DA_18_Zyra"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Blackthorn",
+          "count": 5,
+          "activeBreakpoint": 4
+        },
+        {
+          "traitId": "DA_18_Summoner",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Brawler",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Rival",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_18_Battlemage",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_18_ZyraUniqueTrait",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6471594666666667,
+      "avgPlacement": 4.2272,
+      "games": 1373,
+      "pickRate": 0.005344714584438688,
       "sourceIds": [
         "metatft-live"
       ]
@@ -601,11 +2204,58 @@
       "carries": [
         "Kayle"
       ],
+      "boardIds": [
+        "DA_18_Alune",
+        "DA_18_Aphelios",
+        "DA_18_Diana",
+        "DA_18_Kayle",
+        "DA_18_Leona",
+        "DA_18_Sejuani",
+        "DA_18_Shen",
+        "DA_Amumu18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Lunar",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Solar",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Rapidfire",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Defender",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Juggernaut18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Inferno",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_AluneUniqueTrait18",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
+      ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.6017096,
-      "avgPlacement": 4.6429,
-      "games": 2361,
-      "pickRate": 0.01266891891891892,
+      "metaScore": 0.6404792,
+      "avgPlacement": 4.2883,
+      "games": 3430,
+      "pickRate": 0.013342280203489279,
       "sourceIds": [
         "metatft-live"
       ]
@@ -617,43 +2267,113 @@
       "carries": [
         "Rengar"
       ],
+      "boardIds": [
+        "DA_18_Aphelios",
+        "DA_18_Diana",
+        "DA_18_Hecarim",
+        "DA_18_Rengar",
+        "DA_Brambleback18",
+        "DA_CrimsonRaptor18",
+        "DA_Sentinel18",
+        "DA_Taric18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Vanguard",
+          "count": 4,
+          "activeBreakpoint": 4
+        },
+        {
+          "traitId": "DA_Riftbeast18",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Lunar",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Rapidfire",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Slayer",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Rival",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_Emerald18",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
+      ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.5985607999999999,
-      "avgPlacement": 4.6717,
-      "games": 2400,
-      "pickRate": 0.012841065587880875,
+      "metaScore": 0.6371336,
+      "avgPlacement": 4.3189,
+      "games": 3114,
+      "pickRate": 0.012089978465091602,
       "sourceIds": [
         "metatft-live"
       ]
     },
     {
-      "id": "422048",
-      "name": "Gai Đen · Azir",
+      "id": "422033",
+      "name": "Quái Rừng",
       "tier": "B",
       "carries": [
-        "Azir"
+        "Pebbles",
+        "Murkwolf",
+        "Krug"
+      ],
+      "boardIds": [
+        "DA_18_Sentry",
+        "DA_Brambleback18",
+        "DA_Gromp18_AP",
+        "DA_KogMaw18_AD",
+        "DA_Krug18",
+        "DA_Murkwolf18",
+        "DA_Scuttlecrab18",
+        "DA_Sentinel18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_Riftbeast18",
+          "count": 7,
+          "activeBreakpoint": 7
+        },
+        {
+          "traitId": "DA_18_Invoker",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Slayer",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Adaptor",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Caustic",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
       ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.5963194666666667,
-      "avgPlacement": 4.6922,
-      "games": 1043,
-      "pickRate": 0.005573248407643312,
-      "sourceIds": [
-        "metatft-live"
-      ]
-    },
-    {
-      "id": "422050",
-      "name": "Tiên Hắc Ám · Morgana",
-      "tier": "B",
-      "carries": [
-        "Morgana"
-      ],
-      "leveling": "Theo board live tối ưu",
-      "metaScore": 0.5905138666666666,
-      "avgPlacement": 4.7453,
-      "games": 3663,
-      "pickRate": 0.019667756928903424,
+      "metaScore": 0.6316669333333333,
+      "avgPlacement": 4.3689,
+      "games": 17773,
+      "pickRate": 0.06904044817577479,
       "sourceIds": [
         "metatft-live"
       ]
@@ -666,77 +2386,254 @@
         "Ahri",
         "Sett"
       ],
+      "boardIds": [
+        "DA_18_Ahri",
+        "DA_18_Ashe",
+        "DA_18_GnarSmall",
+        "DA_18_Maokai",
+        "DA_18_MasterYi_AD",
+        "DA_18_Sett",
+        "DA_18_Yorick",
+        "DA_18_Yunara",
+        "DA_Karma18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Blossom",
+          "count": 7,
+          "activeBreakpoint": 7
+        },
+        {
+          "traitId": "DA_18_Spellweaver",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Brawler",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Juggernaut18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Maokai_UniqueTrait",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
+      ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.5852877333333333,
-      "avgPlacement": 4.7931,
-      "games": 6602,
-      "pickRate": 0.03534924255465657,
+      "metaScore": 0.6296552,
+      "avgPlacement": 4.3873,
+      "games": 9448,
+      "pickRate": 0.03672638182328891,
       "sourceIds": [
         "metatft-live"
       ]
     },
     {
-      "id": "422033",
-      "name": "Quái Rừng",
+      "id": "422018",
+      "name": "Thích Ứng · Nidalee",
       "tier": "B",
       "carries": [
-        "Pebbles",
-        "Murkwolf",
-        "Scuttlecrab"
+        "Nidalee"
+      ],
+      "boardIds": [
+        "DA_18_Akali_AD",
+        "DA_Amumu18",
+        "DA_Brambleback18",
+        "DA_Gromp18_AP",
+        "DA_KogMaw18_AD",
+        "DA_Nidalee18_AP",
+        "DA_Sentinel18",
+        "DA_Vi18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Adaptor",
+          "count": 4,
+          "activeBreakpoint": 4
+        },
+        {
+          "traitId": "DA_Riftbeast18",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Inferno",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Slayer",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Juggernaut18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Invoker",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Primal18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Caustic",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
       ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.5830464,
-      "avgPlacement": 4.8136,
-      "games": 12865,
-      "pickRate": 0.0688210105009468,
+      "metaScore": 0.6239151999999999,
+      "avgPlacement": 4.4398,
+      "games": 598,
+      "pickRate": 0.0023134421522424393,
       "sourceIds": [
         "metatft-live"
       ]
     },
     {
-      "id": "422041",
-      "name": "Đao Phủ · Soraka",
+      "id": "422048",
+      "name": "Gai Đen · Azir",
       "tier": "B",
       "carries": [
-        "Soraka"
+        "Azir"
+      ],
+      "boardIds": [
+        "DA_18_Azir",
+        "DA_18_Kobuko",
+        "DA_18_Malphite",
+        "DA_18_Rammus",
+        "DA_18_RekSai",
+        "DA_18_Soraka",
+        "DA_18_Veigar",
+        "DA_Fiddlesticks18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Blackthorn",
+          "count": 4,
+          "activeBreakpoint": 4
+        },
+        {
+          "traitId": "DA_18_Sprykin",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Executioner",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Brawler",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Defender",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_FloraFatalis18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Spellweaver",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Battlemage",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
       ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.5810455999999999,
-      "avgPlacement": 4.8319,
-      "games": 1249,
-      "pickRate": 0.006713720089516268,
+      "metaScore": 0.6181970666666666,
+      "avgPlacement": 4.4921,
+      "games": 1650,
+      "pickRate": 0.0064019537467619615,
       "sourceIds": [
         "metatft-live"
       ]
     },
     {
-      "id": "422010",
-      "name": "Dũng Sĩ · Sivir",
+      "id": "422050",
+      "name": "Tiên Hắc Ám · Morgana",
       "tier": "B",
       "carries": [
-        "Sivir"
+        "Morgana"
+      ],
+      "boardIds": [
+        "DA_18_Alune",
+        "DA_18_Caitlyn",
+        "DA_18_Camille",
+        "DA_18_Cassiopeia",
+        "DA_18_Diana",
+        "DA_18_Elise",
+        "DA_18_Morgana",
+        "DA_Sentinel18",
+        "DA_Taric18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Coven",
+          "count": 5,
+          "activeBreakpoint": 5
+        },
+        {
+          "traitId": "DA_18_Vanguard",
+          "count": 4,
+          "activeBreakpoint": 4
+        },
+        {
+          "traitId": "DA_18_Lunar",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Spellweaver",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Slayer",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Invoker",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_AluneUniqueTrait18",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_Emerald18",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
       ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.5761693333333333,
-      "avgPlacement": 4.8765,
-      "games": 1952,
-      "pickRate": 0.010431012222413496,
-      "sourceIds": [
-        "metatft-live"
-      ]
-    },
-    {
-      "id": "422011",
-      "name": "Thuật Sĩ · Pebbles",
-      "tier": "B",
-      "carries": [
-        "Pebbles"
-      ],
-      "leveling": "Theo board live tối ưu",
-      "metaScore": 0.5727909333333333,
-      "avgPlacement": 4.9074,
-      "games": 2299,
-      "pickRate": 0.01228158891375452,
+      "metaScore": 0.6145125333333332,
+      "avgPlacement": 4.5258,
+      "games": 5818,
+      "pickRate": 0.02265456758528136,
       "sourceIds": [
         "metatft-live"
       ]
@@ -748,11 +2645,53 @@
       "carries": [
         "Yunara"
       ],
+      "boardIds": [
+        "DA_18_Ahri",
+        "DA_18_Alistar",
+        "DA_18_Azir",
+        "DA_18_Ezreal",
+        "DA_18_LeBlanc",
+        "DA_18_Sett",
+        "DA_18_Soraka",
+        "DA_18_Yunara"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Executioner",
+          "count": 4,
+          "activeBreakpoint": 4
+        },
+        {
+          "traitId": "DA_18_Blossom",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Elderwood",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Spellweaver",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Brawler",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_FloraFatalis18",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
+      ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.5710306666666667,
-      "avgPlacement": 4.9235,
-      "games": 1700,
-      "pickRate": 0.009102255121363402,
+      "metaScore": 0.6125554666666666,
+      "avgPlacement": 4.5437,
+      "games": 2222,
+      "pickRate": 0.008617864610967198,
       "sourceIds": [
         "metatft-live"
       ]
@@ -765,11 +2704,260 @@
         "Tristana",
         "Xayah"
       ],
+      "boardIds": [
+        "DA_18_Alistar",
+        "DA_18_Ezreal",
+        "DA_18_Hecarim",
+        "DA_18_Lillia",
+        "DA_18_Ornn",
+        "DA_18_Rakan",
+        "DA_18_Tristana",
+        "DA_18_Xayah"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Elderwood",
+          "count": 5,
+          "activeBreakpoint": 5
+        },
+        {
+          "traitId": "DA_18_Fae",
+          "count": 4,
+          "activeBreakpoint": 4
+        },
+        {
+          "traitId": "DA_18_Vanguard",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Defender",
+          "count": 2,
+          "activeBreakpoint": 2
+        }
+      ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.5648533333333332,
-      "avgPlacement": 4.98,
-      "games": 851,
-      "pickRate": 0.004556507144086762,
+      "metaScore": 0.6110357333333333,
+      "avgPlacement": 4.5576,
+      "games": 1232,
+      "pickRate": 0.004779033113822914,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422010",
+      "name": "Dũng Sĩ · Sivir",
+      "tier": "B",
+      "carries": [
+        "Sivir"
+      ],
+      "boardIds": [
+        "DA_18_Ashe",
+        "DA_18_Ivern",
+        "DA_18_Kennen",
+        "DA_18_Lillia",
+        "DA_18_Shen",
+        "DA_18_Sivir",
+        "DA_18_Tristana",
+        "DA_Amumu18",
+        "DA_Vi18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Hunter",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Inferno",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Fae",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Defender",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Primal18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Juggernaut18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Greenfather",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6108608,
+      "avgPlacement": 4.5592,
+      "games": 2432,
+      "pickRate": 0.009425423675915234,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422041",
+      "name": "Đao Phủ · Soraka",
+      "tier": "B",
+      "carries": [
+        "Soraka"
+      ],
+      "boardIds": [
+        "DA_18_Alune",
+        "DA_18_Diana",
+        "DA_18_Ivern",
+        "DA_18_Kennen",
+        "DA_18_Maokai",
+        "DA_18_Soraka",
+        "DA_Amumu18",
+        "DA_Fiddlesticks18",
+        "DA_Taric18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Lunar",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Spellweaver",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Vanguard",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Inferno",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Executioner",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Juggernaut18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_FloraFatalis18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_AluneUniqueTrait18",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_18_Greenfather",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_18_Maokai_UniqueTrait",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_Emerald18",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6057221333333332,
+      "avgPlacement": 4.6062,
+      "games": 1554,
+      "pickRate": 0.006054742361349521,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422011",
+      "name": "Thuật Sĩ · Pebbles",
+      "tier": "B",
+      "carries": [
+        "Pebbles"
+      ],
+      "boardIds": [
+        "DA_18_Ivern",
+        "DA_18_Maokai",
+        "DA_18_Morgana",
+        "DA_18_Sentry",
+        "DA_18_Teemo",
+        "DA_KogMaw18_AD",
+        "DA_Scuttlecrab18",
+        "DA_Sentinel18",
+        "DA_Taric18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Invoker",
+          "count": 5,
+          "activeBreakpoint": 5
+        },
+        {
+          "traitId": "DA_Riftbeast18",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_Juggernaut18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Vanguard",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Greenfather",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_18_Maokai_UniqueTrait",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_18_Caustic",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_Emerald18",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.6050661333333334,
+      "avgPlacement": 4.6122,
+      "games": 2857,
+      "pickRate": 0.011075653069504697,
       "sourceIds": [
         "metatft-live"
       ]
@@ -781,11 +2969,63 @@
       "carries": [
         "Draven"
       ],
+      "boardIds": [
+        "DA_18_ElderDragon",
+        "DA_18_Ivern",
+        "DA_18_Kennen",
+        "DA_18_Maokai",
+        "DA_Amumu18",
+        "DA_Draven18",
+        "DA_Sentinel18",
+        "DA_Taric18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Inferno",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Juggernaut18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Vanguard",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_ApexPredator",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_18_Greenfather",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_18_Maokai_UniqueTrait",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_DravenUniqueTrait18",
+          "count": 1,
+          "activeBreakpoint": 1
+        },
+        {
+          "traitId": "DA_Emerald18",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
+      ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.5274722666666666,
-      "avgPlacement": 5.3219,
-      "games": 20969,
-      "pickRate": 0.11219659149595455,
+      "metaScore": 0.5609064,
+      "avgPlacement": 5.0161,
+      "games": 26579,
+      "pickRate": 0.1032427202646609,
       "sourceIds": [
         "metatft-live"
       ]
@@ -797,11 +3037,47 @@
       "carries": [
         "Kayle"
       ],
+      "boardIds": [
+        "DA_18_Aphelios",
+        "DA_18_Kayle",
+        "DA_18_Leona",
+        "DA_18_Sejuani",
+        "DA_18_Shen",
+        "DA_18_Varus",
+        "DA_Amumu18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Rapidfire",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Solar",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Inferno",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Defender",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Juggernaut18",
+          "count": 2,
+          "activeBreakpoint": 2
+        }
+      ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.5021944,
-      "avgPlacement": 5.5531,
-      "games": 9954,
-      "pickRate": 0.053187941125839217,
+      "metaScore": 0.5322392,
+      "avgPlacement": 5.2783,
+      "games": 11697,
+      "pickRate": 0.045387160200992475,
       "sourceIds": [
         "metatft-live"
       ]
@@ -813,11 +3089,58 @@
       "carries": [
         "Xayah"
       ],
+      "boardIds": [
+        "DA_18_Hecarim",
+        "DA_18_Lillia",
+        "DA_18_Ornn",
+        "DA_18_Rakan",
+        "DA_18_Tristana",
+        "DA_18_Varus",
+        "DA_18_Xayah",
+        "DA_Amumu18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Fae",
+          "count": 4,
+          "activeBreakpoint": 4
+        },
+        {
+          "traitId": "DA_18_Elderwood",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Vanguard",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Defender",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Juggernaut18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Inferno",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Rapidfire",
+          "count": 2,
+          "activeBreakpoint": 2
+        }
+      ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.4810165333333333,
-      "avgPlacement": 5.7468,
-      "games": 6081,
-      "pickRate": 0.032492683766569115,
+      "metaScore": 0.49895813333333333,
+      "avgPlacement": 5.5827,
+      "games": 6803,
+      "pickRate": 0.026376361536781,
       "sourceIds": [
         "metatft-live"
       ]
@@ -829,11 +3152,47 @@
       "carries": [
         "Caitlyn"
       ],
+      "boardIds": [
+        "DA_18_Caitlyn",
+        "DA_18_Elise",
+        "DA_18_Morgana",
+        "DA_18_Shen",
+        "DA_Amumu18",
+        "DA_Sentinel18",
+        "DA_Vi18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Coven",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Vanguard",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Invoker",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Inferno",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Juggernaut18",
+          "count": 2,
+          "activeBreakpoint": 2
+        }
+      ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.4557058666666666,
-      "avgPlacement": 5.9783,
-      "games": 3185,
-      "pickRate": 0.01703176106042348,
+      "metaScore": 0.47443466666666656,
+      "avgPlacement": 5.807,
+      "games": 3524,
+      "pickRate": 0.013658281576729814,
       "sourceIds": [
         "metatft-live"
       ]
@@ -845,27 +3204,32 @@
       "carries": [
         "LeBlanc"
       ],
-      "leveling": "Theo board live tối ưu",
-      "metaScore": 0.42490666666666665,
-      "avgPlacement": 6.26,
-      "games": 4743,
-      "pickRate": 0.025327078671027715,
-      "sourceIds": [
-        "metatft-live"
-      ]
-    },
-    {
-      "id": "422052",
-      "name": "Quái Rừng · Mama Beak",
-      "tier": "B",
-      "carries": [
-        "Mama Beak"
+      "boardIds": [
+        "DA_18_Ahri",
+        "DA_18_Alistar",
+        "DA_18_Ezreal",
+        "DA_18_Hecarim",
+        "DA_18_LeBlanc",
+        "DA_18_Ornn",
+        "DA_Karma18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Elderwood",
+          "count": 5,
+          "activeBreakpoint": 5
+        },
+        {
+          "traitId": "DA_18_Spellweaver",
+          "count": 3,
+          "activeBreakpoint": 2
+        }
       ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.42287306666666663,
-      "avgPlacement": 6.2786,
-      "games": 5294,
-      "pickRate": 0.028275090377001204,
+      "metaScore": 0.4477464,
+      "avgPlacement": 6.0511,
+      "games": 5343,
+      "pickRate": 0.020707843076058798,
       "sourceIds": [
         "metatft-live"
       ]
@@ -877,11 +3241,130 @@
       "carries": [
         "Rammus"
       ],
+      "boardIds": [
+        "DA_18_Azir",
+        "DA_18_Kobuko",
+        "DA_18_Rammus",
+        "DA_18_RekSai",
+        "DA_18_Soraka",
+        "DA_18_Veigar",
+        "DA_18_Zyra",
+        "DA_Fiddlesticks18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_18_Sprykin",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Blackthorn",
+          "count": 3,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Executioner",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Summoner",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Brawler",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Defender",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_FloraFatalis18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Spellweaver",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_ZyraUniqueTrait",
+          "count": 1,
+          "activeBreakpoint": 1
+        }
+      ],
       "leveling": "Theo board live tối ưu",
-      "metaScore": 0.4095426925677329,
-      "avgPlacement": 6.3409,
-      "games": 399,
-      "pickRate": 0.002124935444999139,
+      "metaScore": 0.4400357773417798,
+      "avgPlacement": 6.0967,
+      "games": 455,
+      "pickRate": 0.0017594644361911302,
+      "sourceIds": [
+        "metatft-live"
+      ]
+    },
+    {
+      "id": "422052",
+      "name": "Quái Rừng · Mama Beak",
+      "tier": "B",
+      "carries": [
+        "Mama Beak"
+      ],
+      "boardIds": [
+        "DA_18_Rakan",
+        "DA_18_Sett",
+        "DA_18_Xayah",
+        "DA_18_Yorick",
+        "DA_CrimsonRaptor18",
+        "DA_Krug18",
+        "DA_Sentinel18"
+      ],
+      "activeTraitIds": [
+        {
+          "traitId": "DA_Riftbeast18",
+          "count": 3,
+          "activeBreakpoint": 3
+        },
+        {
+          "traitId": "DA_18_Fae",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_Juggernaut18",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Vanguard",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Brawler",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Rapidfire",
+          "count": 2,
+          "activeBreakpoint": 2
+        },
+        {
+          "traitId": "DA_18_Summoner",
+          "count": 2,
+          "activeBreakpoint": 2
+        }
+      ],
+      "leveling": "Theo board live tối ưu",
+      "metaScore": 0.4309528,
+      "avgPlacement": 6.2047,
+      "games": 5638,
+      "pickRate": 0.021843107268811834,
       "sourceIds": [
         "metatft-live"
       ]

@@ -1,10 +1,10 @@
-import type { ApiCoachResult, CoachInput } from '../types'
+import type { ApiCoachResult, CoachHistoryHint, CoachInput } from '../types'
 
-export async function requestCoach(input: CoachInput, signal?: AbortSignal): Promise<ApiCoachResult> {
+export async function requestCoach(input: CoachInput, history?: CoachHistoryHint, signal?: AbortSignal): Promise<ApiCoachResult> {
   const response = await fetch('/api/coach/recommend', {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
-    body: JSON.stringify(input),
+    body: JSON.stringify({ ...input, ...(history ?? {}) }),
     signal,
   })
   if (!response.ok) throw new Error(`Coach API ${response.status}`)

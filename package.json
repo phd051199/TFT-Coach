@@ -8,6 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
+    "start": "npm run build && uv run uvicorn backend.app.main:app --host 0.0.0.0 --port 8000",
+    "serve": "uv run uvicorn backend.app.main:app --host 0.0.0.0 --port 8000",
     "sync:data": "tsx scripts/sync-data.ts",
     "sync:meta": "tsx scripts/sync-meta.ts",
     "sync:all": "npm run sync:data && npm run sync:meta",
@@ -16,6 +18,7 @@
     "backend:test": "uv run pytest -q backend/tests",
     "ml:collect": "uv run python -m backend.collect",
     "ml:train": "uv run python -m backend.ml.train",
+    "ml:train:position": "uv run python -c \"from backend.ml.train import train_position_ranker; train_position_ranker()\"",
     "ml:all": "npm run ml:collect && npm run ml:train"
   },
   "dependencies": {

@@ -103,7 +103,11 @@ def encode(
     ap = sum(role.startswith("AP") for role in roles)
     item_count = len(items or [])
     is_early = "early" in sample_kind
-    is_item_holder = "item_holder" in sample_kind
+    is_item_holder = (
+        "item_holder" in sample_kind
+        or "item_affinity" in sample_kind
+        or "item_pair" in sample_kind
+    )
     dense = np.asarray(
         [
             min(10, level) / 10.0,

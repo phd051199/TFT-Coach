@@ -13,6 +13,7 @@ class TrainingSample:
     patch: str
     region: str
     units: list[str]
+    unit_stars: dict[str, int] = field(default_factory=dict)
     items: list[str] = field(default_factory=list)
     item_holders: dict[str, list[str]] = field(default_factory=dict)
     traits: list[str] = field(default_factory=list)

@@ -1,8 +1,8 @@
 import { readJson, writeJson } from './lib'
 
 type SetData = {
-  champions: Array<{ id: string; name: string }>
-  traits: Array<{ id: string; name: string }>
+  champions: Array<{ id: string; name: string; traits: string[] }>
+  traits: Array<{ id: string; name: string; breakpoints: number[] }>
 }
 
 type Snapshot = {
@@ -16,6 +16,7 @@ type Snapshot = {
     centroidUnits: string[]
     overall: { avg: number; count: number; pick: number }
     unitStats: Array<{ unit: string; count: number; avg: number }>
+    options: Record<string, Array<{ units: string[]; avg: number; count: number }>>
   }>
 }
 
@@ -56,11 +57,35 @@ async function main() {
         .map((row) => championById.get(row.unit)!.name)
       const avg = cluster.overall.avg
       const games = cluster.overall.count
+      const representative = Object.entries(cluster.options ?? {})
+        .flatMap(([level, rows]) => rows.map((row) => ({ ...row, level: Number(level) })))
+        .filter((row) => row.level >= 7 && row.units.length >= 6)
+        .sort((a, b) => (b.count - a.count) || (a.avg - b.avg))[0]
+      const boardIds = (representative?.units?.length ? representative.units : cluster.centroidUnits)
+        .filter((id) => championById.has(id))
+      const traitCounts = new Map<string, number>()
+      for (const unitId of boardIds) {
+        for (const traitId of championById.get(unitId)?.traits ?? []) {
+          traitCounts.set(traitId, (traitCounts.get(traitId) ?? 0) + 1)
+        }
+      }
+      const activeTraitIds = [...traitCounts.entries()]
+        .map(([traitId, count]) => {
+          const trait = traitById.get(traitId)
+          const activeBreakpoint = [...(trait?.breakpoints ?? [])]
+            .filter((point) => point <= count)
+            .sort((a, b) => b - a)[0] ?? 0
+          return { traitId, count, activeBreakpoint }
+        })
+        .filter((row) => row.activeBreakpoint > 0)
+        .sort((a, b) => (b.activeBreakpoint - a.activeBreakpoint) || (b.count - a.count))
       return {
         id: String(cluster.id),
         name: labels.slice(0, 3).join(' · ') || `Comp ${cluster.id}`,
         tier: tier(avg),
         carries: carries.length ? carries : fallbackCarries,
+        boardIds,
+        activeTraitIds,
         leveling: 'Theo board live tối ưu',
         metaScore: score(avg, games),
         avgPlacement: avg,

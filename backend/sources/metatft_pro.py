@@ -30,6 +30,9 @@ class MetaTFTProSource:
         self.max_profiles = int(os.getenv("HEXCOACH_PRO_MAX_PROFILES", "96"))
         self.max_matches = int(os.getenv("HEXCOACH_PRO_MATCHES_PER_PLAYER", "40"))
         self.max_lobbies = int(os.getenv("HEXCOACH_PRO_MAX_LOBBIES", "320"))
+        # Lobby JSON is immutable and cached forever once fetched. Limit new network fetches
+        # per collection so a CDN 429 can never turn a normal refresh into a multi-minute job.
+        self.lobby_fetch_budget = int(os.getenv("HEXCOACH_PRO_LOBBY_FETCH_BUDGET", "12"))
         self.region_counts: dict[str, int] = {}
         self.diagnostics: dict[str, int] = {}
 
@@ -67,7 +70,7 @@ class MetaTFTProSource:
         if self.weight <= 0:
             return []
         http = PublicHttp(delay=0.06)
-        lobby_http = PublicHttp(delay=0.45, retries=2)
+        lobby_http = PublicHttp(delay=0.45, retries=0)
         try:
             directory = await http.json(self.directory_url)
             players = list(directory.get("data") or [])
@@ -118,6 +121,9 @@ class MetaTFTProSource:
             lobby_success = 0
             lobby_failures = 0
             lobby_rows = 0
+            lobby_network_fetches = 0
+            lobby_cache_hits = 0
+            lobby_budget_skips = 0
             self.region_counts = {}
             for player, alias in selected:
                 region = str(alias["region"]).lower()
@@ -158,9 +164,12 @@ class MetaTFTProSource:
                     if placement < 1 or placement > 8 or len(unit_ids) < 4:
                         continue
                     item_holders: dict[str, list[str]] = {}
+                    unit_stars: dict[str, int] = {}
                     all_items: list[str] = []
                     for unit in units:
                         unit_id = str(unit.get("character_id") or "")
+                        if unit_id:
+                            unit_stars[unit_id] = max(1, min(3, int(unit.get("tier") or 1)))
                         item_names = [str(item) for item in unit.get("itemNames") or [] if item]
                         if unit_id and item_names:
                             item_holders[unit_id] = item_names
@@ -171,6 +180,7 @@ class MetaTFTProSource:
                             patch=patch,
                             region=region.upper(),
                             units=unit_ids,
+                            unit_stars=unit_stars,
                             items=all_items,
                             item_holders=item_holders,
                             traits=[str(value) for value in summary.get("traits") or [] if value],
@@ -217,6 +227,14 @@ class MetaTFTProSource:
                     match_data_url = str(match.get("match_data_url") or "")
                     if match_data_url and match_id not in expanded_lobbies and len(expanded_lobbies) < self.max_lobbies:
                         expanded_lobbies.add(match_id)
+                        cache_path = self.cache_dir / f"{match_id}.json"
+                        if cache_path.exists():
+                            lobby_cache_hits += 1
+                        elif lobby_network_fetches >= self.lobby_fetch_budget:
+                            lobby_budget_skips += 1
+                            continue
+                        else:
+                            lobby_network_fetches += 1
                         try:
                             lobby = await self._lobby_payload(lobby_http, match_data_url, match_id)
                         except Exception:
@@ -238,9 +256,12 @@ class MetaTFTProSource:
                                 if lobby_placement < 1 or lobby_placement > 8 or len(lobby_unit_ids) < 4:
                                     continue
                                 lobby_holders: dict[str, list[str]] = {}
+                                lobby_stars: dict[str, int] = {}
                                 lobby_items: list[str] = []
                                 for unit in lobby_units:
                                     unit_id = str(unit.get("character_id") or "")
+                                    if unit_id:
+                                        lobby_stars[unit_id] = max(1, min(3, int(unit.get("tier") or 1)))
                                     item_names = [str(item) for item in unit.get("itemNames") or [] if item]
                                     if unit_id and item_names:
                                         lobby_holders[unit_id] = item_names
@@ -252,6 +273,7 @@ class MetaTFTProSource:
                                         patch=patch,
                                         region=region.upper(),
                                         units=lobby_unit_ids,
+                                        unit_stars=lobby_stars,
                                         items=lobby_items,
                                         item_holders=lobby_holders,
                                         traits=[
@@ -300,6 +322,9 @@ class MetaTFTProSource:
                 "lobbiesSucceeded": lobby_success,
                 "lobbiesFailed": lobby_failures,
                 "lobbySamples": lobby_rows,
+                "lobbyCacheHits": lobby_cache_hits,
+                "lobbyNetworkFetches": lobby_network_fetches,
+                "lobbyBudgetSkips": lobby_budget_skips,
             }
             return samples
         finally:

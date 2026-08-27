@@ -1,5 +1,5 @@
 import { mkdir, writeFile } from 'node:fs/promises'
-import { extname, join } from 'node:path'
+import { join } from 'node:path'
 import { cleanHtml, fetchJson, fetchText, USER_AGENT, writeJson } from './lib'
 
 type TfTraitRef = { name: string; normalizedName: string; id: string; amount: number; isSearchable: boolean }

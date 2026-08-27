@@ -268,6 +268,33 @@ class MetaTFTSource:
                     key=lambda value: (-value["count"], value["avg"] or 9),
                 )[:32]
 
+                raw_positioning = detail.get("positioning") or {}
+                compact_positioning_units: dict[str, list[dict[str, Any]]] = {}
+                for unit_id, row in (raw_positioning.get("units") or {}).items():
+                    positions = sorted(
+                        [
+                            {
+                                "cell": str(position.get("cell") or ""),
+                                "count": int(position.get("count") or 0),
+                            }
+                            for position in row.get("positions") or []
+                            if str(position.get("cell") or "").startswith("cell_")
+                            and int(position.get("count") or 0) > 0
+                        ],
+                        key=lambda value: -value["count"],
+                    )[:14]
+                    if positions:
+                        compact_positioning_units[str(unit_id)] = positions
+
+                compact_positioning = {
+                    "cells": {
+                        str(cell): int(count or 0)
+                        for cell, count in (raw_positioning.get("positions") or {}).items()
+                        if str(cell).startswith("cell_") and int(count or 0) > 0
+                    },
+                    "units": compact_positioning_units,
+                }
+
                 overall = detail.get("overall") or {}
                 trends = list(detail.get("trends") or [])
                 snapshot_clusters.append(
@@ -287,6 +314,7 @@ class MetaTFTSource:
                         "builds": compact_builds,
                         "itemStats": compact_items,
                         "unitStats": compact_units,
+                        "positioning": compact_positioning,
                         "traits": list(detail.get("traits") or [])[:40],
                     }
                 )

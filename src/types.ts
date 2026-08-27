@@ -52,6 +52,8 @@ export type MetaComp = {
   name: string
   tier: string
   carries: string[]
+  boardIds?: string[]
+  activeTraitIds?: Array<{ traitId: string; count: number; activeBreakpoint: number }>
   leveling: string
   metaScore: number
   sourceIds: string[]
@@ -68,6 +70,19 @@ export type CoachInput = {
   level: number
   ownedChampionIds: string[]
   components: string[]
+  targetCompId?: string
+}
+
+export type CoachHistoryHint = {
+  previousLevel: number
+  previousCompId: string
+  previousOwnedChampionIds: string[]
+  previousComponents: string[]
+  previousItemPlan: Array<{
+    stage: 'opener' | 'mid' | 'late'
+    itemId: string
+    holderId: string
+  }>
 }
 
 export type ActiveTrait = {
@@ -84,27 +99,22 @@ export type ItemSuggestion = {
   reason: string
 }
 
-export type CompRecommendation = {
-  comp: MetaComp
-  score: number
-  board: Champion[]
-  activeTraits: ActiveTrait[]
-  matchReasons: string[]
-}
-
-export type CoachResult = {
-  earlyBoard: Champion[]
-  earlyTraits: ActiveTrait[]
-  itemSuggestions: ItemSuggestion[]
-  buyNext: Champion[]
-  comps: CompRecommendation[]
-}
-
 export type ApiActiveTrait = {
   traitId: string
   count: number
   activeBreakpoint: number
   nextBreakpoint?: number
+}
+
+export type ApiBoardPosition = {
+  unitId: string
+  cell: string
+  row: number
+  col: number
+  confidence: number
+  source: string
+  sampleCount: number
+  alternatives: Array<{ cell: string; probability: number }>
 }
 
 export type ApiCompRecommendation = {
@@ -125,6 +135,16 @@ export type ApiCompRecommendation = {
   earlyBoardIds: string[]
   boardIds: string[]
   carryIds: string[]
+  reroll?: boolean
+  rerollScore?: number
+  rollLevel?: number | null
+  starTargets?: Array<{
+    unitId: string
+    stars: number
+    confidence: number
+    threeStarProbability: number
+  }>
+  positioning?: ApiBoardPosition[]
   activeTraits: ApiActiveTrait[]
   matchReasons: string[]
   leveling: string
@@ -146,6 +166,7 @@ export type ApiStageItem = {
   reason: string
   transferReason?: string
   sampleCount: number
+  emblemTraitId?: string | null
 }
 
 export type ApiBisBuild = {
@@ -160,6 +181,7 @@ export type ApiBisBuild = {
 
 export type ApiCoachResult = {
   earlyBoardIds: string[]
+  earlyPositioning?: ApiBoardPosition[]
   earlyTraits: ApiActiveTrait[]
   buyNextIds: string[]
   comps: ApiCompRecommendation[]
@@ -167,8 +189,16 @@ export type ApiCoachResult = {
   model: {
     boardAvailable: boolean
     itemAvailable: boolean
+    itemAffinityAvailable?: boolean
+    positionAvailable?: boolean
+    rerollAvailable?: boolean
+    starAvailable?: boolean
     board?: { evaluation?: { calibratedMAE?: number; rankingAccuracy?: number }; samples?: number; ensembleSize?: number }
     item?: { evaluation?: { calibratedMAE?: number; rankingAccuracy?: number }; samples?: number; ensembleSize?: number }
+    itemAffinity?: { evaluation?: { calibratedMAE?: number; rankingAccuracy?: number }; samples?: number; ensembleSize?: number }
+    position?: { evaluation?: { top1CellAccuracy?: number; top3CellAccuracy?: number; rowAccuracy?: number; meanGridDistance?: number }; samples?: number; ensembleSize?: number }
+    reroll?: { evaluation?: { calibratedMAE?: number; rankingAccuracy?: number }; samples?: number; ensembleSize?: number }
+    star?: { evaluation?: { accuracy?: number; meanStarDistance?: number; threeStarRecall?: number; threeStarPrecision?: number }; samples?: number; ensembleSize?: number }
   }
   data: {
     set?: number
