@@ -62,7 +62,6 @@
 .coach-hero { display: grid; grid-template-columns: 1fr 290px; gap: 28px; align-items: end; margin-bottom: 24px; }
 .eyebrow { display: block; color: var(--mint); font: 700 9px/1 "Space Grotesk", sans-serif; letter-spacing: .18em; margin-bottom: 8px; }
 .coach-hero h1, .page-hero h1 { font-size: clamp(34px,4vw,54px); line-height: .98; letter-spacing: -.04em; margin: 0 0 13px; max-width: 780px; }
-.coach-hero h1 em { color: var(--gold); font-style: normal; }
 .coach-hero p, .page-hero p { color: var(--muted); max-width: 720px; line-height: 1.65; margin: 0; font-size: 13px; }
 .confidence-card { border: 1px solid var(--line); border-radius: 12px; padding: 16px; background: linear-gradient(145deg, rgba(98,213,180,.08), rgba(255,255,255,.015)); }
 .confidence-card span { color: var(--faint); font-size: 9px; text-transform: uppercase; letter-spacing: .1em; }

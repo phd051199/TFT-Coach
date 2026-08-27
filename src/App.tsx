@@ -372,8 +372,8 @@ function CoachView() {
       <aside className="coach-inputs">
         <div className="input-intro">
           <div className="live-dot"><i /> COACH INPUT</div>
-          <h2>Bạn đang có gì?</h2>
-          <p>Chọn đúng đồ và tướng rơi. Engine sẽ ưu tiên giữ máu trước, rồi mới tính đường pivot vào bài meta.</p>
+          <h2>Board &amp; đồ hiện có</h2>
+          <p>Chọn mảnh đồ và tướng đang có. Engine ưu tiên giữ máu trước, sau đó đề xuất đường pivot sang bài meta.</p>
           <button type="button" className="preset-button" onClick={loadExample}><Sparkles size={15} /> Nạp ví dụ đầu game</button>
         </div>
 
@@ -395,9 +395,9 @@ function CoachView() {
       <main className="coach-output">
         <div className="coach-hero">
           <div>
-            <span className="eyebrow">QUYẾT ĐỊNH NGAY · SET 18 · PATCH {apiResult?.data.patch ?? metaData.patch}</span>
-            <h1>Def khỏe bây giờ, <em>pivot đúng</em> về sau.</h1>
-            <p>Board live + TensorFlow xếp hạng đường chuyển bài, đồng thời chỉ rõ món nào nên slam, ai cầm tạm và carry nào nhận lại đồ ở từng giai đoạn.</p>
+            <span className="eyebrow">SET 18 · PATCH {apiResult?.data.patch ?? metaData.patch}</span>
+            <h1>Phân tích board &amp; đề xuất pivot</h1>
+            <p>Xếp hạng đường chuyển bài từ dữ liệu live, kèm đề xuất trang bị theo từng giai đoạn: món nên ghép, holder tạm và đích chuyển đồ cuối game.</p>
             <div className={`engine-status ${apiState}`}>
               <i />
               {apiState === 'live'
@@ -460,7 +460,7 @@ function CoachView() {
 
         <section className="panel item-roadmap-panel">
           <div className="panel-title">
-            <div><span className="eyebrow">ITEM ROUTE · LIVE HOLDER DATA</span><h2>Ghép món nào, cho ai cầm, lúc nào chuyển?</h2></div>
+            <div><span className="eyebrow">ITEM ROUTE · LIVE HOLDER DATA</span><h2>Lộ trình trang bị</h2></div>
             <Flame size={20} />
           </div>
           {stageRows.length || bisRows.length ? (
@@ -634,7 +634,7 @@ function ItemsView() {
   const completed = setData.items.filter((item) => item.category === 'completed')
   return (
     <main className="page-shell">
-      <header className="page-hero"><span className="eyebrow">ITEM DATABASE</span><h1>Đồ ghép mùa 18</h1><p>Hiển thị recipe trực tiếp để bạn nhìn một lần là biết hai mảnh nào tạo ra món gì.</p></header>
+      <header className="page-hero"><span className="eyebrow">ITEM DATABASE</span><h1>Đồ ghép mùa 18</h1><p>Đầy đủ công thức ghép Set 18, kèm mảnh nguyên liệu của từng món.</p></header>
       <div className="items-library">
         {completed.map((item) => <article className="item-card" key={item.id}><ItemMini item={item} components={components} /><div className="tag-row">{item.tags.filter((tag) => tag !== 'craftable').map((tag) => <span key={tag}>{tag}</span>)}</div></article>)}
       </div>
@@ -645,7 +645,7 @@ function ItemsView() {
 function SourcesView() {
   return (
     <main className="page-shell sources-page">
-      <header className="page-hero"><span className="eyebrow">DATA PIPELINE</span><h1>Nguồn dữ liệu & cách chấm điểm</h1><p>Không trộn tất cả nguồn thành “một con số bí mật”. Mỗi nguồn có vai trò riêng: game data là sự thật cấu trúc; match history là thống kê; guide/high-Elo là tín hiệu định tính.</p></header>
+      <header className="page-hero"><span className="eyebrow">DATA PIPELINE</span><h1>Nguồn dữ liệu & cách chấm điểm</h1><p>Mỗi nguồn có vai trò riêng: game data là sự thật cấu trúc; match history là thống kê; guide/high-Elo là tín hiệu định tính.</p></header>
       <div className="source-grid">
         {[...setData.sources.map((source) => ({ ...source, note: source.type === 'game-data' ? 'Tên tiếng Việt, item ID, trait ID và dữ liệu client.' : 'Chuẩn hóa dữ liệu Unreal Set 18 và asset.' })), ...metaData.sources].map((source) => (
           <article className="source-card" key={`${source.id}-${source.name}`}><Database size={22} /><div><h3>{source.name}</h3><p>{source.note}</p><a href={source.url} target="_blank" rel="noreferrer">Mở nguồn <ExternalLink size={13} /></a></div></article>
